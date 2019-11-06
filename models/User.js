@@ -7,7 +7,8 @@ const UserSchema = new Schema({
     password: String,
     img: {
         type: {String},
-    }
+    },
+    date: { type: Date, default: Date.now}
 });
 
 const User = mongoose.model("User", UserSchema);
