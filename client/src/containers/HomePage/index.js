@@ -23,7 +23,7 @@ class HomePage extends Component
     render()
     {
         return <div className="row">
-            <p>this is the homepage. the user's profile should show up.</p>
+            <UserProfile componentDidMount={this.componentDidMount}/>
         </div>
     }
 }
