@@ -4,11 +4,8 @@ import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import MemeCard from "../../components/MemeCard"
 import "./style.css"
-import BattleCardComponent from "../../components/BattleCardComponent"
 
-
-
-class HomePage extends Component
+class Battle extends Component
 {
     constructor(props)
     {
@@ -55,4 +52,4 @@ class HomePage extends Component
     }
 }
 
-export default HomePage;
+export default Battle;
