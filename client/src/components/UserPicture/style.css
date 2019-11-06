@@ -1,0 +1,9 @@
+#userPicture{
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+    border: white 1px solid;
+    margin-top: 15px;
+    box-shadow: aliceblue 0px 1px 0px 1px ;
+
+}

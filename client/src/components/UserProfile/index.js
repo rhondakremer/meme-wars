@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import UserPicture from "../UserPicture"
+import "./style.css"
 
 
 class UserProfile extends Component
@@ -10,8 +12,23 @@ class UserProfile extends Component
 
     render()
     {
-        return <div className="col-6">
-            <h1>Hello!</h1>
+        return <div id="profileSidebar">
+            <UserPicture/>
+            <br />
+
+            <h4>Hi, Nelio!</h4>
+            
+            <br />
+            <h6>Pending Wars</h6>
+            <h6>Add Friends</h6>
+
+            <h5>Nelio's Stats:</h5>
+
+            <h6>Wars Won: 4</h6>
+            <h6>Wars Lost: 5</h6>
+
+
+
         </div>
     }
 }

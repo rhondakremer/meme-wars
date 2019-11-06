@@ -1,0 +1,22 @@
+li {
+    display: inline-block;
+    padding: 10px;
+}
+.nav-item .nav-link{
+    color: dimgray;
+}
+#navBar{
+    border-bottom: 1px slategray solid;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    
+}
+.nav{
+    margin: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    
+}
+
