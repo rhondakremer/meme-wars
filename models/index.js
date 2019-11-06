@@ -1,3 +1,4 @@
 module.exports = {
-    User: require("../models/User")
+    User: require("./User"),
+    Feed: require("./Feed")
 }
