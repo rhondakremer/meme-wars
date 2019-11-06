@@ -1,20 +1,26 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import HomePage from './containers/HomePage';
+import Login from './containers/Login';
 
 class App extends Component {
+
+  constructor(props)
+  {
+    super(props);
+    this.state={
+      session:null
+    }
+  }
+  signIn=(session)=>this.setState({session});
+
   render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    return <Router>
+        <Switch>
+            {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
+          <Route component={HomePage} />
+        </Switch>
+      </Router>
   }
 }
 
