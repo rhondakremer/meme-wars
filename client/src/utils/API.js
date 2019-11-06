@@ -3,8 +3,13 @@ export default {
     login:function(email, password)
     {
         return new Promise((resolve, reject)=>{
-            resolve({id:1, token:"user"});
+            resolve({id:1, token:"user", name:"Rhonda Kremer"});
         })
+    },
+
+    register:function(name, email, password, image)
+    {
+
     },
 
     getUser:function()

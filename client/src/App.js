@@ -18,7 +18,7 @@ class App extends Component {
     return <Router>
         <Switch>
             {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
-          <Route component={HomePage} />
+          <Route component={()=><HomePage session={this.state.session} />} />
         </Switch>
       </Router>
   }

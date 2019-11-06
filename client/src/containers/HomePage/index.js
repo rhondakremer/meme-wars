@@ -23,7 +23,10 @@ class HomePage extends Component
     render()
     {
         return <div className="row">
+            <div classname="col-6 offset-3">
             <p>this is the homepage. the user's profile should show up.</p>
+            {this.props.session&&<h1>Hello {this.props.session.name}</h1>}
+            </div>
         </div>
     }
 }
