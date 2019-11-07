@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
 
     login:function(email, password)
@@ -9,12 +11,11 @@ export default {
 
     register:function(name, email, password, image)
     {
-            return new Promise((resolve, reject)=>{
-                resolve({
-                    id:1,
-                    token:"user",
-                    name:"Rhonda Kremer"
-                })
+            return axios.post("/api/user", {
+                name,
+                email,
+                password,
+                image
             })
     },
 
