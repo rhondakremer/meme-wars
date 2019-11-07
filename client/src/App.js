@@ -20,14 +20,15 @@ class App extends Component {
   {
     try{
       this.setState({session:JSON.parse(localStorage.getItem("session"))})
+      // console.log(this.state.session)
     }
     catch(error)
     {}
   }
   signIn=(session)=>{
     this.setState({session});
-    localStorage.setItem("session", JSON.stringify(session));
-    console.log("signIn function")
+    // console.log(session.name)
+    localStorage.setItem("session is ", JSON.stringify(session));
   }
 
   render() {

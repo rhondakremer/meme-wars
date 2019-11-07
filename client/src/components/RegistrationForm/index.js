@@ -17,8 +17,8 @@ class RegistrationForm extends Component
     }
 
     componentDidMount() {
-        Api.getUser()
-        .then(res => console.log(res.data))
+        // Api.getUsers()
+        // .then(res => console.log(res.data))
     }
 
     inputChangeHandler=(e)=>
@@ -30,6 +30,8 @@ class RegistrationForm extends Component
             // debugger;
 
             this.props.onRegister(session);
+            alert("Welcome " + this.state.name)
+            
         })    
     }
 

@@ -18,7 +18,7 @@ class MemeMaker extends Component
 
     componentDidMount()
     {
-        Api.getUser().then
+        Api.getUsers().then
         (currentUser=>{
             this.setState({currentUser});
         })

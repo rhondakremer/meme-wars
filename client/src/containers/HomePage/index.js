@@ -20,9 +20,11 @@ class HomePage extends Component
 
     componentDidMount()
     {
-        Api.getUser().then
+        Api.getOne("5dc394b17c15a9097f07988c").then
         (currentUser=>{
-            this.setState({currentUser});
+            this.setState({currentUser: currentUser.data[0], 
+                currentUserName: currentUser.data.name});
+            console.log("this says current user is " + (JSON.stringify(this.state.currentUserName)))
         })
     }
 
@@ -36,7 +38,7 @@ class HomePage extends Component
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
 
-            <UserProfile componentDidMount={this.componentDidMount}/>
+            <UserProfile componentDidMount={this.componentDidMount} name={this.state.currentUserName} />
             </div>
             <div className="row" id="memeCardDiv">
             <BattleCard/>
