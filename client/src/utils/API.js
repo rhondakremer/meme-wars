@@ -12,16 +12,16 @@ export default {
 
     register:function(name, email, password, image)
     {
-            return axios.post("/api/user", {
-                name,
-                email,
-                password,
-                image
-            }),
+            // return axios.post("/api/user", {
+            //     name,
+            //     email,
+            //     password,
+            //     image
+            // }),
             new Promise((resolve, reject)=>{
 
                     resolve({
-                        name: "gertrude"
+                        name
                     })
                 })
     },
