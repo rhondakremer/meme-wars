@@ -28,6 +28,25 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+  login:function(req, res)
+  {
+    db.User
+      .findOne({email:req.body.email.toLowerCase()})
+      .then(dbModel => {
+        if(dbModel.password==md5(req.body.password))
+        {
+          res.json 
+          (getSession(dbModel))
+        }
+        else
+        {
+          res.sendStatus(401);
+        }
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
   create: function(req, res) {
     console.log("Creating user...")
       let account = req.body;
