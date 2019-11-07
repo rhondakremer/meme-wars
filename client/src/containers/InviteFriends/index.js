@@ -8,7 +8,7 @@ import "./style.css"
 
 
 
-class BattlePage extends Component
+class InviteFriends extends Component
 {
     constructor(props)
     {
@@ -39,14 +39,7 @@ class BattlePage extends Component
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
             <div id="memeCardDiv">
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
+            invite your friends
 
             </div>
             </div>
@@ -55,5 +48,5 @@ class BattlePage extends Component
     }
 }
 
-export default BattlePage;
+export default InviteFriends;
 

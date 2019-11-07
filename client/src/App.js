@@ -6,6 +6,7 @@ import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
 import Api from './utils/API';
+import InviteFriends from "./containers/InviteFriends";
 
 class App extends Component {
 
@@ -41,7 +42,8 @@ class App extends Component {
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage session={this.state.session} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />,
+            <Route path= "/invite" component={()=><InviteFriends session={this.state.session} />} />
             ]}
             <Route component={()=><HomePage session={this.state.session} />} />
             

@@ -18,12 +18,10 @@ class HomePage extends Component
 
     componentDidMount()
     {
-        Api.getOne("5dc394b17c15a9097f07988c").then
+      /*  Api.getUser().then
         (currentUser=>{
-            this.setState({currentUser: currentUser.data[0], 
-                currentUserName: currentUser.data.name});
-            console.log("this says current user is " + (JSON.stringify(this.state.currentUserName)))
-        })
+            this.setState({currentUser});
+        })  */
     }
 
     render()
@@ -43,7 +41,6 @@ class HomePage extends Component
 
             <div className="row" id="battleCardDiv">
             <div id="innerBattleCardDiv">
-                
             <BattleCard/>
             <BattleCard/>
             <BattleCard/>

@@ -6,12 +6,19 @@ function NavBar(props) {
     return (
       <div id="navBar">
         <ul className="nav justify-content-start">
+
   <li className="nav-item">
-    <Link to="/" className="nav-link active">Invite Friends</Link>
+  <Link to="/" className="nav-link active">Home</Link>
   </li>
+
   <li className="nav-item">
-  <Link to="/saved" className="nav-link ">To War!</Link>
+  <Link to="/battle" className="nav-link ">Initiate Battle!</Link>
   </li>
+
+  <li className="nav-item">
+    <Link to="/invite" className="nav-link active">Invite Friends</Link>
+  </li>
+  
 </ul>
       </div>
     );
