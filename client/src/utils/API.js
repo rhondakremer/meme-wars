@@ -21,11 +21,12 @@ export default {
 
     getUser:function()
     {
-        return new Promise((resolve, reject)=>{
+        return axios.get("/api/user")
+        // return new Promise((resolve, reject)=>{
 
-            resolve({
-                name: "Rhonda Kremer"
-            })
-        })
+        //     resolve({
+        //         name: "Rhonda Kremer"
+        //     })
+        // })
     }
 }
