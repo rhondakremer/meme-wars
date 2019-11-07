@@ -29,14 +29,21 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log("Creating user...")
       let account = req.body;
       account.email = req.body.email.toLowerCase();
       account.password = md5(req.body.password);
     db.User
       .create(account)
       .then(dbModel =>  res.json 
-        (setSession(dbModel)))
-      .catch(err => res.status(422).json(err));
+        (getSession(dbModel)),error=>{
+          console.log(error)
+        res.status(422).json(error)
+        })
+      .catch(err => {
+        console.log(err)
+        res.status(422).json(err)
+      });
   },
   update: function(req, res) {
     db.User

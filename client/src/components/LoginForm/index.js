@@ -23,7 +23,7 @@ class LoginForm extends Component
     render()
     {
         return <div className="row">
-            <div classname="col-6 offset-3">
+            <div className="col-6 offset-3">
                 <div className="form-group">
                     <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
                 </div>
@@ -32,7 +32,7 @@ class LoginForm extends Component
                     <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
                 </div>
 
-                <button onClick={this.login} class="btn btn-primary">
+                <button onClick={this.login} className="btn btn-primary">
                     Login
                 </button>
             </div>

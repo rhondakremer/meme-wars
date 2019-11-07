@@ -26,7 +26,7 @@ class RegistrationForm extends Component
     render(){
 
         return <div className="row">
-        <div classname="col-6 offset-3">
+        <div className="col-6 offset-3">
             <h1>Register!</h1>
 
             <div className="form-group">
@@ -45,7 +45,7 @@ class RegistrationForm extends Component
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="Upload your image here!" />
             </div>
 
-            <button onClick={this.register} class="btn btn-primary">
+            <button onClick={this.register} className="btn btn-primary">
                 Register
             </button>
         </div>
