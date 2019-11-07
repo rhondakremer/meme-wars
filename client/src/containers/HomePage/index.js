@@ -3,10 +3,8 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard from "../../components/MemeCard";
 import "./style.css";
 import BattleCard from "../../components/BattleCardComponent";
-import VSMeme from "../../components/VSdiv"
 
 class HomePage extends Component
 {
@@ -36,17 +34,26 @@ class HomePage extends Component
             </div>
 
             <div className="row col-12" id="mainBodyDiv">
+
+
             <div id="userProfileDiv">
-
-            <UserProfile componentDidMount={this.componentDidMount} name={this.state.currentUserName} />
-            </div>
-            <div className="row" id="memeCardDiv">
-            <BattleCard/>
-            <VSMeme/>
-            <BattleCard/>
-
+            <UserProfile componentDidMount={this.componentDidMount}/>
 
             </div>
+
+            <div className="row" id="battleCardDiv">
+            <div id="innerBattleCardDiv">
+                
+            <BattleCard/>
+            <BattleCard/>
+            <BattleCard/>
+            <BattleCard/>
+            <BattleCard/>
+            <BattleCard/>
+
+            </div> 
+            </div>
+            
             </div>
 
             </div>
