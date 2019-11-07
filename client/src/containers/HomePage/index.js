@@ -1,11 +1,12 @@
+
 import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard from "../../components/MemeCard"
-import "./style.css"
-
-
+import MemeCard from "../../components/MemeCard";
+import "./style.css";
+import BattleCard from "../../components/BattleCardComponent";
+import VSMeme from "../../components/VSdiv"
 
 class HomePage extends Component
 {
@@ -37,15 +38,11 @@ class HomePage extends Component
 
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
-            <div id="memeCardDiv">
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
+            <div className="row" id="memeCardDiv">
+            <BattleCard/>
+            <VSMeme/>
+            <BattleCard/>
+
 
             </div>
             </div>
