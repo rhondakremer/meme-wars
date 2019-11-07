@@ -18,10 +18,10 @@ class HomePage extends Component
 
     componentDidMount()
     {
-        Api.getUser().then
+      /*  Api.getUser().then
         (currentUser=>{
             this.setState({currentUser});
-        })
+        })  */
     }
 
     render()
