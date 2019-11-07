@@ -16,7 +16,7 @@ class UserProfile extends Component
             <UserPicture/>
             <br />
 
-            <h4>Hi, Nelio!</h4>
+            <h4>Hi, Nelio</h4>
             
             <br />
             <h6>Pending Wars</h6>

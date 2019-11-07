@@ -20,9 +20,10 @@ class HomePage extends Component
 
     componentDidMount()
     {
-        Api.getUser().then
+        Api.getOne().then
         (currentUser=>{
             this.setState({currentUser});
+            console.log("this says current user is " + (JSON.stringify(currentUser)))
         })
     }
 

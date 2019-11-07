@@ -20,7 +20,7 @@ export default {
             })
     },
 
-    getUser:function()
+    getUsers:function()
     {
         return axios.get("/api/user")
         // return new Promise((resolve, reject)=>{
@@ -29,5 +29,9 @@ export default {
         //         name: "Rhonda Kremer"
         //     })
         // })
+    },
+
+    getOne: function(id) {
+        return axios.get("api/user/" + id)
     }
 }
