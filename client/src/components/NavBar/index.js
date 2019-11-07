@@ -12,6 +12,7 @@ function NavBar(props) {
   <li className="nav-item">
   <Link to="/saved" className="nav-link ">To War!</Link>
   </li>
+  <button className="btn btn-secondary">Log out</button>
 </ul>
       </div>
     );
