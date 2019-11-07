@@ -36,7 +36,7 @@ class UserProfile extends Component
             <h6>Pending Wars</h6>
             <h6>Add Friends</h6>
 
-            <h5>Nelio's Stats:</h5>
+            <h5>{this.props.name}'s Stats:</h5>
 
             <h6>Wars Won: 4</h6>
             <h6>Wars Lost: 5</h6>
