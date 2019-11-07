@@ -10,7 +10,7 @@ function NavBar(props) {
     <Link to="/" className="nav-link active">Invite Friends</Link>
   </li>
   <li className="nav-item">
-  <Link to="/saved" className="nav-link ">To War!</Link>
+  <Link to="/battle" className="nav-link ">To War!</Link>
   </li>
 </ul>
       </div>
