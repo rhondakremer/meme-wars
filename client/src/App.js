@@ -28,8 +28,9 @@ class App extends Component {
   signIn=(session)=>{
     this.setState({session});
     // console.log(session.name)
-    localStorage.setItem("session is ", JSON.stringify(session));
+    localStorage.setItem("session", JSON.stringify(session));
   }
+
 
   render() {
     return <Router>
@@ -43,6 +44,7 @@ class App extends Component {
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />
             ]}
             <Route component={()=><HomePage session={this.state.session} />} />
+            
           
           
 
