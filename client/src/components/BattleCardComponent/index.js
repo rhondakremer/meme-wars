@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./style.css"
 
 
-class MemeCard extends Component
+class BattleCard extends Component
 {
     constructor(props)
     {
@@ -19,5 +19,5 @@ class MemeCard extends Component
 
 
 
-export default MemeCard;
+export default BattleCard;
 

@@ -2,10 +2,12 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard from "../../components/MemeCard"
-import "./style.css"
+import MemeCard from "../../components/MemeCard";
+import "./style.css";
+import BattleCard from "../../components/BattleCardComponent";
+import VSMeme from "../../components/VSdiv"
 
-class Battle extends Component
+class BattlePage extends Component
 {
     constructor(props)
     {
@@ -35,15 +37,11 @@ class Battle extends Component
 
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
-            <div id="memeCardDiv">
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
+            <div className="row" id="memeCardDiv">
+            <BattleCard/>
+            <VSMeme/>
+            <BattleCard/>
+
 
             </div>
             </div>
@@ -52,4 +50,4 @@ class Battle extends Component
     }
 }
 
-export default Battle;
+export default BattlePage;

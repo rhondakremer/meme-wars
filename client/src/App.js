@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import HomePage from './containers/HomePage';
 import Login from './containers/Login';
-import Battle from './containers/BattlePage'
 import Registration from './containers/Registration';
+import BattlePage from "./containers/BattlePage";
+import MemeMaker from "./containers/MemeMaker";
 
 class App extends Component {
 
@@ -14,7 +15,18 @@ class App extends Component {
       session:null
     }
   }
-  signIn=(session)=>this.setState({session});
+  componentDidMount()
+  {
+    try{
+      this.setState({session:JSON.parse(localStorage.getItem("session"))})
+    }
+    catch(error)
+    {}
+  }
+  signIn=(session)=>{
+    this.setState({session});
+    localStorage.setItem("session",JSON.stringify(session));
+  };
 
   render() {
     return <Router>
@@ -23,7 +35,15 @@ class App extends Component {
 
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
 
-          <Route component={()=><HomePage session={this.state.session} />} />
+            {this.state.session&&[
+            <Route path= "/battle" component={()=><BattlePage session={this.state.session} />} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />
+            ]}
+            <Route component={()=><HomePage session={this.state.session} />} />
+          
+          
+
+
         </Switch>
       </Router>
   }

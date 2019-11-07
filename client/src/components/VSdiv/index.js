@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import "./style.css"
 
 
-class vsMeme extends Component
+class VSMeme extends Component
 {
     constructor(props)
     {
@@ -19,5 +19,5 @@ class vsMeme extends Component
 
 
 
-export default vsMeme;
+export default VSMeme;
 
