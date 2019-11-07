@@ -40,21 +40,32 @@ class RegistrationForm extends Component
             <h1>Register!</h1>
 
             <div className="form-group">
-                <input onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Enter your name" />
+                Name:
+                <input onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Name" />
             </div>
 
             <div className="form-group">
-                <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
+                Email:
+                <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Email" />
             </div>
 
             <div className="form-group">
+                Password:
                 <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
             </div>
 
             <div className="form-group">
-                <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="Upload your image here!" />
+                Image URL:
+                <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div>
 
+            <div className="selfieText">
+                Or if you prefer, just take a selfie.
+                <button onClick={this.camera} className="openCameraButton">
+                    Open camera
+                </button>
+            </div>
+            <br></br>
             <button onClick={this.register} className="btn btn-primary">
                 Register
             </button>
