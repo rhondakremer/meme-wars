@@ -7,7 +7,7 @@
 
 #battleRow{
     border-bottom: 1px solid black;
-    padding: 10px 20px 10px 70px ;
+    padding: 0px 20px 10px 70px ;
 margin-left: 20px;
     width: 100%;
 }
@@ -15,7 +15,7 @@ margin-left: 20px;
     margin-top: 0px !important;
 }
 
-#memeDiv{
+#BattleMemeDiv{
     display: inline-flex;
     width: 200px;
     height: 200px;
@@ -26,9 +26,11 @@ margin-left: 20px;
     border: none;
 }
 
-#createMemeButton{
+#voteForMemeButton{
+    width: 80%;
     align-items: center;
     justify-content: center;
     margin-top: 2px;
+    margin: 0px auto;
 
 }

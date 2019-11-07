@@ -9,13 +9,9 @@
     display: inline-flex;
     width: 200px;
     height: 200px;
-    margin-top: 70px;
+    margin-top: 70px !important;
     margin-left: 10px;
     justify-content: center;
-    border: none;
-
-    
- 
 }
 
 #createMemeButton{

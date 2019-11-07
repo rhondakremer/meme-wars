@@ -39,6 +39,7 @@ class HomePage extends Component
 
             <div className="row" id="battleCardDiv">
             <div id="innerBattleCardDiv">
+                
             <BattleCard/>
             <BattleCard/>
             <BattleCard/>
