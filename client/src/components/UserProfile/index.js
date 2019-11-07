@@ -16,9 +16,9 @@ class UserProfile extends Component
 
     componentDidMount()
     {
-        let sessionString = localStorage.getItem("session");
-        let parsedSession = (JSON.parse(sessionString));
-        this.setState({name: parsedSession.name});
+        // let sessionString = localStorage.getItem("session");
+        // let parsedSession = (JSON.parse(sessionString));
+        // this.setState({name: parsedSession.name});
         // console.log(session.name)
         // Api.getOne().then
         // (currentUser=>{
