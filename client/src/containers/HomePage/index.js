@@ -4,6 +4,9 @@ import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import MemeCard from "../../components/MemeCard"
 import "./style.css"
+
+
+
 class HomePage extends Component
 {
     constructor(props)

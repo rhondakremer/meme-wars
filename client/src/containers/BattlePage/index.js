@@ -2,11 +2,12 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import "./style.css"
+import MemeCard from "../../components/MemeCard";
+import "./style.css";
+import BattleCard from "../../components/BattleCardComponent";
+import VSMeme from "../../components/VSdiv"
 
-
-
-class MemeMaker extends Component
+class BattlePage extends Component
 {
     constructor(props)
     {
@@ -36,8 +37,12 @@ class MemeMaker extends Component
 
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
-            <div id="memeCardDiv">
-<span>MEEEMMMMEEES</span>
+            <div className="row" id="memeCardDiv">
+            <BattleCard/>
+            <VSMeme/>
+            <BattleCard/>
+
+
             </div>
             </div>
 
@@ -45,4 +50,4 @@ class MemeMaker extends Component
     }
 }
 
-export default MemeMaker;
+export default BattlePage;
