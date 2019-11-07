@@ -14,15 +14,18 @@ class UserProfile extends Component
         }
     }
 
-    // button()
-    // {
-    //     // console.log(session.name)
-    //     // Api.getOne().then
-    //     // (currentUser=>{
-    //     //     console.log(currentUser)
-    //     // })
-    //     // console.log("userprofile baby" + this.state.name)
-    // }
+    componentDidMount()
+    {
+        let sessionString = localStorage.getItem("session");
+        let parsedSession = (JSON.parse(sessionString));
+        this.setState({name: parsedSession.name});
+        // console.log(session.name)
+        // Api.getOne().then
+        // (currentUser=>{
+        //     console.log(currentUser)
+        // })
+        // console.log("userprofile baby" + this.state.name)
+    }
 
     render()
     {
@@ -30,13 +33,13 @@ class UserProfile extends Component
             <UserPicture/>
             <br />
 
-            <h4>Hi, {this.props.name}</h4>
+            <h4>Hi, {this.state.name}</h4>
             
             <br />
             <h6>Pending Wars</h6>
             <h6>Add Friends</h6>
 
-            <h5>{this.props.name}'s Stats:</h5>
+            <h5>{this.state.name}'s Stats:</h5>
 
             <h6>Wars Won: 4</h6>
             <h6>Wars Lost: 5</h6>

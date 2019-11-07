@@ -33,8 +33,10 @@ class HomePage extends Component
 
             <div className="row col-12" id="mainBodyDiv">
 
+
             <div id="userProfileDiv">
             <UserProfile componentDidMount={this.componentDidMount}/>
+
             </div>
 
             <div className="row" id="battleCardDiv">

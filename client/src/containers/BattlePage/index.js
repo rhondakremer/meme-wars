@@ -19,10 +19,10 @@ class BattlePage extends Component
 
     componentDidMount()
     {
-        Api.getUser().then
-        (currentUser=>{
-            this.setState({currentUser});
-        })
+        // Api.getUser().then
+        // (currentUser=>{
+        //     this.setState({currentUser});
+        // })
     }
 
     render()
