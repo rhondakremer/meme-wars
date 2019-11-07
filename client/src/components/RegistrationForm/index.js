@@ -31,6 +31,7 @@ class RegistrationForm extends Component
 
             this.props.onRegister(session);
             alert("Welcome " + this.state.name)
+            
         })    
     }
 

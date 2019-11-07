@@ -17,16 +17,22 @@ export default {
                 email,
                 password,
                 image
-            })
+            }),
+            new Promise((resolve, reject)=>{
+
+                    resolve({
+                        name: "gertrude"
+                    })
+                })
     },
 
     getUsers:function()
     {
         return axios.get("/api/user")
-        // return new Promise((resolve, reject)=>{
+        // new Promise((resolve, reject)=>{
 
         //     resolve({
-        //         name: "Rhonda Kremer"
+        //         name: "fuck"
         //     })
         // })
     },
