@@ -4,8 +4,9 @@ export default {
 
     login:function(email, password)
     {
-        return new Promise((resolve, reject)=>{
-            resolve({id:1, token:"user", name:"Rhonda Kremer"});
+        return axios.post("/api/user/login", {
+            email,
+            password
         })
     },
 
@@ -21,11 +22,12 @@ export default {
 
     getUser:function()
     {
-        return new Promise((resolve, reject)=>{
+        return axios.get("/api/user")
+        // return new Promise((resolve, reject)=>{
 
-            resolve({
-                name: "Rhonda Kremer"
-            })
-        })
+        //     resolve({
+        //         name: "Rhonda Kremer"
+        //     })
+        // })
     }
 }

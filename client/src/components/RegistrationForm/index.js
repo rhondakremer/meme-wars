@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Api from '../../utils/API';
+import axios from 'axios';
+
 
 class RegistrationForm extends Component
 {
@@ -14,11 +16,19 @@ class RegistrationForm extends Component
         }
     }
 
-    inputChangeHandler=(e)=>this.setState({[e.target.name]:e.target.value});
+    componentDidMount() {
+        Api.getUser()
+        .then(res => console.log(res.data))
+    }
+
+    inputChangeHandler=(e)=>
+        this.setState({[e.target.name]:e.target.value});
 
     register=()=>{
         Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session=>{
-            debugger;
+
+            // debugger;
+
             this.props.onRegister(session);
         })    
     }
@@ -26,7 +36,7 @@ class RegistrationForm extends Component
     render(){
 
         return <div className="row">
-        <div classname="col-6 offset-3">
+        <div className="col-6 offset-3">
             <h1>Register!</h1>
 
             <div className="form-group">
@@ -45,7 +55,7 @@ class RegistrationForm extends Component
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="Upload your image here!" />
             </div>
 
-            <button onClick={this.register} class="btn btn-primary">
+            <button onClick={this.register} className="btn btn-primary">
                 Register
             </button>
         </div>

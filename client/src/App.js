@@ -5,6 +5,7 @@ import Login from './containers/Login';
 import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
+import Api from './utils/API';
 
 class App extends Component {
 
@@ -25,8 +26,9 @@ class App extends Component {
   }
   signIn=(session)=>{
     this.setState({session});
-    localStorage.setItem("session",JSON.stringify(session));
-  };
+    localStorage.setItem("session", JSON.stringify(session));
+    console.log("signIn function")
+  }
 
   render() {
     return <Router>
