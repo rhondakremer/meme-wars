@@ -5,7 +5,7 @@ const UserSchema = new Schema({
     name: String,
     email: String,
     password: String,
-    img: {
+    image: {
         type: {String},
     },
     date: { type: Date, default: Date.now}
