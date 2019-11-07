@@ -1,0 +1,44 @@
+#userProfileDiv{
+    width: 20%;  
+}
+
+#memeCardDiv{
+    width: 80%;
+}
+
+#navbarDiv{
+    margin: 0px;
+    padding: 0px;
+}
+
+#mainBodyDiv{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+#memePicture{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: none;
+
+}
+#memeDiv{
+    display: inline-flex;
+    width: 200px;
+    height: 200px;
+    margin-top: 70px;
+    margin-left: 10px;
+    justify-content: center;
+    border: none;
+
+    
+ 
+}
+
+#createMemeButton{
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+
+}

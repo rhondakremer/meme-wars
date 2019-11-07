@@ -1,10 +1,13 @@
 import React from "react";
 import "./style.css";
+import nelio from './nelio.jpg';
+
 
 function UserPicture(props) {
     return (
       <div >
-       <img src="https://image.flaticon.com/icons/png/512/149/149071.png" id="userPicture"></img>
+        <img id="userPicture" className="img-responsive" src={nelio} alt="logo"/>
+       
       </div>
     );
   }
