@@ -26,6 +26,7 @@ class App extends Component {
   }
   signIn=(session)=>{
     this.setState({session});
+    localStorage.setItem("session", JSON.stringify(session));
     console.log("signIn function")
   }
 
