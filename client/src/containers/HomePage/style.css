@@ -2,8 +2,16 @@
     width: 20%;  
 }
 
-#memeCardDiv{
+#battleCardDiv{
     width: 80%;
+    border-bottom: 1px solid black;
+    padding-left: 10px;
+}
+
+#innerBattleCardDiv{
+    width: 100%;
+
+    
 }
 
 #navbarDiv{
