@@ -18,6 +18,7 @@ class RegistrationForm extends Component
 
     register=()=>{
         Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session=>{
+            debugger;
             this.props.onRegister(session);
         })    
     }
