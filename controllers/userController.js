@@ -1,4 +1,17 @@
 const db = require("../models");
+const md5 = require("md5");
+const getSession = (account) => {
+    return {
+        id: account._id,
+        name: account.name,
+        token: md5(account.email + account.date)
+    }
+}
+// Testing md5 :)
+// console.log("Szilard is " + md5("Szilard"));
+// console.log("Rhonda is " + md5("Rhonda"));
+// console.log("Miguel is " + md5("Miguel"));
+// console.log("Andreia is " + md5("Andreia"));
 
 // Defining methods for the booksController
 module.exports = {
@@ -16,9 +29,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+      let account = req.body;
+      account.email = req.body.email.toLowerCase();
+      account.password = md5(req.body.password);
     db.User
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
+      .create(account)
+      .then(dbModel =>  res.json 
+        (setSession(dbModel)))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
