@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
+import MemeMakerComponent from '../../components/MemeMakerComponent';
+
 import "./style.css"
 
 
@@ -37,8 +39,8 @@ class MemeMaker extends Component
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
             <div id="memeCardDiv">
-<span>MEEEMMMMEEES</span>
-            </div>
+<MemeMakerComponent/>            
+</div>
             </div>
 
             </div>
