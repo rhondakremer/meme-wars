@@ -3,6 +3,7 @@
     width: 200px;
     height: 200px;
     border: none;
+    
 
 }
 #memeDiv{
@@ -12,6 +13,7 @@
     margin-top: 70px !important;
     margin-left: 10px;
     justify-content: center;
+    border: none;
 }
 
 #createMemeButton{
