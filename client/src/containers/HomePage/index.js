@@ -22,6 +22,7 @@ class HomePage extends Component
         (currentUser=>{
             this.setState({currentUser});
         })  */
+
     }
 
     render()

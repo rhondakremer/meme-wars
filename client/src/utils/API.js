@@ -18,6 +18,7 @@ export default {
                 password,
                 image
             }),
+              
             new Promise((resolve, reject)=>{
 
                     resolve({
