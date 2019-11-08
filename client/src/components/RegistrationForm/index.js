@@ -18,8 +18,6 @@ class RegistrationForm extends Component
 
     componentDidMount() {
         
-        // Api.getUsers()
-        // .then(res => console.log(res.data))
     }
 
     inputChangeHandler=(e)=>
