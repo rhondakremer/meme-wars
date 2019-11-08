@@ -55,7 +55,7 @@ module.exports = {
     db.User
       .create(account)
       .then(dbModel =>  res.json 
-        (getSession(dbModel)),error=>{
+        (console.log(getSession(dbModel))),error=>{
           console.log(error)
         res.status(422).json(error)
         })

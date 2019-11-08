@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard from "../../components/MemeCard"
+import InviteFriends from "../../components/InviteFriends"
 import "./style.css"
 
 
 
 
-class BattlePage extends Component
+class InviteFriendsContainer extends Component
 {
     constructor(props)
     {
@@ -36,24 +36,15 @@ class BattlePage extends Component
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
 
-            <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName}/>
+            <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
-            <div id="memeCardDiv">
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
+            <InviteFriends/>
 
             </div>
             </div>
 
-            </div>
     }
 }
 
-export default BattlePage;
+export default InviteFriendsContainer;
 

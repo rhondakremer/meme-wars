@@ -6,6 +6,7 @@ import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
 import Api from './utils/API';
+import InviteFriendsContainer from "./containers/InviteFriends";
 
 class App extends Component {
 
@@ -20,12 +21,14 @@ class App extends Component {
   {
     try{
       this.setState({session:JSON.parse(localStorage.getItem("session"))})
+      // console.log(this.state.session)
     }
     catch(error)
     {}
   }
-  signIn=(session)=>{
+  signIn = (session) => {
     this.setState({session});
+    // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
     console.log("signIn function");
   }
@@ -38,6 +41,7 @@ class App extends Component {
     console.log("the app.js logout function is found");
   }
 
+
   render() {
     return <Router>
          <Switch>
@@ -48,10 +52,12 @@ class App extends Component {
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
 
             {this.state.session&&[
-            <Route path= "/battle" component={()=><BattlePage session={this.state.session} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />
+            <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />,
+            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
             ]}
             <Route component={()=><HomePage session={this.state.session} />} />
+            
           
           
 

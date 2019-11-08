@@ -18,20 +18,28 @@ export default {
                 password,
                 image
             }),
-            new Promise(( resolve, reject) => {
-                resolve ({name,
-                email})
-            })
+              
+            new Promise((resolve, reject)=>{
+
+                    resolve({
+                        name,
+                        email
+                    })
+                })
     },
 
-    getUser:function()
+    getUsers:function()
     {
-        // return axios.get("/api/user").
-        return new Promise((resolve, reject)=>{
+        return axios.get("/api/user")
+        // new Promise((resolve, reject)=>{
 
-            resolve({
-                name: "Rhonda Kremer"
-            })
-        })
+        //     resolve({
+        //         name: "fuck"
+        //     })
+        // })
+    },
+
+    getOne: function(id) {
+        return axios.get("api/user/" + id)
     }
 }

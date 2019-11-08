@@ -1,12 +1,21 @@
 import React, {Component} from 'react';
 import LoginForm from '../../components/LoginForm';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+import "./style.css"
 
 
 class Login extends Component
 {
     render()
     {
-        return <LoginForm onLogin={this.props.onLogin}/>
+        return <div id="loginContainer">
+            <h1>Login</h1>
+        <LoginForm id="loginForm" onLogin={this.props.onLogin}/>
+        <br/>
+        <br/>
+        <div><h8>Need an account?</h8><Link to="/register" className="nav-link " id="registerLink">Register here.</Link></div>
+        </div>
     }
 }
 

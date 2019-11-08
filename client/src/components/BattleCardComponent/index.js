@@ -11,9 +11,18 @@ class BattleCard extends Component
 
     render()
     {
-        return <div className="card" id="memeDiv">
+        return <div className="row" id="battleRow">
+        <div className="card" id="BattleMemeDiv">
         <img id="memePicture" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Max_Raldin_Profile_Picture.png" className="card-img-top" alt="..."/>
           </div>
+          <div className="card" id="BattleMemeDiv">
+          <h1>vs.</h1>
+          <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
+            </div>
+            <div className="card" id="BattleMemeDiv">
+<img id="memePicture" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Max_Raldin_Profile_Picture.png" className="card-img-top" alt="..."/>
+  </div>
+  </div>
     }
 }
 
