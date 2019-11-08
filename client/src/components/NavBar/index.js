@@ -12,7 +12,7 @@ class NavBar extends Component
   }
 
   componentDidMount() {
-    Api.getUser()
+    Api.getUsers()
     .then(res => console.log(res.data))
   }
 
