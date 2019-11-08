@@ -16,8 +16,9 @@ class LoginForm extends Component
 
     login=()=>{
         Api.login(this.state.email, this.state.password).then(session=>{
-            this.props.onLogin(session.data);
+            this.props.onLogin(session);
         })
+        
     }
 
     render()
