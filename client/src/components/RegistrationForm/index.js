@@ -37,7 +37,6 @@ class RegistrationForm extends Component
 
         return <div className="row">
         <div className="col-6 offset-3">
-            <h1>Register!</h1>
 
             <div className="form-group">
                 <input onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Enter your name" />
