@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard from "../../components/MemeCard"
+import InviteFriends from "../../components/InviteFriends"
 import "./style.css"
 
 
 
 
-class InviteFriends extends Component
+class InviteFriendsContainer extends Component
 {
     constructor(props)
     {
@@ -38,15 +38,13 @@ class InviteFriends extends Component
 
             <UserProfile componentDidMount={this.componentDidMount}/>
             </div>
-            <div id="memeCardDiv">
-            invite your friends
+            <InviteFriends/>
 
             </div>
             </div>
 
-            </div>
     }
 }
 
-export default InviteFriends;
+export default InviteFriendsContainer;
 

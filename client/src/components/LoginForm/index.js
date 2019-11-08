@@ -23,8 +23,8 @@ class LoginForm extends Component
 
     render()
     {
-        return <div className="row">
-            <div className="col-6 offset-3">
+        return <div className="container">
+            <div >
                 <div className="form-group">
                     <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
                 </div>

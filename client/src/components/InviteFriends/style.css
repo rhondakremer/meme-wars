@@ -1,0 +1,19 @@
+
+#InviteFriendsRow{
+    align-content: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+#inviteFormInput{
+    width: 500px;
+    border-radius: 50px;
+    outline: none;
+}
+
+.btn{
+    border-radius: 50px;
+    outline: none;
+    border: 1px solid slategray;
+}

@@ -11,6 +11,7 @@
 }
 #textDiv{
     margin-left: 90px;
+   
 }
 #MemeMakerRow{
     width: 100%;
@@ -37,6 +38,21 @@ margin: 0px auto;
     align-content: center;
     text-align: center;
     margin-top: 60px !important;
+    border-radius: 50px;
+    outline: none;
+    border: 1px solid slategray;
+}
+
+#addTextInputButton{
+    align-content: center;
+    text-align: center;
+    margin-top: 70px !important;
+    border-radius: 50px;
+    height: 50px;
+    outline: none;
+    border: 1px solid slategray;
+    display: inline-flex !important;
+    
 }
 
 #MemeMakerDiv{
