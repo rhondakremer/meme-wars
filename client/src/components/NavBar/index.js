@@ -1,8 +1,29 @@
-import React from "react";
+import React, {Component} from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Api from '../../utils/API';
 import "./styles.css";
 
-function NavBar(props) {
+class NavBar extends Component
+{
+  constructor(props)
+  {
+    super(props)
+  }
+
+  componentDidMount() {
+    Api.getUser()
+    .then(res => console.log(res.data))
+  }
+
+  logout=()=>{
+      localStorage.clear();
+      alert("logging out");
+    //this.props.onLogout(!this.state.session);
+    // })    
+    
+  }
+
+  render() {
     return (
       <div id="navBar">
         <ul className="nav justify-content-start">
@@ -12,11 +33,12 @@ function NavBar(props) {
   <li className="nav-item">
   <Link to="/saved" className="nav-link ">To War!</Link>
   </li>
-  <button className="btn btn-secondary">Log out</button>
+  <button onClick={this.logout} className="btn btn-secondary">Log out</button>
 </ul>
       </div>
     );
   }
+}
   
   export default NavBar;
 
