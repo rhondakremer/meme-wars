@@ -25,12 +25,14 @@ class RegistrationForm extends Component
         this.setState({[e.target.name]:e.target.value});
 
     register=()=>{
-        Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session=>{
+        //console.log("I hit register function");
+        Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session=>{ 
 
             // debugger;
 
             this.props.onRegister(session);
-        })    
+        })  
+        //console.log("register happened");  
     }
 
     render(){
