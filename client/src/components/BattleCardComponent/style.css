@@ -2,9 +2,14 @@
     display: inline-block;
     width: 200px;
     height: 200px;
-    border: none;
+    background-color: black;
+    
 }
-
+#additionalDIV{
+    margin-left: 0px;
+    padding-left: 0px;
+    float: left;
+}
 #battleRow{
     border-bottom: 1px solid black;
     padding: 0px 20px 10px 70px ;
@@ -19,8 +24,8 @@ margin-left: 20px;
     display: inline-flex;
     width: 200px;
     height: 200px;
-    margin-top: 10px;
-    justify-content: center;
+    margin-top: 20px !important;
+    justify-content: left;
     align-content: center;
     text-align: center;
     border: none;

@@ -35,7 +35,7 @@ class RegistrationForm extends Component
     render(){
 
         return <div className="row">
-        <div className="col-6 offset-3">
+        <div >
 
             <div className="form-group">
                 Name:
@@ -64,7 +64,7 @@ class RegistrationForm extends Component
                 </button>
             </div>
             <br></br>
-            <button onClick={this.register} className="btn btn-primary">
+            <button onClick={this.register} id="loginButton" className="btn btn-primary">
                 Register
             </button>
         </div>

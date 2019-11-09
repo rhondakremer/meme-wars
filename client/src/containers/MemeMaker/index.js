@@ -172,7 +172,7 @@ class MemeMaker extends Component {
         base_image.src = image.src;
         var wrh = base_image.width / base_image.height;
         var newWidth = 600;
-        var newHeight = newWidth / wrh;
+        var newHeight = 400;
         const textStyle = {
             fontFamily: "Impact",
             fontSize: "50px",

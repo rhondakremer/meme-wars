@@ -38,6 +38,8 @@ Invite your friends to roast you. You know you want to.
           <input id="inviteFormInput" placeholder="Enter emails separated by commas" type="text" ref={(input) => this.input = input} />
         </label>
         <br/>
+        <br/>
+
         <input className="btn" type="submit" value="Submit" />
       </form>
             
