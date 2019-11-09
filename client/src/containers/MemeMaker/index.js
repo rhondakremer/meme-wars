@@ -27,6 +27,7 @@ const photos = [
     { src: '/images/dank.png' },
     { src: '/images/boy.png' },
     { src: '/images/sad.png' },
+    { src: '/images/nelio.jpg' },
     { src: '/images/wolf.png' },
     { src: '/images/fry.jpg' },
     { src: '/images/jobs.jpg' },
@@ -263,7 +264,7 @@ class MemeMaker extends Component {
                 <Label for="bottomtext">Bottom Text</Label>
                 <input className="form-control" type="text" name="bottomtext" id="bottomtext" placeholder="Add text to the bottom" onChange={this.changeText} />
               </FormGroup>
-              <button onClick={() => this.convertSvgToImage()} className="btn btn-primary">Download Meme!</button>
+              <button onClick={() => this.convertSvgToImage()} className="btn btn-primary">Download</button>
             </div>
           </ModalBody>
         </Modal>
