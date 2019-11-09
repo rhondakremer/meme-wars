@@ -25,22 +25,18 @@ class RegistrationForm extends Component
     inputChangeHandler=(e)=>
         this.setState({[e.target.name]:e.target.value});
 
-    register=()=>{
-        Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session=>{
-
-            // debugger;
-
+    register = () => {
+        Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session => {
             this.props.onRegister(session);
-            alert("Welcome " + this.state.name)
-            
-        })    
+            console.log("line 31 of reg form" + JSON.stringify(session))
+            alert("Welcome " + this.state.name);
+        })
     }
 
     render(){
 
         return <div className="row">
         <div className="col-6 offset-3">
-            <h1>Register!</h1>
 
             <div className="form-group">
                 <input onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Enter your name" />

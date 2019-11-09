@@ -1,11 +1,24 @@
 import React, {Component} from 'react';
 import RegistrationForm from '../../components/RegistrationForm';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 
 class Registration extends Component
 {
     render()
     {
-        return <RegistrationForm onRegister={this.props.onRegister} />
+
+        return <div id="loginContainer">
+            <h1>Register</h1>
+            <RegistrationForm onRegister={this.props.onRegister} />
+            <br/>
+            <br/>
+            <div>
+                <h8>Already have an account?</h8>
+                    <Link to="/login" className="nav-link " id="registerLink">Login here.</Link>
+            </div>
+            </div>
+
     }
 }
 

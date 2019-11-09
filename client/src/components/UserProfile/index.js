@@ -16,6 +16,8 @@ class UserProfile extends Component
 
     componentDidMount()
     {
+        console.log((JSON.stringify(this.props.sessionName)))
+        
         // let sessionString = localStorage.getItem("session");
         // let parsedSession = (JSON.parse(sessionString));
         // this.setState({name: parsedSession.name});
@@ -33,14 +35,14 @@ class UserProfile extends Component
             <UserPicture/>
             <br />
 
-            <h4>Hi, {this.state.name}</h4>
+            <h4>Hi, {this.props.sessionName}</h4>
             
             <br />
             <h6>Pending Wars</h6>
             <h6>Add Friends</h6>
 
-            <h5>{this.state.name}'s Stats:</h5>
-
+            <h5>{this.props.sessionName}'s Stats:</h5>
+            
             <h6>Wars Won: 4</h6>
             <h6>Wars Lost: 5</h6>
             <h6>Dreams Crushed: 22</h6>
