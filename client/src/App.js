@@ -56,7 +56,8 @@ class App extends Component {
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />,
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
             ]}
-            <Route component={()=><Login session={this.state.session} />} />
+
+            <Route component={()=><HomePage session={this.state.session} />} />
             
           
           
