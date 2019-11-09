@@ -4,6 +4,7 @@
     text-align: center;
     justify-content: center;
     margin: 0px auto;
+    margin-top: 3px;
 }
 
 #inviteFormInput{
@@ -16,4 +17,12 @@
     border-radius: 50px;
     outline: none;
     border: 1px solid slategray;
+}
+
+.jumbotron{
+    background-color: transparent;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 25px;
+
 }

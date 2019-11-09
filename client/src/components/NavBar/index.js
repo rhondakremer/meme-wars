@@ -35,15 +35,17 @@ class NavBar extends Component
   </li>
 
   <li className="nav-item">
-  <Link to="/battle" className="nav-link ">Initiate Battle!</Link>
+  <Link to="/mememaker" className="nav-link ">Initiate Battle!</Link>
   </li>
 
   <li className="nav-item">
     <Link to="/invite" className="nav-link active">Invite Friends</Link>
   </li>
 
-  <button onClick={this.logout} className="btn btn-secondary">Log out</button>
-
+  <li className="nav-item">
+  
+  <Link to="/login" onClick={this.logout} className="nav-link active">Log out</Link>
+  </li>
 </ul>
       </div>
     );
