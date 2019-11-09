@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Api from '../../utils/API';
+import "./style.css"
 
 class LoginForm extends Component
 {
@@ -37,7 +38,7 @@ class LoginForm extends Component
                     <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
                 </div>
 
-                <button onClick={this.login} className="btn btn-primary">
+                <button id="loginButton" onClick={this.login} className="btn btn-primary">
                     Login
                 </button>
             </div>
