@@ -30,6 +30,15 @@ class App extends Component {
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
+    console.log("signIn function");
+  }
+
+  logOut=()=>{
+    this.setState({
+      session: null
+    })
+    localStorage.empty();
+    console.log("the app.js logout function is found");
   }
 
 
@@ -37,6 +46,8 @@ class App extends Component {
     return <Router>
          <Switch>
             {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
+
+            {this.state.session&&<Route path="/login" component={()=><Login onLogout={this.logOut}/>} />}
 
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
 

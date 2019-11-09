@@ -12,6 +12,10 @@ class LoginForm extends Component
         }
     }
 
+    componentDidMount() {
+    
+    };
+
     inputChangeHandler=(e)=>this.setState({[e.target.name]:e.target.value});
 
     login=()=>{
