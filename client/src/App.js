@@ -7,6 +7,7 @@ import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
 import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
+import WebCam from './components/WebCam';
 
 
 class App extends Component {
@@ -57,6 +58,8 @@ class App extends Component {
             {this.state.session&&<Route path="/login" component={()=><Login onLogout={this.logOut}/>} />}
 
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
+
+            {!this.state.session&&<Route path="/webcam" component={()=><WebCam onCamera={this.camera}/>} /> }
 
             {this.state.session&&<Route path="/" component={()=><HomePage onLogin={this.signIn}/>} />}
 
