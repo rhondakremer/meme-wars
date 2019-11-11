@@ -12,7 +12,8 @@ class RegistrationForm extends Component
             name: "",
             email: "",
             password: "",
-            image: ""
+            image: "",
+            webcamEnabled: false
         }
     }
 
@@ -30,6 +31,11 @@ class RegistrationForm extends Component
             alert("Welcome " + this.state.name);
         })
 
+    }
+
+    camera = () => {
+        this.state.webcamEnabled = true;
+        console.log("webcam function found");
     }
 
     render(){
