@@ -19,14 +19,17 @@ class App extends Component {
   }
   componentDidMount()
   {
+    
     try{
       this.setState({session:JSON.parse(localStorage.getItem("session"))})
       // console.log(this.state.session)
     }
     catch(error)
     {}
+    
   }
   signIn = (session) => {
+    // debugger;
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
@@ -43,6 +46,9 @@ class App extends Component {
 
 
   render() {
+
+    console.log( "this is the render app.js" + JSON.stringify(this.state ));
+
     return <Router>
          <Switch>
             {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
@@ -53,7 +59,8 @@ class App extends Component {
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
+            <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
             ]}
 

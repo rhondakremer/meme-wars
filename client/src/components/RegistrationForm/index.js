@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Api from '../../utils/API';
-import axios from 'axios';
+// import axios from 'axios';
+import UploadPhoto from '../../components/UploadPhoto';
 
 
 class RegistrationForm extends Component
@@ -24,10 +25,14 @@ class RegistrationForm extends Component
         this.setState({[e.target.name]:e.target.value});
 
     register = () => {
-        Api.register(this.state.name, this.state.email, this.state.password, this.state.image).then(session => {
-            this.props.onRegister(session);
-            console.log("line 31 of reg form" + JSON.stringify(session))
-            alert("Welcome " + this.state.name);
+        Api
+            .register(this.state.name, this.state.email, this.state.password, this.state.image)
+            .then(session => {
+                // debugger;
+                this.props.onRegister(session.data);
+                console.log("line 31 of reg form" + JSON.stringify(session))
+                alert("Welcome " + this.state.name);
+
         })
 
     }
@@ -56,7 +61,7 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div>
-
+            <UploadPhoto />
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <button onClick={this.camera} className="openCameraButton">
