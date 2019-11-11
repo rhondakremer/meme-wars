@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
+import WebCam from '../WebCam';
 
 
 class RegistrationForm extends Component
@@ -13,7 +14,8 @@ class RegistrationForm extends Component
             name: "",
             email: "",
             password: "",
-            image: ""
+            image: "",
+            webcamEnabled: false
         }
     }
 
@@ -35,6 +37,11 @@ class RegistrationForm extends Component
 
         })
 
+    }
+
+    camera = () => {
+        this.state.webcamEnabled = true;
+        console.log("webcam function found");
     }
 
     render(){
