@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
-import RegistrationForm from "../RegistrationForm";
  
-import ImagePreview from './ImagePreview';
+//import ImagePreview from './ImagePreview';
  
 class WebCam extends Component {
   onTakePhoto (dataUri) {

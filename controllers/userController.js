@@ -54,11 +54,10 @@ module.exports = {
       account.password = md5(req.body.password);
     db.User
       .create(account)
-      .then(dbModel =>  res.json 
-        (console.log(getSession(dbModel))),error=>{
-          console.log(error)
-        res.status(422).json(error)
-        })
+      .then(dbModel =>  {
+        console.log(getSession(dbModel));
+        res.json(getSession(dbModel))
+      })
       .catch(err => {
         console.log(err)
         res.status(422).json(err)

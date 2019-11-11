@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { resolve } from 'dns';
+import { rejects } from 'assert';
 
 export default {
 
@@ -17,15 +19,7 @@ export default {
                 email,
                 password,
                 image
-            }),
-              
-            new Promise((resolve, reject)=>{
-
-                    resolve({
-                        name,
-                        email
-                    })
-                })
+            });
     },
 
     getUsers:function()
