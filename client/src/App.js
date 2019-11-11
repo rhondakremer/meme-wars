@@ -29,7 +29,7 @@ class App extends Component {
     
   }
   signIn = (session) => {
-    debugger;
+    // debugger;
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
@@ -59,7 +59,8 @@ class App extends Component {
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} />} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
+            <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
             ]}
 
