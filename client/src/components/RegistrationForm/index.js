@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Api from '../../utils/API';
-import axios from 'axios';
+// import axios from 'axios';
+import UploadPhoto from '../../components/UploadPhoto';
 
 
 class RegistrationForm extends Component
@@ -60,7 +61,7 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div>
-
+            <UploadPhoto />
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <button onClick={this.camera} className="openCameraButton">
