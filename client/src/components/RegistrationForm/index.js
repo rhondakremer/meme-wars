@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
-import { Link } from 'react-router-dom';
-// import style from '../RegistrationForm/style.css';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import './style.css';
 
 
 class RegistrationForm extends Component

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginForm from '../../components/LoginForm';
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import "./style.css"
 
