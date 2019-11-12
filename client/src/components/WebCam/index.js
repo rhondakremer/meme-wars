@@ -21,6 +21,7 @@ class WebCam extends Component {
   onTakePhoto (dataUri) {
     // Do stuff with the photo...
     console.log('takePhoto');
+    
   }
  
   onTakePhotoAnimationDone (dataUri) {
@@ -55,7 +56,7 @@ class WebCam extends Component {
           idealResolution = {{width: 640, height: 480}}
           imageType = {IMAGE_TYPES.JPG}
           imageCompression = {0.97}
-          isMaxResolution = {false}
+          isMaxResolution = {true}
           isImageMirror = {true}
           isSilentMode = {true}
           isDisplayStartCameraError = {true}
