@@ -1,0 +1,14 @@
+.openCameraButton {
+    padding: 10px;
+    background-color: rgb(18, 102, 192);
+    color: white;
+    border-radius: 10px;
+}
+
+.selfieText {
+    margin-top: 7%;
+}
+
+.cameraOpener {
+    margin-top: 5%;
+}

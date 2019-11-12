@@ -3,6 +3,7 @@ import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
 import { Link } from 'react-router-dom';
+import style from '../RegistrationForm/style.css';
 
 
 class RegistrationForm extends Component
@@ -15,7 +16,6 @@ class RegistrationForm extends Component
             email: "",
             password: "",
             image: "",
-            webcamEnabled: false
         }
     }
 
@@ -66,7 +66,10 @@ class RegistrationForm extends Component
             <UploadPhoto />
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
+                <br></br>
+                <div className="cameraOpener">
                 <Link to="/webcam"  className="openCameraButton">Open camera</Link>
+                </div>
             </div>
             <br></br>
             <button onClick={this.register} id="loginButton" className="btn btn-primary">
