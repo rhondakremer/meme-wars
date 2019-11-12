@@ -63,11 +63,11 @@ class App extends Component {
 
 
             {this.state.session&&[
-            <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
-            <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
-            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} />} />,
-            <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name}/>} />
+            <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
+            <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
+            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+            <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />
             ]}
             {!this.state.session&&<Route component={()=><Login onLogin={this.signIn}/>} /> }
             
