@@ -39,10 +39,10 @@ class WebCam extends Component {
           imageType = {IMAGE_TYPES.JPG}
           imageCompression = {0.97}
           isMaxResolution = {false}
-          isImageMirror = {false}
+          isImageMirror = {true}
           isSilentMode = {true}
           isDisplayStartCameraError = {true}
-          isFullscreen = {true}
+          isFullscreen = {false}
           sizeFactor = {1}
           onCameraStart = { (stream) => { this.onCameraStart(stream); } }
           onCameraStop = { () => { this.onCameraStop(); } }
