@@ -27,6 +27,7 @@ class RegistrationForm extends Component
         this.setState({[e.target.name]:e.target.value});
 
     register = () => {
+        
         Api
             .register(this.state.name, this.state.email, this.state.password, this.state.image)
             .then(session => {
@@ -37,6 +38,10 @@ class RegistrationForm extends Component
 
         })
 
+    }
+
+    getUploadedImage = (dataFromChild) => {
+        this.setState({image:dataFromChild});
     }
 
     render(){
@@ -59,11 +64,11 @@ class RegistrationForm extends Component
                 <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
             </div>
 
-            <div className="form-group">
+            {/* <div className="form-group">
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
-            </div>
-            <UploadPhoto />
+            </div> */}
+            <UploadPhoto callbackFromParent={this.getUploadedImage}/>
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <br></br>
