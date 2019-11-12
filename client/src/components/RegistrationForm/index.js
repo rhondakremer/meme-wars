@@ -3,7 +3,7 @@ import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
 import { Link } from 'react-router-dom';
-import style from '../RegistrationForm/style.css';
+// import style from '../RegistrationForm/style.css';
 
 
 class RegistrationForm extends Component

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
-import Api from '../../utils/API';
+// import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import InviteFriends from "../../components/InviteFriends"
 import "./style.css"
@@ -36,7 +36,7 @@ class InviteFriendsContainer extends Component
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
 
-            <UserProfile componentDidMount={this.componentDidMount}/>
+            <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName}/>
             </div>
             <InviteFriends/>
 

@@ -38,8 +38,8 @@ module.exports = {
         console.log(" Password:",md5(req.body.password))
         if(dbModel.password==md5(req.body.password))
         {
-          res.json 
-          (getSession(dbModel))
+          console.log(getSession(dbModel));
+          res.json(getSession(dbModel))
         }
         else
         {
