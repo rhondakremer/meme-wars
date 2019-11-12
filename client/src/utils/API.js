@@ -35,5 +35,22 @@ export default {
 
     getOne: function(id) {
         return axios.get("api/user/" + id)
+    },
+    saveMeme: function(baseImgURL, topText, topY, topX, bottomText, bottomY, bottomX, createdBy, imageOf)
+    {
+        return axios.post("/api/meme", {
+            baseImgURL,
+            topText,
+            topY,
+            topX,
+            bottomText,
+            bottomY,
+            bottomX,
+            createdBy,
+            imageOf
+        })
+    },
+    getMemes: function(id){
+        return axios.get("/api/meme/" + id)
     }
 }
