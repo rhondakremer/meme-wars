@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
-import WebCam from '../WebCam';
+import { Link } from 'react-router-dom';
 
 
 class RegistrationForm extends Component
@@ -39,11 +39,6 @@ class RegistrationForm extends Component
 
     }
 
-    camera = () => {
-        this.state.webcamEnabled = true;
-        console.log("webcam function found");
-    }
-
     render(){
 
         return <div className="row">
@@ -71,9 +66,7 @@ class RegistrationForm extends Component
             <UploadPhoto />
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
-                <button onClick={this.camera} className="openCameraButton">
-                    Open camera
-                </button>
+                <Link to="/webcam"  className="openCameraButton">Open camera</Link>
             </div>
             <br></br>
             <button onClick={this.register} id="loginButton" className="btn btn-primary">
