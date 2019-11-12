@@ -34,6 +34,8 @@ module.exports = {
     db.User
       .findOne({email:req.body.email.toLowerCase()})
       .then(dbModel => {
+        console.log(dbModel)
+        console.log(" Password:",md5(req.body.password))
         if(dbModel.password==md5(req.body.password))
         {
           console.log(getSession(dbModel));

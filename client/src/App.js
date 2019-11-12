@@ -31,7 +31,7 @@ class App extends Component {
     
   }
   signIn = (session) => {
-    // debugger;
+    debugger;
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
@@ -53,24 +53,22 @@ class App extends Component {
 
     return <Router>
          <Switch>
-            {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
+            
 
-            {this.state.session&&<Route path="/login" component={()=><Login onLogout={this.logOut}/>} />}
+            
 
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
 
             {!this.state.session&&<Route path="/webcam" component={()=><WebCam onCamera={this.camera}/>} /> }
 
-            {this.state.session&&<Route path="/" component={()=><HomePage onLogin={this.signIn}/>} />}
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
-            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
+            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />,<Route path="/" component={()=><HomePage onLogin={this.signIn}/>} />
             ]}
-
-            <Route component={()=><Login session={this.state.session} />} />
+            {!this.state.session&&<Route component={()=><Login onLogin={this.signIn}/>} /> }
             
           
           

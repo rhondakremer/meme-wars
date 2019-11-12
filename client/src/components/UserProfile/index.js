@@ -47,7 +47,6 @@ class UserProfile extends Component
             
             <h6>Wars Won: 4</h6>
             <h6>Wars Lost: 5</h6>
-            <h6>Dreams Crushed: 22</h6>
             {/* <button onClick={this.button}>get current user</button> */}
 
 
