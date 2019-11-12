@@ -3,6 +3,7 @@ import UserProfile from '../../components/UserProfile';
 import "./style.css";
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
+import Api from '../../utils/API';
 //import { Serializer } from 'v8';
 
 const initialState = {
@@ -43,7 +44,6 @@ const photos = [
     { src: '/images/penguin.png' }
 ];
 
-
 class MemeMaker extends Component {
     constructor(props) {
         super(props);
@@ -52,8 +52,21 @@ class MemeMaker extends Component {
             currentImage: 0,
             modalIsOpen: false,
             currentImagebase64: null,
-            ...initialState
+            ...initialState,
+            baseImgURL: "https://i.imgflip.com/gzlgp.jpg", //
+            createdBy:"testUser",
+            imageOf:"testUser2"
         }
+    }
+
+    saveMeme= () => {
+        Api
+            .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
+            .then(memeSaved => {
+                // debugger;
+                console.log(JSON.stringify(memeSaved))
+        })
+
     }
 
     openImage = (index) => {
@@ -170,7 +183,7 @@ class MemeMaker extends Component {
         const image = photos[this.state.currentImage];
         const base_image = new Image();
         base_image.src = image.src;
-        var wrh = base_image.width / base_image.height;
+        //var wrh = base_image.width / base_image.height;
         var newWidth = 600;
         var newHeight = 400;
         const textStyle = {
@@ -264,7 +277,8 @@ class MemeMaker extends Component {
                 <Label for="bottomtext">Bottom Text</Label>
                 <input className="form-control" type="text" name="bottomtext" id="bottomtext" placeholder="Add text to the bottom" onChange={this.changeText} />
               </FormGroup>
-              <button onClick={() => this.convertSvgToImage()} className="btn btn-primary">Download</button>
+              {/* <button onClick={() => this.convertSvgToImage()} className="btn btn-primary">Download</button> */}
+              <button onClick={this.saveMeme} className="btn btn-primary">Save to DB</button>
             </div>
           </ModalBody>
         </Modal>
