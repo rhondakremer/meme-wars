@@ -206,7 +206,7 @@ class MemeMaker extends Component {
 
                     <div id="userProfileDiv">
 
-                        <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName}/>
+                        <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
                     </div>
                     <div id="memeCardDiv">
                         {/* <span>MEEEMMMMEEES</span> */}
