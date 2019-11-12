@@ -19,7 +19,7 @@ class LoginForm extends Component
 
     inputChangeHandler=(e)=>this.setState({[e.target.name]:e.target.value});
 
-    login=()=>{
+    login = () => {
         Api.login(this.state.email, this.state.password).then(session=>{
             this.props.onLogin(session);
         })
@@ -38,7 +38,7 @@ class LoginForm extends Component
                     <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
                 </div>
 
-                <button id="loginButton" onClick={this.login} className="btn btn-primary">
+                <button id="loginButton" onLogin={this.props.onLogin} onClick={this.login} className="btn btn-primary">
                     Login
                 </button>
             </div>
