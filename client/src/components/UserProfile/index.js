@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserPicture from "../UserPicture";
-import Api from '../../utils/API';
+// import Api from '../../utils/API';
 import "./style.css"
 
 

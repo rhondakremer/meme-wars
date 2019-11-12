@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
-import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
+// import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
  
 //import ImagePreview from './ImagePreview';
  

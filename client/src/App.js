@@ -5,7 +5,7 @@ import Login from './containers/Login';
 import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
-import Api from './utils/API';
+// import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
 import WebCam from './components/WebCam';
 
@@ -31,7 +31,7 @@ class App extends Component {
     
   }
   signIn = (session) => {
-    debugger;
+    // debugger;
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
@@ -66,7 +66,8 @@ class App extends Component {
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
-            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />,<Route path="/" component={()=><HomePage onLogin={this.signIn}/>} />
+            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} />} />,
+            <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name}/>} />
             ]}
             {!this.state.session&&<Route component={()=><Login onLogin={this.signIn}/>} /> }
             

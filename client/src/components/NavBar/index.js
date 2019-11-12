@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import RegistrationForm from "../RegistrationForm";
+import { BrowserRouter as Link } from "react-router-dom";
+// import RegistrationForm from "../RegistrationForm";
 import Api from '../../utils/API';
 import "./styles.css";
 
