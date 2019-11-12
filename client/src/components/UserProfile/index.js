@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserPicture from "../UserPicture";
-import Api from '../../utils/API';
+// import Api from '../../utils/API';
 import "./style.css"
 
 
@@ -16,7 +16,7 @@ class UserProfile extends Component
 
     componentDidMount()
     {
-        console.log((JSON.stringify(this.props.sessionName)))
+        
         
         // let sessionString = localStorage.getItem("session");
         // let parsedSession = (JSON.parse(sessionString));
@@ -31,6 +31,8 @@ class UserProfile extends Component
 
     render()
     {
+
+        console.log((JSON.stringify(this.props.sessionName)))
         return <div id="profileSidebar">
             <UserPicture/>
             <br />

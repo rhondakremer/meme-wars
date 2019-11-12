@@ -1,0 +1,18 @@
+.goBackToRegister {
+    padding: 10px;
+    background-color: rgb(18, 102, 192);
+    color: white;
+    text-align: center;
+}
+
+.goBackToRegister:hover {
+    padding: 10px;
+    background-color: rgb(9, 55, 104);
+    color: white;
+    text-align: center; 
+}
+
+.react-html5-camera-photo video
+{
+    max-width: 100%!important;
+}
