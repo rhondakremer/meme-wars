@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
+import { Link } from 'react-router-dom';
+// import style from '../RegistrationForm/style.css';
 
 
 class RegistrationForm extends Component
@@ -13,7 +15,7 @@ class RegistrationForm extends Component
             name: "",
             email: "",
             password: "",
-            image: ""
+            image: "",
         }
     }
 
@@ -64,9 +66,10 @@ class RegistrationForm extends Component
             <UploadPhoto />
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
-                <button onClick={this.camera} className="openCameraButton">
-                    Open camera
-                </button>
+                <br></br>
+                <div className="cameraOpener">
+                <Link to="/webcam"  className="openCameraButton">Open camera</Link>
+                </div>
             </div>
             <br></br>
             <button onClick={this.register} id="loginButton" className="btn btn-primary">

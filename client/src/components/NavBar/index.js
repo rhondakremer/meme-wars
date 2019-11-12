@@ -1,6 +1,6 @@
 import React, {Component} from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import RegistrationForm from "../RegistrationForm";
+import { BrowserRouter as Link } from "react-router-dom";
+// import RegistrationForm from "../RegistrationForm";
 import Api from '../../utils/API';
 import "./styles.css";
 
@@ -25,6 +25,11 @@ class NavBar extends Component
     
   }
 
+  logout=()=>{
+    localStorage.clear();
+    document.location.reload();
+  }
+
   render() {
     return (
       <div id="navBar">
@@ -44,7 +49,7 @@ class NavBar extends Component
 
   <li className="nav-item">
   
-  <Link to="/login" onClick={this.logout} className="nav-link active">Log out</Link>
+  <button className="nav-link active" onClick={this.logout}>Log out</button>
   </li>
 </ul>
       </div>

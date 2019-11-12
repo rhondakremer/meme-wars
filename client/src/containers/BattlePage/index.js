@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
-import Api from '../../utils/API';
+// import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import MemeCard from "../../components/MemeCard"
 import "./style.css"

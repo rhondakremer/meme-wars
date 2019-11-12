@@ -5,8 +5,10 @@ import Login from './containers/Login';
 import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
-import Api from './utils/API';
+// import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
+import WebCam from './components/WebCam';
+
 
 class App extends Component {
 
@@ -51,20 +53,23 @@ class App extends Component {
 
     return <Router>
          <Switch>
-            {!this.state.session&&<Route path="/login" component={()=><Login onLogin={this.signIn}/>} /> }
+            
 
-            {this.state.session&&<Route path="/login" component={()=><Login onLogout={this.logOut}/>} />}
+            
 
             {!this.state.session&&<Route path="/register" component={()=><Registration onRegister={this.signIn}/>} /> }
+
+            {!this.state.session&&<Route path="/webcam" component={()=><WebCam onCamera={this.camera}/>} /> }
+
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} />} />,
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name}/>} />,
-            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} />} />
+            <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} />} />,
+            <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name}/>} />
             ]}
-
-            <Route component={()=><HomePage session={this.state.session} />} />
+            {!this.state.session&&<Route component={()=><Login onLogin={this.signIn}/>} /> }
             
           
           
