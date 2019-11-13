@@ -5,9 +5,10 @@ import Login from './containers/Login';
 import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
-// import Api from './utils/API';
+import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
 import WebCam from './components/WebCam';
+// import API from "./utils/API";
 
 
 class App extends Component {
@@ -16,9 +17,17 @@ class App extends Component {
   {
     super(props);
     this.state={
-      session:null
+      session:null,
+      users: []
     }
   }
+
+  componentWillMount() {
+    Api.getUsers()
+    .then(res => this.setState({users:res.data}, () => this.getUserImg()))
+  }
+
+
   componentDidMount()
   {
     
@@ -46,10 +55,16 @@ class App extends Component {
     console.log("the app.js logout function is found");
   }
 
+  getUserImg() {
+    let userImages = [];
+    for (let i = 0; i < this.state.users.length; i++) {
+      userImages.push(this.state.users[i].image)
+    } this.setState({userImages})
+  }
+
 
   render() {
-
-    console.log( "this is the render app.js" + JSON.stringify(this.state ));
+    console.log( "this is the render app.js" + JSON.stringify(this.state.userImages ));
 
     return <Router>
          <Switch>
@@ -64,7 +79,7 @@ class App extends Component {
 
             {this.state.session&&[
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
-            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
+            <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} userImages={this.state.userImages}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
             <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />
