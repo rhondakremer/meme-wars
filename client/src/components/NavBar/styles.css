@@ -4,6 +4,8 @@ li {
 }
 .nav-item .nav-link{
     color: dimgray;
+    outline: none !important;
+    border: none !important;
 }
 #navBar{
     border-bottom: 1px slategray solid;
@@ -13,6 +15,7 @@ li {
     padding-right: 0px;
     
 }
+
 .nav{
     margin: 0px;
     padding-left: 0px;

@@ -42,7 +42,7 @@ class InviteFriendsContainer extends Component
 
             </div>
             </div>
-
+            
     }
 }
 
