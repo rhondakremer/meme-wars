@@ -59,6 +59,10 @@ class MemeMaker extends Component {
         }
     }
 
+    componentWillMount() {
+        this.setState({images:this.props.userImages} , () => console.log("state set"))
+      }
+
     saveMeme= () => {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
@@ -180,6 +184,8 @@ class MemeMaker extends Component {
     }
 
     render() {
+        console.log("working?" + JSON.stringify(this.props.userImages))
+        let images = JSON.stringify(this.props.userImages);
         const image = photos[this.state.currentImage];
         const base_image = new Image();
         base_image.src = image.src;
@@ -210,9 +216,10 @@ class MemeMaker extends Component {
                     </div>
                     <div id="memeCardDiv">
                         {/* <span>MEEEMMMMEEES</span> */}
+                        {this.state.images &&
                         <div className="content">
-                            {photos.map((image, index) => (
-                                <div className="image-holder" key={image.src}>
+                            {this.state.images.map((image, index) => (
+                                <div className="image-holder" key={image}>
                                     <img
                                         style={{
                                             width: "100%",
@@ -220,13 +227,14 @@ class MemeMaker extends Component {
                                             height: "100%"
                                         }}
                                         alt={index}
-                                        src={image.src}
+                                        src={image}
                                         onClick={() => this.openImage(index)}
                                         role="presentation"
                                     />
                                 </div>
                             ))}
                         </div>
+                        }
                     </div>
 
                     <Modal className="meme-gen-modal" isOpen={this.state.modalIsOpen}>
