@@ -34,7 +34,7 @@ class UserProfile extends Component
 
         console.log((JSON.stringify(this.props.sessionName)))
         return <div id="profileSidebar">
-            <UserPicture/>
+            <UserPicture sessionImage={this.props.sessionImage}/>
             <br />
 
             <h4>Hi, {this.props.sessionName}</h4>

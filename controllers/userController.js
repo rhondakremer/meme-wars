@@ -4,6 +4,7 @@ const getSession = (account) => {
     return {
         id: account._id,
         name: account.name,
+        image: account.image,
         token: md5(account.email + account.date)
     }
 }

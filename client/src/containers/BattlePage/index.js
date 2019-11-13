@@ -36,7 +36,7 @@ class BattlePage extends Component
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
 
-            <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName}/>
+            <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
             </div>
             <div id="memeCardDiv">
             <MemeCard/>
