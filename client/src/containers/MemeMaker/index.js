@@ -76,7 +76,9 @@ class MemeMaker extends Component {
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
                 // debugger;
-                console.log(JSON.stringify(memeSaved))
+                console.log(JSON.stringify(memeSaved));
+                alert("Yay! Your meme has been added")
+                this.setState({modalIsOpen: false})
         })
 
     }
