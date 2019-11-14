@@ -4,7 +4,6 @@ import "./style.css";
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Api from '../../utils/API';
-//import { Serializer } from 'v8';
 
 const initialState = {
     toptext: "",
@@ -16,31 +15,6 @@ const initialState = {
     bottomX: "50%",
     bottomY: "90%"
 }
-
-// const photos = [
-//     { src: '/images/vict-baby.png' },
-//     { src: '/images/ned.jpeg' },
-//     { src: '/images/devilgirl.jpg' },
-//     { src: '/images/trump.jpg' },
-//     { src: '/images/one-does-not.jpg' },
-//     { src: '/images/dank.png' },
-//     { src: '/images/boy.png' },
-//     { src: '/images/sad.png' },
-//     { src: '/images/nelio.jpg' },
-//     { src: '/images/wolf.png' },
-//     { src: '/images/fry.jpg' },
-//     { src: '/images/jobs.jpg' },
-//     { src: '/images/phone.jpg' },
-//     { src: '/images/oldie.png' },
-//     { src: '/images/image.png' },
-//     { src: '/images/doubt.png' },
-//     { src: '/images/crying.png' },
-//     { src: '/images/sponge.png' },
-//     { src: '/images/dog.png' },
-//     { src: '/images/frust.png' },
-//     { src: '/images/web.png' },
-//     { src: '/images/penguin.png' }
-// ];
 
 class MemeMaker extends Component {
     constructor(props) {
@@ -65,7 +39,6 @@ class MemeMaker extends Component {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
-                // debugger;
                 console.log(JSON.stringify(memeSaved))
         })
 
@@ -77,8 +50,6 @@ class MemeMaker extends Component {
         return "data:"+mimetype+";base64,"+b64encoded
     }
     openImage = (index) => {
-    
-        debugger
         console.log(index);
         console.log(this.state.images[index]);
         const image = this.state.images[index];
@@ -161,29 +132,8 @@ class MemeMaker extends Component {
         });
     }
 
-    // convertSvgToImage = () => {
-    //     const svg = this.svgRef;
-    //     let svgData = new XMLSerializer().serializeToString(svg);
-    //     const canvas = document.createElement("canvas");
-    //     canvas.setAttribute("id", "canvas");
-    //     const svgSize = svg.getBoundingClientRect();
-    //     canvas.width = svgSize.width;
-    //     canvas.height = svgSize.height;
-    //     const img = document.createElement("img");
-    //     img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-    //     img.onload = function () {
-    //         canvas.getContext("2d").drawImage(img, 0, 0);
-    //         const canvasdata = canvas.toDataURL("image/png");
-    //         const a = document.createElement("a");
-    //         a.download = "meme.png";
-    //         a.href = canvasdata;
-    //         document.body.appendChild(a);
-    //         a.click();
-    //     };
-    // }
 
     getBase64Image(img) {
-        debugger;
         var canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
