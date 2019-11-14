@@ -13,7 +13,9 @@
   width: 100%;
 }
 
-
+#battleButtonOnMemeMakerContainer{
+  margin-top: 5px;
+}
 
 .form-control:focus {
   border-color: #666;

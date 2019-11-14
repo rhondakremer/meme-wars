@@ -5,6 +5,7 @@ body {
 #profileSidebar{
     border-right: 1px solid slategray;
     margin-left: 0px;
+    float: left;
     padding: 20px;
     padding-left: 30px;
     padding-right: 30px;
