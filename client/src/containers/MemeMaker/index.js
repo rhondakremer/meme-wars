@@ -16,33 +16,31 @@ const initialState = {
     bottomX: "50%",
     bottomY: "90%"
 }
-//Pull photos from Database, photos can be an array of photos associated with a user
-//Photos is an array of Objects
-//Another thought is using Clarifai API to tag similar images to populate photos array and gives users more options
-const photos = [
-    { src: '/images/vict-baby.png' },
-    { src: '/images/ned.jpeg' },
-    { src: '/images/devilgirl.jpg' },
-    { src: '/images/trump.jpg' },
-    { src: '/images/one-does-not.jpg' },
-    { src: '/images/dank.png' },
-    { src: '/images/boy.png' },
-    { src: '/images/sad.png' },
-    { src: '/images/nelio.jpg' },
-    { src: '/images/wolf.png' },
-    { src: '/images/fry.jpg' },
-    { src: '/images/jobs.jpg' },
-    { src: '/images/phone.jpg' },
-    { src: '/images/oldie.png' },
-    { src: '/images/image.png' },
-    { src: '/images/doubt.png' },
-    { src: '/images/crying.png' },
-    { src: '/images/sponge.png' },
-    { src: '/images/dog.png' },
-    { src: '/images/frust.png' },
-    { src: '/images/web.png' },
-    { src: '/images/penguin.png' }
-];
+
+// const photos = [
+//     { src: '/images/vict-baby.png' },
+//     { src: '/images/ned.jpeg' },
+//     { src: '/images/devilgirl.jpg' },
+//     { src: '/images/trump.jpg' },
+//     { src: '/images/one-does-not.jpg' },
+//     { src: '/images/dank.png' },
+//     { src: '/images/boy.png' },
+//     { src: '/images/sad.png' },
+//     { src: '/images/nelio.jpg' },
+//     { src: '/images/wolf.png' },
+//     { src: '/images/fry.jpg' },
+//     { src: '/images/jobs.jpg' },
+//     { src: '/images/phone.jpg' },
+//     { src: '/images/oldie.png' },
+//     { src: '/images/image.png' },
+//     { src: '/images/doubt.png' },
+//     { src: '/images/crying.png' },
+//     { src: '/images/sponge.png' },
+//     { src: '/images/dog.png' },
+//     { src: '/images/frust.png' },
+//     { src: '/images/web.png' },
+//     { src: '/images/penguin.png' }
+// ];
 
 class MemeMaker extends Component {
     constructor(props) {
@@ -60,7 +58,7 @@ class MemeMaker extends Component {
     }
 
     componentWillMount() {
-        this.setState({images:this.props.userImages} , () => console.log("state set"))
+        this.setState({images:this.props.userImages} , () => console.log("state set"));        
       }
 
     saveMeme= () => {
@@ -72,18 +70,29 @@ class MemeMaker extends Component {
         })
 
     }
-
+    _imageEncode (arrayBuffer) {
+        let u8 = new Uint8Array(arrayBuffer)
+        let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
+        let mimetype="image/jpeg"
+        return "data:"+mimetype+";base64,"+b64encoded
+    }
     openImage = (index) => {
-        const image = photos[index];
-        const base_image = new Image();
-        base_image.src = image.src;
-        const base64 = this.getBase64Image(base_image);
-        this.setState(prevState => ({
-            currentImage: index,
-            modalIsOpen: !prevState.modalIsOpen,
-            currentImagebase64: base64,
-            ...initialState
-        }));
+    
+        debugger
+        console.log(index);
+        console.log(this.state.images[index]);
+        const image = this.state.images[index];
+        Api.downloadImage(image).then(imageData=>{
+            this.setState(prevState => ({
+                currentImage: index,
+                modalIsOpen: !prevState.modalIsOpen,
+                currentImagebase64: this._imageEncode(imageData.data),
+                ...initialState
+            }));
+          
+        })
+        
+        
     }
 
     toggle = () => {
@@ -152,28 +161,29 @@ class MemeMaker extends Component {
         });
     }
 
-    convertSvgToImage = () => {
-        const svg = this.svgRef;
-        let svgData = new XMLSerializer().serializeToString(svg);
-        const canvas = document.createElement("canvas");
-        canvas.setAttribute("id", "canvas");
-        const svgSize = svg.getBoundingClientRect();
-        canvas.width = svgSize.width;
-        canvas.height = svgSize.height;
-        const img = document.createElement("img");
-        img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-        img.onload = function () {
-            canvas.getContext("2d").drawImage(img, 0, 0);
-            const canvasdata = canvas.toDataURL("image/png");
-            const a = document.createElement("a");
-            a.download = "meme.png";
-            a.href = canvasdata;
-            document.body.appendChild(a);
-            a.click();
-        };
-    }
+    // convertSvgToImage = () => {
+    //     const svg = this.svgRef;
+    //     let svgData = new XMLSerializer().serializeToString(svg);
+    //     const canvas = document.createElement("canvas");
+    //     canvas.setAttribute("id", "canvas");
+    //     const svgSize = svg.getBoundingClientRect();
+    //     canvas.width = svgSize.width;
+    //     canvas.height = svgSize.height;
+    //     const img = document.createElement("img");
+    //     img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
+    //     img.onload = function () {
+    //         canvas.getContext("2d").drawImage(img, 0, 0);
+    //         const canvasdata = canvas.toDataURL("image/png");
+    //         const a = document.createElement("a");
+    //         a.download = "meme.png";
+    //         a.href = canvasdata;
+    //         document.body.appendChild(a);
+    //         a.click();
+    //     };
+    // }
 
     getBase64Image(img) {
+        debugger;
         var canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
@@ -184,11 +194,12 @@ class MemeMaker extends Component {
     }
 
     render() {
-        console.log("working?" + JSON.stringify(this.props.userImages))
-        let images = JSON.stringify(this.props.userImages);
-        const image = photos[this.state.currentImage];
+        console.log(this.props.userImages);
+        //let images = JSON.stringify(this.props.userImages);
+        const image = this.state.images[this.state.currentImage];
         const base_image = new Image();
         base_image.src = image.src;
+        base_image.crossOrigin="anonymous";
         //var wrh = base_image.width / base_image.height;
         var newWidth = 600;
         var newHeight = 400;
@@ -209,18 +220,18 @@ class MemeMaker extends Component {
                 <div className="col-12" id="navbarDiv">
             <NavBar/>
             </div>
-
                     <div id="userProfileDiv">
 
                         <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
                     </div>
+                    
                     <div id="memeCardDiv">
                         {/* <span>MEEEMMMMEEES</span> */}
                         {this.state.images &&
                         <div className="content">
                             {this.state.images.map((image, index) => (
                                 <div className="image-holder" key={image}>
-                                    <img
+                                    <img crossorigin="anonymous"
                                         style={{
                                             width: "100%",
                                             cursor: "pointer",
@@ -291,7 +302,6 @@ class MemeMaker extends Component {
           </ModalBody>
         </Modal>
                 </div>
-
             </div>
         )
     }
