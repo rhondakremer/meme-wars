@@ -47,8 +47,7 @@ class NavBar extends Component
     <Link to="/invite" className="nav-link active">Invite Friends</Link>
   </li>
 
-  <li className="nav-item">
-  
+  <li className="nav-item" id="logOutButton">
   <button className="nav-link active" onClick={this.logout}>Log out</button>
   </li>
 </ul>

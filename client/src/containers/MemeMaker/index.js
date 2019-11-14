@@ -242,8 +242,10 @@ class MemeMaker extends Component {
                                         onClick={() => this.openImage(index)}
                                         role="presentation"
                                     />
+                                    <button id="battleButtonOnMemeMakerContainer" className="btn btn-primary" onClick={() => this.openImage(index)}>Click to BATTLE!</button>
                                 </div>
                             ))}
+
                         </div>
                         }
                     </div>
