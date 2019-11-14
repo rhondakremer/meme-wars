@@ -53,12 +53,22 @@ class MemeMaker extends Component {
             ...initialState,
             baseImgURL: "https://i.imgflip.com/gzlgp.jpg", //
             createdBy:"testUser",
-            imageOf:"testUser2"
+            imageOf:"testUser2",
+            users: [],
+            images: []
         }
     }
 
     componentWillMount() {
-        this.setState({images:this.props.userImages} , () => console.log("state set"));        
+        Api.getUsers()
+        .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
+      }
+
+      getUserImg() {
+        let images = [];
+        for (let i = 0; i < this.state.users.length; i++) {
+          images.push(this.state.users[i].image)
+        } this.setState({images: images})
       }
 
     saveMeme= () => {
@@ -194,11 +204,11 @@ class MemeMaker extends Component {
     }
 
     render() {
-        console.log(this.props.userImages);
+        // console.log(this.state.images);
         //let images = JSON.stringify(this.props.userImages);
         const image = this.state.images[this.state.currentImage];
         const base_image = new Image();
-        base_image.src = image.src;
+        // base_image.src = image.src;
         base_image.crossOrigin="anonymous";
         //var wrh = base_image.width / base_image.height;
         var newWidth = 600;
