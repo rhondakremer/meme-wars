@@ -35,7 +35,7 @@ class InviteFriends extends Component
 Invite your friends to roast you. You know you want to.          
 <br/>
 <br/>
-          <input id="inviteFormInput" placeholder="Enter emails separated by commas" type="text" ref={(input) => this.input = input} />
+          <input for="email" id="inviteFormInput" placeholder=" Enter emails separated by commas" type="text" ref={(input) => this.input = input} />
         </label>
         <br/>
         <br/>

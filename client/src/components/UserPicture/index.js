@@ -6,8 +6,7 @@ import "./style.css";
 function UserPicture(props) {
     return (
       <div >
-        <img id="userPicture" className="img-responsive" src={props.sessionImage} alt="logo"/>
-       
+        <img id="userPicture" className="img-responsive" src={props.sessionImage} alt="You need to upload a profile picture" />
       </div>
     );
   }
