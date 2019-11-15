@@ -18,13 +18,13 @@ class App extends Component {
     super(props);
     this.state={
       session:null,
-      users: []
+      // users: []
     }
   }
 
   componentWillMount() {
-    Api.getUsers()
-    .then(res => this.setState({users:res.data}, () => this.getUserImg()))
+    // Api.getUsers()
+    // .then(res => this.setState({users:res.data}, () => this.getUserImg()))
   }
 
 
@@ -55,12 +55,12 @@ class App extends Component {
     console.log("the app.js logout function is found");
   }
 
-  getUserImg() {
-    let userImages = [];
-    for (let i = 0; i < this.state.users.length; i++) {
-      userImages.push(this.state.users[i].image)
-    } this.setState({userImages})
-  }
+  // getUserImg() {
+  //   let userImages = [];
+  //   for (let i = 0; i < this.state.users.length; i++) {
+  //     userImages.push(this.state.users[i].image)
+  //   } this.setState({userImages})
+  // }
 
 
   render() {
