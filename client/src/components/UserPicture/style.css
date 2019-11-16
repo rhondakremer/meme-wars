@@ -2,8 +2,8 @@
     width: 10rem;
     height: 10rem;
     border-radius: 100px;
-    border: white 1px solid;
+    border: black 1px solid;
     margin-top: 15px;
-    box-shadow: aliceblue 0px 1px 0px 1px ;
+    box-shadow: black 0px 1px 0px 1px ;
 
 }
