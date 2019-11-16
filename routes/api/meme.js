@@ -7,7 +7,8 @@ const memeController = require("../../controllers/memeController");
 //   .post(userController.create);
 
 router.route("/")
-  .post(memeController.create);
+    .get(memeController.findAll)
+    .post(memeController.create);
 
 // Matches with "/api/feed/:id"
 // router
