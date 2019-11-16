@@ -50,9 +50,11 @@ class MemeMaker extends Component {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
-
+        Api.
+            startBattle(memeSaved.data._id)
+            .then(newBattleInitiated => console.log("we did a thing", newBattleInitiated))
                 // debugger;
-                console.log(JSON.stringify(memeSaved));
+                console.log("HOW DOES THIS LOOK?", JSON.stringify(memeSaved.data._id));
                 alert("Yay! Your meme has been added")
                 this.setState({modalIsOpen: false})
         })
@@ -194,7 +196,7 @@ class MemeMaker extends Component {
                         <div className="content">
                             {this.state.images.map((image, index) => (
                                 <div className="image-holder" key={image}>
-                                    <img crossorigin="anonymous"
+                                    <img crossOrigin="anonymous"
                                         style={{
                                             width: "100%",
                                             cursor: "pointer",
