@@ -10,9 +10,15 @@
     background-color: rgb(9, 55, 104);
     color: white;
     text-align: center; 
+    text-decoration: none;
 }
 
 .react-html5-camera-photo video
 {
     max-width: 100%!important;
+}
+
+.react-html5-camera-photo>img, .react-html5-camera-photo>video {
+    width: 100%!important;
+    border-radius: 25px;
 }

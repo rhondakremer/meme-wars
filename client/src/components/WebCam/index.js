@@ -3,9 +3,16 @@ import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
+import Webcam from 'react-webcam';
+import Api from '../../utils/API';
+//import saveImage from 'save-image';
 import "./style.css";
 
- 
+const moment = require('moment');
+
+//========================================================
+
+
 //import ImagePreview from './ImagePreview';
  
 class WebCam extends Component {
@@ -15,18 +22,30 @@ class WebCam extends Component {
     super(props)
     this.state={
       modalIsOpen: true,
+      image: true
     }
+  }
+
+  setRef = webcam => {
+    this.webcam = webcam;
+  }
+
+  capture = () => {
+    const imageSrc = this.webcam.getScreenshot();
   }
 
   onTakePhoto (dataUri) {
     // Do stuff with the photo...
-    console.log('takePhoto');
-    
+    let myImage = dataUri;
+    //console.log("I hit onTakePhoto function" + myImage);
+    myImage = `${moment().format('X')}.jpg`;
+    console.log(myImage);
+    localStorage.setItem("name", myImage);
   }
  
   onTakePhotoAnimationDone (dataUri) {
     // Do stuff with the photo...
-    console.log('takePhoto');
+    //console.log('takePhoto');
   }
  
   onCameraError (error) {
