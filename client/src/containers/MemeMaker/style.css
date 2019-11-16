@@ -14,8 +14,15 @@
 }
 
 #battleButtonOnMemeMakerContainer{
-  margin-top: 5px;
+  margin-top: 15px;
 }
+
+#battleButtonOnMemeMakerContainer:hover {
+background-color: rgb(72, 73, 74) !important;
+border: 1px solid #4169e1 !important;
+color: whitesmoke;
+}
+
 
 .form-control:focus {
   border-color: #666;
@@ -75,7 +82,8 @@
 }
 
 .image-holder:hover {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 3px 15px #4169e1 !important;
+  ;
 }
 
 .row {
@@ -109,8 +117,15 @@
 .content {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+  
 }
+.image-holder{
+margin: 20px;
+  margin-bottom: 50px !important;
+}
+
 
 .meme-bottom-caption {
   position: absolute;
