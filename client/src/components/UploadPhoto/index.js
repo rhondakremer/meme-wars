@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import cloudinary from "cloudinary-react";
+import WebCam from "../WebCam";
 
 class UploadPhoto extends Component {
   constructor() {
@@ -46,8 +47,7 @@ class UploadPhoto extends Component {
           result = result.info;
           if (!Array.isArray(result)) result = [result];
           result = result.map(image => {
-            image.url = `https://${image.url.replace("http://", "")}`;
-            return image;
+          image.url = `https://${image.url.replace("http://", "")}`;
           });
 
           if (options.returnJustUrl) result = result.map(image => image.url);
