@@ -22,14 +22,14 @@ var base64Img = require('base64-img');
 //       return filename;
 //     },
 //    }));
-console.log("Writing file...")
+
     const upload = multer({
         dest: '/Users/szilardmolnar/Documents/CODING_BOOTCAMP/PROJECT_3/final-project/images',
         // storage: storage2, 
         limits: { fileSize: 1024*1024*50 }
     })
-    router.route("/").post( ( req, res ) => {
-        let imageName=`${Date.now()}.jpg`; 
+    router.route("/:img?").post( ( req, res ) => {
+        let imageName=`${Date.now()}`; 
         base64Img.img(req.body.image, `images`, imageName, function(err, filepath) {
             if(err)
             {
@@ -38,10 +38,22 @@ console.log("Writing file...")
             }
             else
             {
-                res.send(imageName);
+                let _SERVER_URL="http://localhost:3001";
+                //Save image to database associated to user
+                if (process.env.NODE_ENV === "production") {
+                    _SERVER_URL="URL of heroku app";
+                }
+
+                //What you store in the database is:
+                let imgUrl=`${_SERVER_URL}/api/images/${imageName}.jpg`;
+                //Here insert image in the database
+                res.send(imgUrl);
             }
         });
         
+    }).get((req,res)=>{
+        console.log(req.params);
+        res.sendFile(path.join(__dirname, `../../images/${req.params.img}` ));
     })
 /*router.route("/")
    .post( 

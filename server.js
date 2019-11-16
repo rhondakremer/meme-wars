@@ -22,7 +22,11 @@ app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs
+
+
+
 app.get("*", (req, res) => {
+  console.log(req.params)
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
