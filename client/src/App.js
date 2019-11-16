@@ -19,13 +19,15 @@ class App extends Component {
     super(props);
     this.state={
       session:null,
-      users: []
+      users: [],
+      memes: []
     }
   }
 
   componentWillMount() {
-    Api.getUsers()
-    .then(res => this.setState({users:res.data}, () => this.getUserImg()))
+    // Api.getUsers()
+    // .then(res => this.setState({users:res.data}, () => this.getUserImg()));
+    Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("state log id: \n" + this.state.memes[1]._id)));
   }
 
 
@@ -45,7 +47,7 @@ class App extends Component {
     this.setState({session});
     // console.log(session.name)
     localStorage.setItem("session", JSON.stringify(session));
-    console.log("signIn function");
+   // console.log("signIn function");
   }
 
   logOut=()=>{
@@ -53,19 +55,19 @@ class App extends Component {
       session: null
     })
     localStorage.empty();
-    console.log("the app.js logout function is found");
+    //console.log("the app.js logout function is found");
   }
 
-  getUserImg() {
-    let userImages = [];
-    for (let i = 0; i < this.state.users.length; i++) {
-      userImages.push(this.state.users[i].image)
-    } this.setState({userImages})
-  }
+  // getUserImg() {
+  //   let userImages = [];
+  //   for (let i = 0; i < this.state.users.length; i++) {
+  //     userImages.push(this.state.users[i].image)
+  //   } this.setState({userImages})
+  // }
 
 
   render() {
-    console.log( "this is the render app.js" + JSON.stringify(this.state.userImages ));
+   // console.log( "this is the render app.js" + JSON.stringify(this.state.userImages ));
 
     return <Router>
          <Switch>
@@ -79,7 +81,7 @@ class App extends Component {
 
 
             {this.state.session&&[
-            <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+            <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} sessionImage={this.state.session.image} createdMemes={this.state.memes} />} />,
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} userImages={this.state.userImages}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
 

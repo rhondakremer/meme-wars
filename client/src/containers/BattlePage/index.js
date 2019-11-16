@@ -14,7 +14,7 @@ class BattlePage extends Component
     {
         super(props);
         this.state={
-            currentUser: ""
+            currentUser: "",
         }
     }
 
@@ -28,30 +28,25 @@ class BattlePage extends Component
 
     render()
     {
-        return <div >
+        return (<div >
         <div className="col-12" id="navbarDiv">
             <NavBar/>
             </div>
-
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
-
+            {console.log("ASdfasdf" + this.props.createdMemes)}
             <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
             </div>
             <div id="memeCardDiv">
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-            <MemeCard/>
-
+            {this.props.createdMemes.map((item, index) => (
+                                <MemeCard id={item._id} src={item.baseImgURL} index={index}/>
+                            ))}
+            <MemeCard id={this.props.createdMemes[1]
+            ._id} src={this.props.createdMemes[1].baseImgURL}/>
             </div>
             </div>
 
-            </div>
+            </div>);
     }
 }
 

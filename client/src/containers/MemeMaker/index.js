@@ -4,7 +4,6 @@ import "./style.css";
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Api from '../../utils/API';
-//import { Serializer } from 'v8';
 
 const initialState = {
     toptext: "",
@@ -17,31 +16,6 @@ const initialState = {
     bottomY: "90%"
 }
 
-// const photos = [
-//     { src: '/images/vict-baby.png' },
-//     { src: '/images/ned.jpeg' },
-//     { src: '/images/devilgirl.jpg' },
-//     { src: '/images/trump.jpg' },
-//     { src: '/images/one-does-not.jpg' },
-//     { src: '/images/dank.png' },
-//     { src: '/images/boy.png' },
-//     { src: '/images/sad.png' },
-//     { src: '/images/nelio.jpg' },
-//     { src: '/images/wolf.png' },
-//     { src: '/images/fry.jpg' },
-//     { src: '/images/jobs.jpg' },
-//     { src: '/images/phone.jpg' },
-//     { src: '/images/oldie.png' },
-//     { src: '/images/image.png' },
-//     { src: '/images/doubt.png' },
-//     { src: '/images/crying.png' },
-//     { src: '/images/sponge.png' },
-//     { src: '/images/dog.png' },
-//     { src: '/images/frust.png' },
-//     { src: '/images/web.png' },
-//     { src: '/images/penguin.png' }
-// ];
-
 class MemeMaker extends Component {
     constructor(props) {
         super(props);
@@ -51,37 +25,50 @@ class MemeMaker extends Component {
             modalIsOpen: false,
             currentImagebase64: null,
             ...initialState,
-            baseImgURL: "https://i.imgflip.com/gzlgp.jpg", //
+            baseImgURL: "",
             createdBy:"testUser",
-            imageOf:"testUser2"
+            imageOf:"testUser2",
+            users: [],
+            images: []
         }
     }
 
     componentWillMount() {
-        this.setState({images:this.props.userImages} , () => console.log("state set"));        
+        Api.getUsers()
+        .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
+      }
+
+      getUserImg() {
+        let images = [];
+        for (let i = 0; i < this.state.users.length; i++) {
+          images.push(this.state.users[i].image)
+        } this.setState({images: images})
       }
 
     saveMeme= () => {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
-                // debugger;
-                console.log(JSON.stringify(memeSaved))
-        })
 
+                // debugger;
+                console.log(JSON.stringify(memeSaved));
+                alert("Yay! Your meme has been added")
+                this.setState({modalIsOpen: false})
+        })
     }
+    
     _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
         let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
         let mimetype="image/jpeg"
         return "data:"+mimetype+";base64,"+b64encoded
     }
+
     openImage = (index) => {
-    
-        debugger
         console.log(index);
         console.log(this.state.images[index]);
         const image = this.state.images[index];
+        this.setState({baseImgURL:this.state.images[index]});
         Api.downloadImage(image).then(imageData=>{
             this.setState(prevState => ({
                 currentImage: index,
@@ -89,10 +76,7 @@ class MemeMaker extends Component {
                 currentImagebase64: this._imageEncode(imageData.data),
                 ...initialState
             }));
-          
         })
-        
-        
     }
 
     toggle = () => {
@@ -161,29 +145,8 @@ class MemeMaker extends Component {
         });
     }
 
-    // convertSvgToImage = () => {
-    //     const svg = this.svgRef;
-    //     let svgData = new XMLSerializer().serializeToString(svg);
-    //     const canvas = document.createElement("canvas");
-    //     canvas.setAttribute("id", "canvas");
-    //     const svgSize = svg.getBoundingClientRect();
-    //     canvas.width = svgSize.width;
-    //     canvas.height = svgSize.height;
-    //     const img = document.createElement("img");
-    //     img.setAttribute("src", "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgData))));
-    //     img.onload = function () {
-    //         canvas.getContext("2d").drawImage(img, 0, 0);
-    //         const canvasdata = canvas.toDataURL("image/png");
-    //         const a = document.createElement("a");
-    //         a.download = "meme.png";
-    //         a.href = canvasdata;
-    //         document.body.appendChild(a);
-    //         a.click();
-    //     };
-    // }
 
     getBase64Image(img) {
-        debugger;
         var canvas = document.createElement("canvas");
         canvas.width = img.width;
         canvas.height = img.height;
@@ -194,11 +157,11 @@ class MemeMaker extends Component {
     }
 
     render() {
-        console.log(this.props.userImages);
+        // console.log(this.state.images);
         //let images = JSON.stringify(this.props.userImages);
         const image = this.state.images[this.state.currentImage];
         const base_image = new Image();
-        base_image.src = image.src;
+        // base_image.src = image.src;
         base_image.crossOrigin="anonymous";
         //var wrh = base_image.width / base_image.height;
         var newWidth = 600;
