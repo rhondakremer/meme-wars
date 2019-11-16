@@ -8,6 +8,7 @@ import MemeMaker from "./containers/MemeMaker";
 import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
 import WebCam from './components/WebCam';
+import Sent from './containers/Sent';
 // import API from "./utils/API";
 
 
@@ -26,7 +27,10 @@ class App extends Component {
   componentWillMount() {
     // Api.getUsers()
     // .then(res => this.setState({users:res.data}, () => this.getUserImg()));
+
     // Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("state log id: \n" + this.state.memes[1]._id)));
+
+    Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("memes pulled: ")));
   }
 
 
@@ -83,14 +87,15 @@ class App extends Component {
             <Route path= "/battle" component={()=><BattlePage sessionName={this.state.session.name} sessionImage={this.state.session.image} createdMemes={this.state.memes} />} />,
             <Route path= "/mememaker" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} userImages={this.state.userImages}/>} />,
             <Route path= "/homepage" component={()=><MemeMaker session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />,
+
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+
+           <Route path= "/sent" component={()=><Sent session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+
             <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />
             ]}
             {!this.state.session&&<Route component={()=><Login onLogin={this.signIn}/>} /> }
             
-          
-          
-
 
         </Switch>
       </Router>

@@ -32,7 +32,7 @@ class LoginForm extends Component
 
     render()
     {
-        console.log("Login Form Props:",this.props)
+        // console.log("Login Form Props:",this.props)
         return <div className="container">
             <div >
                 <div className="form-group">

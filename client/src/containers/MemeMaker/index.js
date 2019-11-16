@@ -4,6 +4,7 @@ import "./style.css";
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Api from '../../utils/API';
+import MemeCard2 from '../../components/MemeCard2';
 
 const initialState = {
     toptext: "",
@@ -26,7 +27,7 @@ class MemeMaker extends Component {
             currentImagebase64: null,
             ...initialState,
             baseImgURL: "",
-            createdBy:"testUser",
+            createdBy: null,
             imageOf:"testUser2",
             users: [],
             images: []
@@ -36,22 +37,28 @@ class MemeMaker extends Component {
     componentWillMount() {
         Api.getUsers()
         .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
+        var user = JSON.parse(localStorage.getItem('session'));
+        // var userId = user.id;
+        console.log("let's see why i'm unhappy today", user.id)
+        this.setState({currentUser: user.id, createdBy: user.id})
       }
 
       getUserImg() {
         let images = [];
         for (let i = 0; i < this.state.users.length; i++) {
           images.push(this.state.users[i].image)
-        } this.setState({images: images})
+        } this.setState({images: images}, () => console.log(this.state))
       }
 
     saveMeme= () => {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
-
+        Api.
+            startBattle(memeSaved.data._id)
+            .then(newBattleInitiated => console.log("we did a thing", newBattleInitiated))
                 // debugger;
-                console.log(JSON.stringify(memeSaved));
+                console.log("HOW DOES THIS LOOK?", JSON.stringify(memeSaved.data._id));
                 alert("Yay! Your meme has been added")
                 this.setState({modalIsOpen: false})
         })
@@ -189,12 +196,11 @@ class MemeMaker extends Component {
                     </div>
                     
                     <div id="memeCardDiv">
-                        {/* <span>MEEEMMMMEEES</span> */}
                         {this.state.images &&
                         <div className="content">
                             {this.state.images.map((image, index) => (
                                 <div className="image-holder" key={image}>
-                                    <img crossorigin="anonymous"
+                                    <img crossOrigin="anonymous"
                                         style={{
                                             width: "100%",
                                             cursor: "pointer",

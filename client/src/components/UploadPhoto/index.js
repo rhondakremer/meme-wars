@@ -208,7 +208,7 @@ class UploadPhoto extends Component {
   };
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // if (!this.props.cloudName || !this.props.uploadPreset)
     //     throw new Error("cloudName and uploadPreset props must be set");
 

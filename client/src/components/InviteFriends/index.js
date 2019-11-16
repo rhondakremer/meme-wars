@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Api from '../../utils/API';
 import "./style.css"
+import axios from "axios"
+
 
 class InviteFriends extends Component
 {
@@ -21,32 +23,55 @@ class InviteFriends extends Component
         })
     }
 
-    render()
-    {
+    handleSubmit(e){
+        e.preventDefault();
+        const email = document.getElementById('email').value;
+        
+        axios({
+            method: "POST", 
+            url:"/api/email/send", 
+            data: {
+                  
+                email: email,  
+                messsage: "You've been challenged to a Meme Off!! Click here to battle."
+            }
+        }).then((response)=>{
+            if (response.data.msg === 'success'){
+                alert("Message Sent."); 
+                this.resetForm()
+            }else if(response.data.msg === 'fail'){
+                alert("Message failed to send.")
+            }
+        })
+    }
+
+    resetForm(){
+        document.getElementById('contact-form').reset();
+    }
+
+    
+
+    render() {
         return <div id="InviteFriendsRow">
-            <div className="jumbotron col-12">
+ <div className="jumbotron col-12">
     <h1>Challenge Your Friends!</h1>
   </div>
   <br/>
   <br/>
-  <form onSubmit={this.handleSubmit}>
-        <label>
-Invite your friends to roast you. You know you want to.          
-<br/>
-<br/>
-          <input for="email" id="inviteFormInput" placeholder=" Enter emails separated by commas" type="text" ref={(input) => this.input = input} />
-        </label>
-        <br/>
-        <br/>
 
-        <input className="btn" type="submit" value="Submit" />
-      </form>
-            
-
-            
+<form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+    
+    <div className="form-group">
+        <label for="email">Email address</label>
+        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+    </div>
+    
+    <input className="btn" type="submit" value="Submit" />
+</form>
 </div>
 
     }
 }
 
-export default InviteFriends;
+    export default InviteFriends
+
