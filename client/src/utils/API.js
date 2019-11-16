@@ -54,6 +54,12 @@ export default {
             imageOf
         })
     },
+    startBattle: function(id) {
+        return axios.post("/api/feed", {
+            id
+        })
+    },
+    
     getMemes: function(){
         return axios.get("/api/meme/")
     }

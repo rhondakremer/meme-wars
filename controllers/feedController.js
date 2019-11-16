@@ -16,8 +16,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    let battle = req.body;
+    battle.meme1 = req.body.id;
+    battle.meme2 = ""
     db.Feed
-      .create(req.body)
+      .create(battle)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
