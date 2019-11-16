@@ -16,3 +16,21 @@
     text-align: center;
 
 }
+#jumbotronContainer{
+    background: url("../../images/1x/logo.png");
+    background-repeat: no-repeat;
+    height: 150px;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0px auto !important;
+    padding: 0px auto !important;
+}
+#loginJumbotron{
+    
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 0px auto !important;
+    padding: 0px auto !important;
+}
