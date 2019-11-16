@@ -3,7 +3,11 @@ import axios from 'axios';
 // import { rejects } from 'assert';
 
 export default {
-
+    downloadImage:function(url){
+        return axios.get(url,{
+            responseType: 'arraybuffer' 
+        });
+    },
     login:function(email, password)
     {
         return axios.post("/api/user/login", {
@@ -50,7 +54,7 @@ export default {
             imageOf
         })
     },
-    getMemes: function(id){
-        return axios.get("/api/meme/" + id)
+    getMemes: function(){
+        return axios.get("/api/meme/")
     }
 }

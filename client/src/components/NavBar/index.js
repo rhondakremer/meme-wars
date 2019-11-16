@@ -48,7 +48,10 @@ class NavBar extends Component
   </li>
 
   <li className="nav-item">
-  
+    <Link to="/battle" className="nav-link active">BATTLES</Link>
+  </li>
+
+  <li className="nav-item" id="logOutButton">
   <button className="nav-link active" onClick={this.logout}>Log out</button>
   </li>
 </ul>

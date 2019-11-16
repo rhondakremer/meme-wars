@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import UserPicture from "../UserPicture";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 // import Api from '../../utils/API';
 import "./style.css"
 
@@ -41,7 +43,7 @@ class UserProfile extends Component
             
             <br />
             <h6>Pending Wars</h6>
-            <h6>Add Friends</h6>
+            <h6 id="linkToInvite"><Link to="/invite" >Add Friends</Link></h6>
 
             <h5>{this.props.sessionName}'s Stats:</h5>
             
