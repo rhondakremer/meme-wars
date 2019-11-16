@@ -217,7 +217,7 @@ class UploadPhoto extends Component {
     return (
       <section>
         <div>
-          <img src={image} />
+          <img src= {image} />
         </div>
         <a
           ref="uploader"

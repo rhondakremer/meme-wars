@@ -34,7 +34,6 @@ class BattlePage extends Component
             </div>
             <div className="row col-12" id="mainBodyDiv">
             <div id="userProfileDiv">
-            {console.log("ASdfasdf" + this.props.createdMemes)}
             <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
             </div>
             <div id="memeCardDiv">

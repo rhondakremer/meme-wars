@@ -1,4 +1,30 @@
 
 #loginButton{
     width: 100px;
+    background-color: rgb(205, 133, 225) !important;
+    border: black solid 1px !important;
+    color: black;
+}
+
+#input{
+ width: 300px;
+ text-align: center;
+ margin: 5px;
+}
+
+#loginContainerComponent{
+border: gray 1px dashed !important;
+margin: 0px auto;
+align-content: center;
+justify-content: center;
+text-align: center;
+width: 40%;
+padding: 30px;
+background-color: white;
+}
+
+#form-group-login{
+    padding: 10px auto;
+    margin: 10px auto;
+    text-align: center;
 }
