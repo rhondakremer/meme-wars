@@ -27,7 +27,10 @@ class App extends Component {
   componentWillMount() {
     // Api.getUsers()
     // .then(res => this.setState({users:res.data}, () => this.getUserImg()));
-    Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("state log id: \n" + this.state.memes[1]._id)));
+
+    // Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("state log id: \n" + this.state.memes[1]._id)));
+
+    Api.getMemes().then(memeRes => this.setState({memes:memeRes.data}, () => console.log("memes pulled: ")));
   }
 
 
