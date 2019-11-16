@@ -23,6 +23,11 @@ class LoginForm extends Component
         Api.login(this.state.email, this.state.password).then(session=>{
             this.props.onLogin(session.data);
         })
+
+        if(this.state.email === "" || this.state.password === "")
+        {
+            alert("Please fill both username and password fields in order to login.");
+        }
     }
 
     render()

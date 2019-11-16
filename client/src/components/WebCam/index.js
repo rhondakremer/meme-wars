@@ -5,6 +5,7 @@ import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import Api from '../../utils/API';
+import axios from 'axios';
 //import saveImage from 'save-image';
 import "./style.css";
 
@@ -38,9 +39,11 @@ class WebCam extends Component {
     // Do stuff with the photo...
     let myImage = dataUri;
     //console.log("I hit onTakePhoto function" + myImage);
-    myImage = `${moment().format('X')}.jpg`;
-    console.log(myImage);
-    localStorage.setItem("name", myImage);
+    // myImage = `${moment().format('X')}.jpg`;
+    //console.log(myImage);
+    //localStorage.setItem("name", myImage);
+    axios.post("/api/images", {image:myImage});
+
   }
  
   onTakePhotoAnimationDone (dataUri) {
