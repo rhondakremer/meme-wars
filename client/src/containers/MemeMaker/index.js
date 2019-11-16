@@ -27,28 +27,43 @@ class MemeMaker extends Component {
             ...initialState,
             baseImgURL: "",
             createdBy:"testUser",
-            imageOf:"testUser2"
+            imageOf:"testUser2",
+            users: [],
+            images: []
         }
     }
 
     componentWillMount() {
-        this.setState({images:this.props.userImages} , () => console.log("state set"));        
+        Api.getUsers()
+        .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
+      }
+
+      getUserImg() {
+        let images = [];
+        for (let i = 0; i < this.state.users.length; i++) {
+          images.push(this.state.users[i].image)
+        } this.setState({images: images})
       }
 
     saveMeme= () => {
         Api
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
-                console.log(JSON.stringify(memeSaved))
-        })
 
+                // debugger;
+                console.log(JSON.stringify(memeSaved));
+                alert("Yay! Your meme has been added")
+                this.setState({modalIsOpen: false})
+        })
     }
+    
     _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
         let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
         let mimetype="image/jpeg"
         return "data:"+mimetype+";base64,"+b64encoded
     }
+
     openImage = (index) => {
         console.log(index);
         console.log(this.state.images[index]);
@@ -61,10 +76,7 @@ class MemeMaker extends Component {
                 currentImagebase64: this._imageEncode(imageData.data),
                 ...initialState
             }));
-          
         })
-        
-        
     }
 
     toggle = () => {
@@ -145,11 +157,11 @@ class MemeMaker extends Component {
     }
 
     render() {
-        console.log(this.props.userImages);
+        // console.log(this.state.images);
         //let images = JSON.stringify(this.props.userImages);
         const image = this.state.images[this.state.currentImage];
         const base_image = new Image();
-        base_image.src = image.src;
+        // base_image.src = image.src;
         base_image.crossOrigin="anonymous";
         //var wrh = base_image.width / base_image.height;
         var newWidth = 600;
