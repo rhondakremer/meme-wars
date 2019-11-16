@@ -26,7 +26,7 @@ class MemeMaker extends Component {
             currentImagebase64: null,
             ...initialState,
             baseImgURL: "",
-            createdBy:"testUser",
+            createdBy: null,
             imageOf:"testUser2",
             users: [],
             images: []
@@ -36,13 +36,17 @@ class MemeMaker extends Component {
     componentWillMount() {
         Api.getUsers()
         .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
+        var user = JSON.parse(localStorage.getItem('session'));
+        // var userId = user.id;
+        console.log("let's see why i'm unhappy today", user.id)
+        this.setState({currentUser: user.id, createdBy: user.id})
       }
 
       getUserImg() {
         let images = [];
         for (let i = 0; i < this.state.users.length; i++) {
           images.push(this.state.users[i].image)
-        } this.setState({images: images})
+        } this.setState({images: images}, () => console.log(this.state))
       }
 
     saveMeme= () => {
