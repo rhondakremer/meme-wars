@@ -11,10 +11,10 @@ class NavBar extends Component
     super(props)
   }
 
-  componentDidMount() {
-    Api.getUsers()
-    .then(res => console.log(res.data))
-  }
+  // componentDidMount() {
+  //   Api.getUsers()
+  //   .then(res => console.log(res.data))
+  // }
 
   logout=()=>{
       localStorage.clear();

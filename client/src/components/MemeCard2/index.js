@@ -16,12 +16,6 @@ class MemeCard2 extends Component
         }
     }
 
-    // getUserImg() {
-    //     let images = [];
-    //     for (let i = 0; i < this.state.users.length; i++) {
-    //       images.push(this.state.users[i].image)
-    //     } this.setState({images: images})
-    //   }
 
     _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
@@ -31,10 +25,6 @@ class MemeCard2 extends Component
     }
     
     openImage = (image) => {
-        // console.log(index);
-        // console.log(this.state.images[index]);
-        // const image = this.state.images[index];
-        // this.setState({baseImgURL:this.state.images[index]});
         Api.downloadImage(image).then(imageData=>{
             this.setState(prevState => ({
                 imagebase64: this._imageEncode(imageData.data),
@@ -42,17 +32,6 @@ class MemeCard2 extends Component
         })
     }
 
-    // toggle = () => {
-    //     this.setState(prevState => ({
-    //         modalIsOpen: !prevState.modalIsOpen
-    //     }));
-    // }
-
-    // changeText = (event) => {
-    //     this.setState({
-    //         [event.currentTarget.name]: event.currentTarget.value
-    //     });
-    // }
 
     getStateObj = (e, type) => {
         let rect =
@@ -78,15 +57,6 @@ class MemeCard2 extends Component
         return stateObj;
     }
 
-    // getBase64Image(img) {
-    //     var canvas = document.createElement("canvas");
-    //     canvas.width = img.width;
-    //     canvas.height = img.height;
-    //     var ctx = canvas.getContext("2d");
-    //     ctx.drawImage(img, 0, 0);
-    //     var dataURL = canvas.toDataURL("image/png");
-    //     return dataURL;
-    // }
 
     render()
     {
