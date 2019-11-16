@@ -54,7 +54,7 @@ export default {
             imageOf
         })
     },
-    getMemes: function(id){
-        return axios.get("/api/meme/" + id)
+    getMemes: function(){
+        return axios.get("/api/meme/")
     }
 }

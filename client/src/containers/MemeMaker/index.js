@@ -25,7 +25,7 @@ class MemeMaker extends Component {
             modalIsOpen: false,
             currentImagebase64: null,
             ...initialState,
-            baseImgURL: "https://i.imgflip.com/gzlgp.jpg", //
+            baseImgURL: "",
             createdBy:"testUser",
             imageOf:"testUser2",
             users: [],
@@ -68,6 +68,7 @@ class MemeMaker extends Component {
         console.log(index);
         console.log(this.state.images[index]);
         const image = this.state.images[index];
+        this.setState({baseImgURL:this.state.images[index]});
         Api.downloadImage(image).then(imageData=>{
             this.setState(prevState => ({
                 currentImage: index,
