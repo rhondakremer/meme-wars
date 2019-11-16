@@ -4,6 +4,7 @@ import "./style.css";
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Api from '../../utils/API';
+import MemeCard2 from '../../components/MemeCard2';
 
 const initialState = {
     toptext: "",
@@ -189,7 +190,6 @@ class MemeMaker extends Component {
                     </div>
                     
                     <div id="memeCardDiv">
-                        {/* <span>MEEEMMMMEEES</span> */}
                         {this.state.images &&
                         <div className="content">
                             {this.state.images.map((image, index) => (
