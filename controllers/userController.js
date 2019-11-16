@@ -20,7 +20,7 @@ module.exports = {
     db.User
       .find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => res.json(dbModel.map((user)=>{return {image:user.image,id:user._id}})))
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
@@ -46,6 +46,17 @@ module.exports = {
         {
           res.sendStatus(401);
         }
+      })
+      .catch(err => res.status(422).json(err));
+  },
+
+  getUserFromImage: function(req,res) {
+    console.log("stuff", req.body)
+    db.User
+      .find({image:req.body})
+      .then(dbModel => {
+        console.log("GIVE ME THE ID!" + dbModel)
+        res.json(getSession(dbModel))
       })
       .catch(err => res.status(422).json(err));
   },
