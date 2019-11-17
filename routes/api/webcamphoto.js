@@ -24,7 +24,8 @@ var base64Img = require('base64-img');
 //    }));
 
     const upload = multer({
-        dest: 'images',
+        // dest: '/Users/szilardmolnar/Documents/CODING_BOOTCAMP/PROJECT_3/final-project/images',
+        dest:'../../images',
         // storage: storage2, 
         limits: { fileSize: 1024*1024*50 }
     })
