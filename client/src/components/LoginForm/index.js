@@ -24,10 +24,10 @@ class LoginForm extends Component
             this.props.onLogin(session.data);
         })
 
-        if(this.state.email === "" || this.state.password === "")
+        /*if(this.state.email === "" || this.state.password === "")
         {
             alert("Please fill both username and password fields in order to login.");
-        }
+        }*/
     }
 
     render()
