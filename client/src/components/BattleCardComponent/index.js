@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Api from '../../utils/API';
 import "./style.css"
 
 
@@ -6,6 +7,27 @@ import "./style.css"
 class BattleCard extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    Api.getUsers()
+        .then(res => {
+            let user = JSON.parse(localStorage.getItem('session'));
+            this.setState({currentUser: user.id})
+        }); 
+
+
+
+    // how to get all battles in feed
+    Api.getBattles()
+    .then( res => 
+      console.log("these are all the battles in the feed", res.data)
+    )
+
+    // get all memes other users have made of you-- to get current user replace hard coded with this.state.currentUser inside of a callback for this.set.state in Api.getusers above
+    Api.getMemesOfMe("5dcb1e7bcc23167d28f414dd")
+    .then(res =>
+      console.log("these are memes of me", res.data))
   }
 
   render() {
