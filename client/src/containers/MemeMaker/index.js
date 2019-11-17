@@ -22,26 +22,29 @@ class MemeMaker extends Component {
         super(props);
         this.state = {
             currentUser: "",
-            currentImage: 0,
+            currentImage: null,
             modalIsOpen: false,
             currentImagebase64: null,
             ...initialState,
             baseImgURL: "",
             createdBy: null,
-            imageOf:"testUser2",
+            imageOf: null,
             users: [],
             images: []
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         Api.getUsers()
-        .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
-        var user = JSON.parse(localStorage.getItem('session'));
-        // var userId = user.id;
-        console.log("let's see why i'm unhappy today", user.id)
-        this.setState({currentUser: user.id, createdBy: user.id})
+        .then(res => {
+            let user = JSON.parse(localStorage.getItem('session'));
+            this.setState({currentUser: user.id, createdBy: user.id, images:res.data,currentImage:res.data.length>0?res.data[0]:null})
+        }); 
       }
+
+    //   componentDidMount() {
+       
+    //   }
 
       getUserImg() {
         let images = [];
@@ -71,14 +74,21 @@ class MemeMaker extends Component {
         return "data:"+mimetype+";base64,"+b64encoded
     }
 
-    openImage = (index) => {
-        console.log(index);
-        console.log(this.state.images[index]);
-        const image = this.state.images[index];
-        this.setState({baseImgURL:this.state.images[index]});
-        Api.downloadImage(image).then(imageData=>{
+    openImage = (image) => {
+        
+        this.setState({baseImgURL:image.image}, () => {
+            console.log( 'baseimgurl', this.state.baseImgURL)
+            Api.getUserFromImage(image.id).then(
+            user => {
+
+                console.log("this is the response", user.data._id)
+                this.setState({imageOf:user.data._id}, () => console.log("imageof set", this.state.imageOf))
+            })
+        });
+
+        Api.downloadImage(image.image).then(imageData=>{
             this.setState(prevState => ({
-                currentImage: index,
+                currentImage: image,
                 modalIsOpen: !prevState.modalIsOpen,
                 currentImagebase64: this._imageEncode(imageData.data),
                 ...initialState
@@ -166,7 +176,7 @@ class MemeMaker extends Component {
     render() {
         // console.log(this.state.images);
         //let images = JSON.stringify(this.props.userImages);
-        const image = this.state.images[this.state.currentImage];
+        //const image = this.state.currentImage.image;
         const base_image = new Image();
         // base_image.src = image.src;
         base_image.crossOrigin="anonymous";
@@ -199,7 +209,7 @@ class MemeMaker extends Component {
                         {this.state.images &&
                         <div className="content">
                             {this.state.images.map((image, index) => (
-                                <div className="image-holder" key={image}>
+                                <div className="image-holder" key={image.id}>
                                     <img crossOrigin="anonymous"
                                         style={{
                                             width: "100%",
@@ -207,11 +217,11 @@ class MemeMaker extends Component {
                                             height: "100%"
                                         }}
                                         alt={index}
-                                        src={image}
-                                        onClick={() => this.openImage(index)}
+                                        src={image.image}
+                                        onClick={() => this.openImage(image)}
                                         role="presentation"
                                     />
-                                    <button id="battleButtonOnMemeMakerContainer" className="btn btn-primary" onClick={() => this.openImage(index)}>Click to BATTLE!</button>
+                                    <button id="battleButtonOnMemeMakerContainer" className="btn btn-primary" onClick={() => this.openImage(image)}>Click to BATTLE!</button>
                                 </div>
                             ))}
 
