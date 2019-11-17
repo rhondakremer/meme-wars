@@ -39,8 +39,8 @@ class MemeMaker extends Component {
         .then(res => this.setState({users:res.data}, () => this.getUserImg())); 
         var user = JSON.parse(localStorage.getItem('session'));
         // var userId = user.id;
-        console.log("let's see why i'm unhappy today", user.id)
-        this.setState({currentUser: user.id, createdBy: user.id})
+        //console.log("let's see why i'm unhappy today", user.id)
+        //this.setState({currentUser: user.id, createdBy: user.id})
       }
 
       getUserImg() {
