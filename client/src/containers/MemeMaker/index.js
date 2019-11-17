@@ -58,7 +58,7 @@ class MemeMaker extends Component {
             .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
             .then(memeSaved => {
         Api.
-            startBattle(memeSaved.data._id)
+            startBattle(memeSaved.data._id, memeSaved.data.createdBy, memeSaved.data.imageOf)
             .then(newBattleInitiated => console.log("we did a thing", newBattleInitiated))
                 // debugger;
                 console.log("HOW DOES THIS LOOK?", JSON.stringify(memeSaved.data._id));

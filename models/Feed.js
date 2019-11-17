@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const FeedSchema = new Schema({
     meme1: String,
+    meme1Initiator: String,
     meme2: String,
+    meme2Challenger: String,
     voted: [String],
     votes: [{"meme1votes": 0}, {"meme2votes": 0}],
     date: { type: Date, default: Date.now}

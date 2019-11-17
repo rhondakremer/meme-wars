@@ -26,9 +26,19 @@ class BattleCard extends Component {
 
     // get all memes other users have made of you-- to get current user replace hard coded with this.state.currentUser inside of a callback for this.set.state in Api.getusers above
     Api.getMemesOfMe("5dcb1e7bcc23167d28f414dd")
-    .then(res =>
-      console.log("these are memes of me", res.data))
+      .then(res =>
+        console.log("there are memes of me", res.data))
+
+// this pulls from feed where a meme was made of you but you have not yet made one of the other person- same rules for getting currentuser apply as above
+    Api.getMyChallenges("5dcc9658ff88640870a151b1")
+      .then(res =>
+        console.log("I am user2 in the feed", res.data))
+
+
   }
+
+
+
 
   render() {
     return <div id="additionalDIV">

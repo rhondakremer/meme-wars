@@ -54,9 +54,11 @@ export default {
             imageOf
         })
     },
-    startBattle: function(id) {
+    startBattle: function(id, createdBy, imageOf) {
         return axios.post("/api/feed", {
-            id
+            id,
+            createdBy,
+            imageOf
         })
     },
     
@@ -73,5 +75,9 @@ export default {
     getMemesOfMe: function(imageOf) {
         console.log("this is getmemesofme in api.js", imageOf)
         return axios.get('/api/meme/?imageOf=' + imageOf)
+    },
+    getMyChallenges: function(id) {
+        console.log("getting challenges" , id)
+        return axios.get("/api/feed/?meme2Challenger=" + id + "&meme2=")
     }
 }
