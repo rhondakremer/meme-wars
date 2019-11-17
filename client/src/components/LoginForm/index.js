@@ -33,14 +33,14 @@ class LoginForm extends Component
     render()
     {
         // console.log("Login Form Props:",this.props)
-        return <div className="container">
-            <div >
-                <div className="form-group">
-                    <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
+        return <div className="container" id="loginContainerComponent">
+            <div id="form-group-login">
+                <div className="form-group" id="form-group-login">
+                    <input id="input" onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
                 </div>
 
-                <div className="form-group">
-                    <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
+                <div className="form-group" id="form-group-login">
+                    <input id="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
                 </div>
 
                 <button id="loginButton" onClick={this.login} className="btn btn-primary">

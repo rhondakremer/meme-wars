@@ -33,7 +33,7 @@ class RegistrationForm extends Component
             .then(session => {
                 // debugger;
                 this.props.onRegister(session.data);
-                console.log("line 31 of reg form" + JSON.stringify(session))
+                
                 alert("Welcome " + this.state.name);
 
         })
@@ -46,22 +46,19 @@ class RegistrationForm extends Component
 
     render(){
 
-        return <div className="row">
-        <div >
+        return <div className="container" id="loginContainerComponent">
+        <div id="form-group-login">
 
-            <div className="form-group">
-                Name*:
-                <input onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Name" required/>
+            <div className="form-group" id="form-group-login">
+                <input id="input" onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Name" required/>
             </div>
 
-            <div className="form-group">
-                Email*:
-                <input onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Email" required/>
+            <div className="form-group" id="form-group-login">
+                <input id="input" onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Email" required/>
             </div>
 
-            <div className="form-group">
-                Password*:
-                <input onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" required/>
+            <div className="form-group" id="form-group-login">
+                <input id="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" required/>
             </div>
 
             {/* <div className="form-group">
