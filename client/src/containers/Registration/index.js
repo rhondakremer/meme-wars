@@ -12,9 +12,12 @@ class Registration extends Component
     {
 
         return <div id="loginContainer">
-            <h1>Register</h1>
+        <div className="jumbotron jumbotron-fluid" id="loginJumbotron">
+          <div className="container" id="jumbotronContainer">
+            
+          </div>
+        </div> 
             <RegistrationForm onRegister={this.props.onRegister} />
-            <br/>
             <br/>
             <div>
                 <h8>Already have an account?</h8>
