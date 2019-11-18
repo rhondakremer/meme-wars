@@ -108,7 +108,7 @@ class MemeCard2 extends Component
                   {this.props.bottomText}
               </text>
             </svg>
-            <Link to="/mememaker" className="nav-link btn btn-primary" id="createMemeButtonOnMemeCard2Component">Initiate Battle!</Link>
+            <Link to="/mememaker" className="nav-link btn btn-primary pinkButton" >Initiate Battle!</Link>
 
 
             </div>);

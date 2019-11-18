@@ -18,3 +18,8 @@
 .cameraOpener {
     margin-top: 5%;
 }
+
+
+#webcamButton:hover{
+text-decoration: none;}
+

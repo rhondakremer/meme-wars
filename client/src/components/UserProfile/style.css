@@ -13,10 +13,12 @@ body {
     padding-bottom: 100px;
     height: 100% !important;
     text-align: center;
-    background-color: rgb(189, 73, 222);
+    background-image: url(../../images/binding-dark.png);
     color: black !important;
     -webkit-text-stroke: .25px black;
     border-right: black 1px solid !important;
+    background-color: rgba(179, 12, 160, 0.2); /* Black background with opacity */
+
 
 
 }

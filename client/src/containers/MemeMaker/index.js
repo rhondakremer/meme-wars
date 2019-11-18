@@ -221,7 +221,7 @@ class MemeMaker extends Component {
                                         onClick={() => this.openImage(image)}
                                         role="presentation"
                                     />
-                                    <button id="battleButtonOnMemeMakerContainer" className="btn btn-primary" onClick={() => this.openImage(image)}>Click to BATTLE!</button>
+                                    <button className="btn btn-primary pinkButton" onClick={() => this.openImage(image)}>Click to BATTLE!</button>
                                 </div>
                             ))}
 
@@ -271,14 +271,16 @@ class MemeMaker extends Component {
             <div className="meme-form">
               <FormGroup>
                 <Label for="toptext">Top Text</Label>
-                <input className="form-control" type="text" name="toptext" id="toptext" placeholder="Add text to the top" onChange={this.changeText} />
+                <input className="form-control roundedInput" type="text" name="toptext" id="toptext" placeholder="Add text to the top" onChange={this.changeText} />
               </FormGroup>
               <FormGroup>
                 <Label for="bottomtext">Bottom Text</Label>
-                <input className="form-control" type="text" name="bottomtext" id="bottomtext" placeholder="Add text to the bottom" onChange={this.changeText} />
+                <input className="form-control roundedInput" type="text" name="bottomtext" id="bottomtext" placeholder="Add text to the bottom" onChange={this.changeText} />
               </FormGroup>
               {/* <button onClick={() => this.convertSvgToImage()} className="btn btn-primary">Download</button> */}
-              <button onClick={this.saveMeme} className="btn btn-primary">Save to DB</button>
+              <div className="outerDivForPinkButton">
+              <button onClick={this.saveMeme} className="btn btn-primary pinkButton">Save</button>
+              </div>
             </div>
           </ModalBody>
         </Modal>

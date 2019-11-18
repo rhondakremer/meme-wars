@@ -17,12 +17,3 @@ font-size: 150% !important;
 
 }
 
-#createMemeButtonOnMemeCard2Component{
-    align-items: center;
-    justify-content: center;
-    margin: 0px auto;
-    width: 70%;
-    background-color: rgb(205, 133, 225) !important;
-    border: black solid 1px !important;
-    color: black;
-}

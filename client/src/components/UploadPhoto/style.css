@@ -1,0 +1,24 @@
+#placeholderImage{
+  width: 20%;
+} 
+
+.buttonClass{
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 40%;
+    background-color: rgb(205, 133, 225) !important;
+    border: black solid 1px !important;
+    color: black !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: 100px;
+    
+  }
+  
+  .buttonClass:hover {
+  background-color: rgb(189, 73, 222) !important;
+  border: 1px solid rgb(44, 10, 53) !important;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
+  
+  }
