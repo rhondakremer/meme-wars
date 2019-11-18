@@ -65,6 +65,11 @@ export default {
     getMemes: function(){
         return axios.get("/api/meme/")
     },
+
+    getMemeById: function(id){
+        return axios.get("/api/meme/?_id=" + id)
+    },
+
     getUserFromImage: function(id) {
         console.log("hey i am here in api.js", id)
         return axios.get(`/api/user/${id}`)

@@ -23,12 +23,13 @@ class BattleCard extends Component {
       .then(res =>
         console.log("there are memes of me", res.data))
 
-// this pulls from feed where a meme was made of you but you have not yet made one of the other person- same rules for getting currentuser apply as above
+    // this pulls from feed where a meme was made of you but you have not yet made one of the other person- same rules for getting currentuser apply as above
     Api.getMyChallenges("5dcc9658ff88640870a151b1")
       .then(res =>
         console.log("I am user2 in the feed", res.data))
 
-
+    Api.getMemeById("5dd1c5c575a5da4446f05ffc")
+      .then(res => console.log("Iam the meme", res.data))
   }
 
 
