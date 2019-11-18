@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
+import "./style.css"
+
 
 
 
@@ -69,7 +71,7 @@ class MemeCard2 extends Component
             userSelect: "none"
         }
 
-        return (<div >
+        return (<div>
         {this.openImage(this.props.src)}
         <svg
               width={600}
@@ -79,10 +81,10 @@ class MemeCard2 extends Component
               xmlns="http://www.w3.org/2000/svg"
               xmlnsXlink="http://www.w3.org/1999/xlink">
               <image
+              className="memeCard2Image"
                 ref={el => { this.imageRef = el }}
                 xlinkHref={this.state.imagebase64}
-                height={400}
-                width={600}
+                
               />
               <text
                 style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}

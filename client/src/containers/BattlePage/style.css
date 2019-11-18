@@ -2,9 +2,11 @@
     width: 20%;  
 }
 
-#memeCardDiv{
+#memeCardDivOnBattlePage{
     width: 80%;
-    padding-left: 20px;
+    padding: 20px;
+    display: flex;
+  flex-wrap: wrap;
 }
 
 #navbarDiv{
