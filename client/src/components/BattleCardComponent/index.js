@@ -18,12 +18,6 @@ class BattleCard extends Component {
 
 
 
-    // how to get all battles in feed
-    Api.getBattles()
-    .then( res => 
-      console.log("these are all the battles in the feed", res.data)
-    )
-
     // get all memes other users have made of you-- to get current user replace hard coded with this.state.currentUser inside of a callback for this.set.state in Api.getusers above
     Api.getMemesOfMe("5dcb1e7bcc23167d28f414dd")
       .then(res =>
