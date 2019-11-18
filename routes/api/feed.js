@@ -13,4 +13,8 @@ router
   .put(feedController.update)
   .delete(feedController.remove);
 
+  router 
+  .route("/:meme2Challenger")
+  .get(feedController.findChallenges)
+  
 module.exports = router;

@@ -10,6 +10,8 @@ router.route("/")
     .get(memeController.findAll)
     .post(memeController.create);
 
+router.route("/:imageOf")
+    .get(memeController.findAllOfMe)
 // Matches with "/api/feed/:id"
 // router
 //   .route("/:id")
