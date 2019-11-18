@@ -16,15 +16,25 @@ const moment = require('moment');
 
 //import ImagePreview from './ImagePreview';
  
-class WebCam extends Component {
-  
-  constructor(props)
+class WebCam extends Component 
+{
+
+  constructor()
   {
-    super(props)
+    super()
     this.state={
-      modalIsOpen: true,
-      image: true
+      showModal: true,
+      image: false
     }
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  };
+
+  componentDidMount = () => {
+    this.state.showModal =  false;
+  }
+
+  componentWillUnmount = () => {
+    this.state.showModal = false;
   }
 
   setRef = webcam => {
@@ -43,6 +53,7 @@ class WebCam extends Component {
     //console.log(myImage);
     //localStorage.setItem("name", myImage);
     axios.post("/api/images", {image:myImage});
+    this.props.onPhotoTaken(dataUri)
 
   }
  
@@ -59,14 +70,19 @@ class WebCam extends Component {
     console.log('onCameraStart');
   }
  
+  handleCloseModal () {
+    console.log("I hit the camera stop function");
+    this.setState({showModal: false});
+  }
+
   onCameraStop () {
-    console.log('onCameraStop');
+
   }
  
   render () {
     return (
       <div className="App">
-        <Modal className="camera-modal col-6 offset-3" isOpen={this.state.modalIsOpen}>
+        <Modal className="camera-modal col-6 offset-3" isOpen={true}>
         <ModalHeader className="camera-modal-header-text">Take a selfie!</ModalHeader>
 
         <ModalBody>
@@ -84,13 +100,15 @@ class WebCam extends Component {
           isDisplayStartCameraError = {true}
           isFullscreen = {false}
           sizeFactor = {1}
-          onCameraStart = { (stream) => { this.onCameraStart(stream); } }
-          onCameraStop = { () => { this.onCameraStop(); } }
+          //onCameraStart = { (stream) => { this.onCameraStart(stream); } }
+          onCameraStop = { this.props.onClose}
         />
+        
         </ModalBody>
 
-        <Link to="/register" className="goBackToRegister">Back...</Link>
+        <button onClick={this.props.onClose} className="goBackToRegister">Close</button>
         </Modal>
+
       </div>
     );
   }
