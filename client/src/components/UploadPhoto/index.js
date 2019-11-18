@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import cloudinary from "cloudinary-react";
 import WebCam from "../WebCam";
+import './style.css';
+
 
 class UploadPhoto extends Component {
   constructor() {
@@ -18,7 +20,7 @@ class UploadPhoto extends Component {
       secure_url: null,
       signature: null,
       tags: [],
-      thumbnailUrl: null,
+      thumbnailUrl: "https://aeealberta.org/wp-content/uploads/2018/10/profile.png",
       type: null,
       url: null,
       version: null,
@@ -217,7 +219,7 @@ class UploadPhoto extends Component {
     return (
       <section>
         <div>
-          <img src= {image} />
+          <img id="placeholderImage" src= {image} />
         </div>
         <a
           ref="uploader"
@@ -276,7 +278,7 @@ UploadPhoto.defaultProps = {
   maxFileSize: null,
   maxImageWidth: null,
   maxImageHeight: null,
-  buttonClass: "cloudinary-button",
+  buttonClass: "buttonClass",
   buttonCaption: "Upload image"
 };
 

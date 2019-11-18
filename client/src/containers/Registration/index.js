@@ -11,12 +11,8 @@ class Registration extends Component
     render()
     {
 
-        return <div id="loginContainer">
-        <div className="jumbotron jumbotron-fluid" id="loginJumbotron">
-          <div className="container" id="jumbotronContainer">
-            
-          </div>
-        </div> 
+        return <div className="loginContainer">
+        <div className="logo"></div>
             <RegistrationForm onRegister={this.props.onRegister} />
             <br/>
             <div>

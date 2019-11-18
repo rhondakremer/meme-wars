@@ -57,16 +57,16 @@ class InviteFriends extends Component
     <h1>Challenge Your Friends!</h1>
   </div>
   <br/>
-  <br/>
 
 <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
     
-    <div className="form-group">
-        <label for="email">Email address</label>
-        <input type="email" className="form-control" id="email" aria-describedby="emailHelp" />
+    <div className="form-group DivForInput">
+        <input type="email" placeholder="Challenge a friend!" className="form-control roundedInput" id="email" aria-describedby="emailHelp" />
     </div>
-    
-    <input className="btn" type="submit" value="Submit" />
+    <br/>
+    <div className="outerDivForPinkButton">
+    <button className="btn pinkButton" type="submit" value="Submit">Submit</button>
+    </div>
 </form>
 </div>
 

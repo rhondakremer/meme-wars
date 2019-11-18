@@ -6,11 +6,28 @@
     margin: 0px auto;
     margin-top: 3px;
 }
+ .DivForInput{
+display: flex;
+align-content: center;
+    text-align: center;
+    justify-content: center;
+    margin: 0px auto;
+ }
 
-#email{
-    width: 500px;
+.outerDivForPinkButton{
+    width: 30%;
+    margin: 0 auto;
+    justify-content: center ;
+    align-content: center;
+    text-align: center;
+}
+ 
+.roundedInput{
+    width: 90%;
     border-radius: 50px;
     outline: none;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+
 }
 
 .btn{

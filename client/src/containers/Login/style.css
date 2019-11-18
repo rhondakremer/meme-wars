@@ -7,7 +7,7 @@
     font-size: 80%;
 }
 
-#loginContainer{
+.loginContainer{
     width: 100%;
     margin-top: 100px;
     justify-content: center;
@@ -17,22 +17,17 @@
 background-image: url("../../images/tile.jpg");    
 height: 900px;
 
-
-
 }
-#jumbotronContainer{
-    background: url("../../images/1x/Asset 3.png");
-    background-repeat: no-repeat;
-    height: 170px ;
-    width: auto;
-    justify-content: center !important;
-    align-content: center !important;
-    text-align: center !important;
-    margin: 0px auto !important;
-    padding: 0px auto !important;
-    margin-left: 165px !important;
-    padding-bottom: 20px !important;
-    margin-bottom: 10px !important;
+.logo{
+background: url("../../images/1x/Asset\ 3.png");
+display: flex;
+  width: 40%;
+  background-repeat: no-repeat;
+padding-bottom: 10%;
+  background-size: 100%;
+  position: relative;
+  margin: 0px auto;
+  margin-left: 30.5%;
 
 }
 

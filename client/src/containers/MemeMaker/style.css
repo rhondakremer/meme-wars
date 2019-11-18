@@ -6,22 +6,20 @@
 }
 
 
-.btn-primary {
-  background: #666 !important;
-  border: none !important;
-  outline: none !important;
-  width: 100%;
+
+.pinkButton{
+  display: flex;
+  margin: 0 auto;
+  margin-top: 10px;
+  width: 90%;
+  background-color: rgb(205, 133, 225) !important;
+  border: black solid 1px !important;
+  color: black !important;
+  text-align: center !important;
+  justify-content: center !important;
 }
 
-#battleButtonOnMemeMakerContainer{
-  margin: 15px 10px;
-  width: 150px;
-    background-color: rgb(205, 133, 225) !important;
-    border: black solid 1px !important;
-    color: black;
-}
-
-#battleButtonOnMemeMakerContainer:hover {
+.pinkButton:hover {
 background-color: rgb(189, 73, 222) !important;
 border: 1px solid rgb(44, 10, 53) !important;
 box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
@@ -33,11 +31,7 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
   border-color: #666;
 }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  background: #666 !important;
-  outline: none !important;
-  border: none !important;
-}
+
 
 .navbar-brand {
   display: block;
