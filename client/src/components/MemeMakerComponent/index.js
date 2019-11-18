@@ -20,7 +20,7 @@ class MemeMakerComponent extends Component {
             <div className="row input-group" id="textDiv">
             <textarea className="form-control" aria-label="With textarea" id="addTextInput"></textarea>
 <br/>
-  <button className=" btn btn-primary " id="loginButton" >
+  <button className=" btn btn-primary " id="addTextInputButton" >
    Make Meme!
   </button>
 </div>

@@ -3,7 +3,7 @@ li {
     padding: 10px;
 }
 .nav-item .nav-link{
-    color: dimgray;
+    color: rgb(69, 68, 68);
     outline: none !important;
     border: none !important;
 }

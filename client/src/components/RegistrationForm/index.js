@@ -35,7 +35,8 @@ class RegistrationForm extends Component
             .then(session => {
                 // debugger;
                 this.props.onRegister(session.data);
-                
+                console.log("line 31 of reg form" + JSON.stringify(session))
+
                 alert("Welcome " + this.state.name);
 
         })
@@ -53,19 +54,19 @@ class RegistrationForm extends Component
 
     render(){
 
-        return <div className="container" id="loginContainerComponent">
+        return <div className="container loginContainerComponent">
         <div id="form-group-login">
 
             <div className="form-group" id="form-group-login">
-                <input id="input" onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Name" required/>
+                <input className="input" onChange={this.inputChangeHandler} value={this.state.name} type="text" name="name" placeholder="Name" required/>
             </div>
 
             <div className="form-group" id="form-group-login">
-                <input id="input" onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Email" required/>
+                <input className="input" onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Email" required/>
             </div>
 
             <div className="form-group" id="form-group-login">
-                <input id="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" required/>
+                <input className="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" required/>
             </div>
 
             {/* <div className="form-group">
@@ -77,15 +78,29 @@ class RegistrationForm extends Component
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <br></br>
-                <div className="cameraOpener">
-                <Link onClick={this.openCamera}className="openCameraButton">Open camera</Link>
-                </div>
+
+             
+             
+             
+             
+                //<div className="cameraOpener">
+                //<Link onClick={this.openCamera}className="openCameraButton">Open camera</Link>
+                <div className="outerDivForPinkButton">
+                <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+
+             
+             
+             
+             
+             </div>
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
             </div>
             <br></br>
-            <button onClick={this.register} id="loginButton" className="btn btn-primary">
-                Register
-            </button>
+            <div className="outerDivForPinkButton">
+            <button onClick={this.register} className="btn pinkButton">
+                Register </button>
+                </div>
+ 
         </div>
     </div>
     }
