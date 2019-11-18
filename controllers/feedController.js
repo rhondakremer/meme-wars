@@ -17,8 +17,11 @@ module.exports = {
   },
   create: function(req, res) {
     let battle = req.body;
+    // console.log("what info is here?" + JSON.stringify(battle))
     battle.meme1 = req.body.id;
-    battle.meme2 = ""
+    battle.meme2 = "";
+    battle.meme2Challenger = req.body.imageOf;
+    battle.meme1Initiator = req.body.createdBy;
     db.Feed
       .create(battle)
       .then(dbModel => res.json(dbModel))
@@ -34,6 +37,14 @@ module.exports = {
     db.Feed
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+  findChallenges: function(req, res) {
+    console.log("are we here in feedController?", req.params)
+    db.Meme
+      .find({meme2Challenger:req.params})
+      // .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
