@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import "./style.css"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 
 
 
@@ -106,6 +108,8 @@ class MemeCard2 extends Component
                   {this.props.bottomText}
               </text>
             </svg>
+            <Link to="/mememaker" className="nav-link btn btn-primary" id="createMemeButtonOnMemeCard2Component">Initiate Battle!</Link>
+
 
             </div>);
     }
