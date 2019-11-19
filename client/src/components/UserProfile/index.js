@@ -42,7 +42,7 @@ class UserProfile extends Component
             <h4>Hi, {this.props.sessionName}</h4>
             
             <br />
-            <h6>Pending Wars</h6>
+            <h6><Link to="/pendingwars" className="linkToInvite" >Pending Wars</Link></h6>
             <h6 ><Link to="/invite" className="linkToInvite" >Add Friends</Link></h6>
 
             <h5>{this.props.sessionName}'s Stats:</h5>

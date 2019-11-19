@@ -19,14 +19,43 @@ class PendingWars extends Component
         Api.getUsers()
           .then(res => {
             let user = JSON.parse(localStorage.getItem('session'));
-            this.setState({ currentUser: user.id },
-                
-            () => Api.getMyChallenges(this.state.currentUser)
+            this.setState({ currentUser: user.id }, () => 
+            
+            Api.getMyChallenges(this.state.currentUser)
             .then(res =>
-              console.log("I am user2 in the feed", res.data))
+              this.setState({battles:res.data}, () =>
+              this.getBattleMemes())
             )
-          }); 
-      }
+          )}); 
+
+
+          
+          Api.getBattles()
+          .then( res => 
+            this.setState({battles:res.data}, () => 
+            this.getBattleMemes()
+            ))
+          }
+      
+      
+          //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
+          getBattleMemes() {
+              let memeBattles = [];
+              for (let i = 0; i < this.state.battles.length; i++) {
+                memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2])
+              } this.setState({memeBattles: memeBattles}, () => this.getPendingWarMemes())
+          }
+          // don't forget this one with the one above!!
+          getPendingWarMemes() {
+              let memeages = [];
+              for (let i = 0; i < this.state.memeBattles.length; i++) {
+                  Api.getMemeById(this.state.memeBattles[i][0])
+                  .then(res => memeages.push(res.data))
+                  .then(this.setState({memeages:memeages}, () => console.log("so fun", this.state.memeages)))
+              }
+          }
+
+
 
       _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
