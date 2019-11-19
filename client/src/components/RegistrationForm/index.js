@@ -29,6 +29,11 @@ class RegistrationForm extends Component
         this.setState({[e.target.name]:e.target.value});
 
     register = () => {
+
+        if(this.state.name === "" || this.state.email === "" || this.state.password === "")
+        {
+            alert("Please fill all the fields in order to register.");
+        }
         
         Api
             .register(this.state.name, this.state.email, this.state.password, this.state.image)
@@ -74,17 +79,11 @@ class RegistrationForm extends Component
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
             {!this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
-            {this.state.imageUri&&<img style={{maxWidth:"100%"}} src={this.state.imageUri} />}
+            {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <br></br>
 
-             
-             
-             
-             
-                //<div className="cameraOpener">
-                //<Link onClick={this.openCamera}className="openCameraButton">Open camera</Link>
                 <div className="outerDivForPinkButton">
                 <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
 
@@ -94,7 +93,6 @@ class RegistrationForm extends Component
              
              </div>
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
-            </div>
             <br></br>
             <div className="outerDivForPinkButton">
             <button onClick={this.register} className="btn pinkButton">
@@ -102,6 +100,7 @@ class RegistrationForm extends Component
                 </div>
  
         </div>
+    </div>
     </div>
     }
 }
