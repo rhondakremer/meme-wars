@@ -1,27 +1,34 @@
 import React, {Component} from 'react';
-import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import "./style.css"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios"
 
 
-
-
-
-
-class MemeCard2 extends Component
+class PendingWars extends Component
 {
     constructor(props)
     {
         super(props);
         this.state={
-            currentUser: "",
-            imagebase64:""
+            email:"",
+            password: ""
         }
     }
 
+    componentDidMount() {
+        Api.getUsers()
+          .then(res => {
+            let user = JSON.parse(localStorage.getItem('session'));
+            this.setState({ currentUser: user.id },
+                
+            () => Api.getMyChallenges(this.state.currentUser)
+            .then(res =>
+              console.log("I am user2 in the feed", res.data))
+            )
+          }); 
+      }
 
-    _imageEncode (arrayBuffer) {
+      _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
         let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
         let mimetype="image/jpeg"
@@ -113,4 +120,6 @@ class MemeCard2 extends Component
     }
 }
 
-export default MemeCard2;
+
+    export default PendingWars
+
