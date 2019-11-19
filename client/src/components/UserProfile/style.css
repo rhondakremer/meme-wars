@@ -13,15 +13,18 @@ body {
     padding-bottom: 100px;
     height: 100% !important;
     text-align: center;
-    background-image: url(../../images/binding-dark.png);
-    color: black !important;
+    background-image: url("../../images/bright.jpg");
+    background-position-x: 45%;
+    color: white !important;
+    text-shadow: 1px 1px 4px black;
     -webkit-text-stroke: .25px black;
     border-right: black 1px solid !important;
     background-color: rgba(245, 7, 70, 0.2); /* Black background with opacity */
 }
 
 .linkToInvite{
-    color: black !important;
+    color: white !important;
+    text-shadow: 1px 1px 4px black;
     outline: none !important;
     border: none !important;
 }
