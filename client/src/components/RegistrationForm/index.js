@@ -79,12 +79,6 @@ class RegistrationForm extends Component
                 Or if you prefer, just take a selfie.
                 <br></br>
 
-             
-             
-             
-             
-                //<div className="cameraOpener">
-                //<Link onClick={this.openCamera}className="openCameraButton">Open camera</Link>
                 <div className="outerDivForPinkButton">
                 <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
 
@@ -94,7 +88,6 @@ class RegistrationForm extends Component
              
              </div>
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
-            </div>
             <br></br>
             <div className="outerDivForPinkButton">
             <button onClick={this.register} className="btn pinkButton">
@@ -102,6 +95,7 @@ class RegistrationForm extends Component
                 </div>
  
         </div>
+    </div>
     </div>
     }
 }
