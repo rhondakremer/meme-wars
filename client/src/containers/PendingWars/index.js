@@ -14,6 +14,7 @@ class BattlePage extends Component {
         super(props);
         this.state = {
             currentUser: "",
+            memeages:[]
         }
     }
 
@@ -37,7 +38,11 @@ class BattlePage extends Component {
             this.setState({battles:res.data}, () => 
             this.getBattleMemes()
             ))
-          }
+          
+        
+        
+        
+        }
       
       
           //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
@@ -52,9 +57,9 @@ class BattlePage extends Component {
               let memeages = [];
               for (let i = 0; i < this.state.memeBattles.length; i++) {
                   Api.getMemeById(this.state.memeBattles[i][0])
-                  .then(res => memeages.push(res.data))
-                  .then(this.setState({memeages:memeages}, () => console.log("so fun", this.state.memeages)))
+                  .then(res => this.setState({memeages:[...this.state.memeages,res.data[0]]}, () => console.log("so fun", this.state.memeages)))
               }
+              
           }
 
     render() {
@@ -64,10 +69,9 @@ class BattlePage extends Component {
             </div>
             <div className="row col-12" id="mainBodyDiv">
                 <div id="userProfileDiv">
-                    {console.log("ASdfasdf" + this.props.createdMemes)}
                     <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage} />
                 </div>
-                {this.state.memeages &&
+                {this.state.memeages&&
                 <div id="memeCardDivOnBattlePage">
                     {this.state.memeages.map((item, index) => (
                         <div>
