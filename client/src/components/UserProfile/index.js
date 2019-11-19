@@ -34,7 +34,6 @@ class UserProfile extends Component
     render()
     {
 
-        console.log((JSON.stringify(this.props.sessionName)))
         return <div id="profileSidebar">
             <UserPicture sessionImage={this.props.sessionImage}/>
             <br />

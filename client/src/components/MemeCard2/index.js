@@ -19,8 +19,10 @@ class MemeCard2 extends Component
             imagebase64:""
         }
     }
-
-
+    componentDidUpdate()
+    {
+        this.openImage(this.props.src)
+    }
     _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
         let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
@@ -63,6 +65,8 @@ class MemeCard2 extends Component
 
     render()
     {
+        this.openImage(this.props.src)
+
         const textStyle = {
             fontFamily: "Impact",
             fontSize: "50px",
@@ -73,8 +77,8 @@ class MemeCard2 extends Component
         }
 
         return (<div>
-        {this.openImage(this.props.src)}
-        <svg
+        
+        {this.state.imagebase64&&<svg
               width={600}
               id="svg_ref"
               height={400}
@@ -106,7 +110,8 @@ class MemeCard2 extends Component
               >
                   {this.props.bottomText}
               </text>
-            </svg>
+            </svg>}
+            <Link to="/mememaker" className="nav-link btn btn-primary pinkButton" >Initiate Battle!</Link>
 
 
             </div>);
