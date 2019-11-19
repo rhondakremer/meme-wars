@@ -30,11 +30,22 @@ class HomePage extends Component
       ))
     }
 
+
+    //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
     getBattleMemes() {
         let memeBattles = [];
         for (let i = 0; i < this.state.battles.length; i++) {
           memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2])
-        } this.setState({memeBattles: memeBattles}, () => console.log(this.state))
+        } this.setState({memeBattles: memeBattles}, () => this.getPendingWarMemes())
+    }
+    // don't forget this one with the one above!!
+    getPendingWarMemes() {
+        let memeages = [];
+        for (let i = 0; i < this.state.memeBattles.length; i++) {
+            Api.getMemeById(this.state.memeBattles[i][0])
+            .then(res => memeages.push(res.data))
+            .then(this.setState({memeages:memeages}, () => console.log("so fun", this.state)))
+        }
     }
 
 
