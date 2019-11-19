@@ -84,5 +84,10 @@ export default {
     getMyChallenges: function(id) {
         console.log("getting challenges" , id)
         return axios.get("/api/feed/?meme2Challenger=" + id + "&meme2=")
+    },
+    respondToChallenge: function(id) {
+        return axios.post("/api/feed"), {
+            id
+        }
     }
 }
