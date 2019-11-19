@@ -8,27 +8,33 @@
 }
 
 .loginContainer{
-    width: 100%;
+    width: 100%; 
     margin-top: 100px;
     justify-content: center;
     align-content: center;
     text-align: center;
     margin: 0px auto;
-background-image: url("../../images/tile.jpg");    
-height: 900px;
+background-image: url("../../images/tile.jpg"), url("../../images/smoke.png");
+position: absolute; 
+background-repeat: no-repeat;   
+background-position-y: 60%;
+height: 700px;
 
 }
 .logo{
   margin-top: 30px !important;
-background: url("../../images/1x/Asset\ 3.png");
+background: url("../../images/logo4.png");
 display: flex;
   width: 40%;
   background-repeat: no-repeat;
-padding-bottom: 10%;
+padding-bottom: 8%;
   background-size: 100%;
   position: relative;
   margin: 0px auto;
   margin-left: 30.5%;
+
+
+  
 
 }
 

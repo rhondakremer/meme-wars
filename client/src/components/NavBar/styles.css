@@ -1,9 +1,10 @@
 li {
     display: inline-block;
-    padding: 10px;
+    padding: 5px;
 }
 .nav-item .nav-link{
-    color: rgb(69, 68, 68);
+    color:whitesmoke;
+    background-color: transparent;
     outline: none !important;
     border: none !important;
 }
@@ -13,9 +14,11 @@ li {
     margin-right: 0px;
     padding-left: 0px;
     padding-right: 0px;
-    box-shadow: 0 7px 3px -3px rgba(0, 0, 0, 0.1);
-    background-color: white;
-
+    box-shadow: 0 7px 3px -3px rgba(0, 0, 0, 0.5);
+    background-color: rgb(38, 35, 35);
+    background-image: url("../../images/smoke.png");
+    background-position-y: -40%;
+    object-fit: cover;
     
 }
 
