@@ -29,6 +29,9 @@ class BattleCard extends Component {
     Api.getMyChallenges("5dcc9658ff88640870a151b1")
       .then(res =>
         console.log("I am user2 in the feed", res.data))
+
+    Api.getMemeById("5dd1c5c575a5da4446f05ffc")
+      .then(res => console.log("Iam the meme", res.data))
   }
 
   render() {

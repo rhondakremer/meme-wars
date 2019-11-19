@@ -12,10 +12,11 @@ router.route("/")
 
 router.route("/:imageOf")
     .get(memeController.findAllOfMe)
+    
 // Matches with "/api/feed/:id"
-// router
-//   .route("/:id")
-//   .get(userController.findById)
+router
+  .route("/:id")
+  .get(memeController.findById)
 //   .put(userController.update)
 //   .delete(userController.remove);
 
