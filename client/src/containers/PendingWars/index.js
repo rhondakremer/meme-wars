@@ -68,28 +68,57 @@ class BattlePage extends Component {
     render() {
         return (<div >
             <div className="col-12" id="navbarDiv">
-                <NavBar/>
+                <NavBar />
             </div>
             <div className="row col-12" id="mainBodyDiv">
                 <div id="userProfileDiv">
                     <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage} />
                 </div>
-                {this.state.memeages&&
-                <div id="memeCardDivOnBattlePage">
-                    {this.state.memeages.map((item, index) => (
-                        <div>
-                            {console.log(this.state)}
-                        {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
-                        
-                        <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText}/>
-                        
-                        </div>
-                            ))}
-                    
-                </div>
+                {this.state.memeages &&
+                <div id="holds-all-the-memecard-divs">
+                    <div id="memeCardDivOnBattlePage">
+                        {this.state.memeages.map((item, index) => (
+                            <div>
+                                {console.log(this.state)}
+                                {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
 
-                
-               }
+                                <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText} />
+
+                            </div>
+                        ))}
+
+                    </div>
+
+
+
+                    <div id="memeCardDiv2">
+                        {this.state.initiators &&
+                            <div className="content">
+                                {this.state.initiators.map((image, index) => (
+                                    <div className="image-holder" key={image.id}>
+                                        <img crossOrigin="anonymous"
+                                            style={{
+                                                width: "100%",
+                                                cursor: "pointer",
+                                                height: "100%"
+                                            }}
+                                            alt={index}
+                                            src={image}
+                                            onClick={() => this.openImage(image)}
+                                            role="presentation"
+                                        />
+                                        <button className="btn btn-primary pinkButton" onClick={() => this.openImage(image)}>Make Meme</button>
+                                    </div>
+                                ))}
+
+                            </div>
+                        }
+                    </div>
+
+</div>
+
+
+}
             </div>
 
         </div>);
