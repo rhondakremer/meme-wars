@@ -61,7 +61,7 @@ class HomePage extends Component
           }
         } this.setState({wars: warsArr}, () => {
             onComplete()
-            console.log("I am the state\n\n\n\n"  + this.state.wars[0].meme1 + "\n" + this.state.wars[0].meme2 +  "\n____________\n__________\n_______________")})
+          })
 
     //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
     // getBattleMemes() {

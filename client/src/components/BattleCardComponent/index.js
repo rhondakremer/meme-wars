@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../../utils/API';
 import "./style.css"
-import MemeCard2 from "../MemeCard2";
+import MemeCard3 from "../MemeCard3ForBattlePage";
 
 
 class BattleCard extends Component {
@@ -43,14 +43,14 @@ class BattleCard extends Component {
     {this.props.wars.map((item, index) => (
           
           <div className="row" id="battleRow">
-            <MemeCard2 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText}/>
+            <MemeCard3 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText}/>
           <div className="card" id="BattleMemeDiv">
           <br/>
             <br/>
             <h1>vs.</h1>
             <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
           </div>
-          <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
+          <MemeCard3 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}
     </div>
   }

@@ -66,6 +66,8 @@ class BattlePage extends Component {
                     {this.state.memeages.map((item, index) => (
                         <div>
                             {console.log(item.bottomX)}
+                            {console.log("is this working?" + JSON.stringify (this.state.memeages[0]))}
+                            
                         {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
                         
                         <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText}/>
