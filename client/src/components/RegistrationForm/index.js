@@ -20,6 +20,8 @@ class RegistrationForm extends Component
     }
 
     componentDidMount() {
+        window.scrollTo(0,0);
+
         
     }
 
@@ -68,15 +70,14 @@ class RegistrationForm extends Component
             </div> */}
             <UploadPhoto callbackFromParent={this.getUploadedImage}/>
             <div className="selfieText">
-                Or if you prefer, just take a selfie.
-                <br></br>
+                
                 <div className="outerDivForPinkButton">
-                <Link to="/webcam" id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+                <Link to="/webcam" id="webcamButton" className="buttonClass roundedInput ">Take a selfie</Link>
                 </div>
             </div>
             <br></br>
             <div className="outerDivForPinkButton">
-            <button onClick={this.register} className="btn pinkButton">
+            <button onClick={this.register} className="btn btn-primary pinkButton">
                 Register </button>
                 </div>
  

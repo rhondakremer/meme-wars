@@ -19,6 +19,7 @@ height: 900px;
 
 }
 .logo{
+  margin-top: 30px !important;
 background: url("../../images/1x/Asset\ 3.png");
 display: flex;
   width: 40%;
