@@ -11,12 +11,16 @@ class BattleCard extends Component {
 
   componentDidMount() {
     Api.getUsers()
-        .then(res => {
-            let user = JSON.parse(localStorage.getItem('session'));
-            this.setState({currentUser: user.id})
-        }); 
+      .then(res => {
+        let user = JSON.parse(localStorage.getItem('session'));
+        this.setState({ currentUser: user.id })
+      });
 
-
+    // how to get all battles in feed
+    Api.getBattles()
+      .then(res =>
+        console.log("these are all the battles in the feed", res.data)
+      )
 
     // get all memes other users have made of you-- to get current user replace hard coded with this.state.currentUser inside of a callback for this.set.state in Api.getusers above
     Api.getMemesOfMe("5dcb1e7bcc23167d28f414dd")
@@ -31,9 +35,6 @@ class BattleCard extends Component {
     Api.getMemeById("5dd1c5c575a5da4446f05ffc")
       .then(res => console.log("Iam the meme", res.data))
   }
-
-
-
 
   render() {
     console.log("Wars received in battle:",this.props.wars)

@@ -61,7 +61,7 @@ class InviteFriends extends Component
 <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
     
     <div className="form-group DivForInput">
-        <input type="email" placeholder="Challenge a friend!" className="form-control roundedInput" id="email" aria-describedby="emailHelp" />
+        <input type="email" placeholder="add one email address at a time" className="form-control roundedInput" id="email" aria-describedby="emailHelp" />
     </div>
     <br/>
     <div className="outerDivForPinkButton">

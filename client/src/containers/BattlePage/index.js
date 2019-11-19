@@ -27,7 +27,7 @@ class BattlePage extends Component {
     render() {
         return (<div >
             <div className="col-12" id="navbarDiv">
-                <NavBar />
+                <NavBar/>
             </div>
             <div className="row col-12" id="mainBodyDiv">
                 <div id="userProfileDiv">
