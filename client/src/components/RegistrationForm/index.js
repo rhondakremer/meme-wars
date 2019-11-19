@@ -3,8 +3,8 @@ import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import WebCam from "../WebCam";
 import './style.css';
-
 
 class RegistrationForm extends Component
 {
@@ -16,6 +16,8 @@ class RegistrationForm extends Component
             email: "",
             password: "",
             image: "",
+            showModal: false,
+            imageUri:""
         }
     }
 
@@ -43,6 +45,11 @@ class RegistrationForm extends Component
 
     }
 
+    openCamera = () => {
+        this.setState({showModal:true}, () => console.log(this.state));
+    
+    }
+
     getUploadedImage = (dataFromChild) => {
         this.setState({image:dataFromChild});
     }
@@ -68,12 +75,25 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
-            <UploadPhoto callbackFromParent={this.getUploadedImage}/>
+            {!this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
+            {this.state.imageUri&&<img style={{maxWidth:"100%"}} src={this.state.imageUri} />}
             <div className="selfieText">
-                
+                Or if you prefer, just take a selfie.
+                <br></br>
+
+             
+             
+             
+
                 <div className="outerDivForPinkButton">
-                <Link to="/webcam" id="webcamButton" className="buttonClass roundedInput ">Take a selfie</Link>
-                </div>
+                <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+
+             
+             
+             
+             
+             </div>
+                {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
             </div>
             <br></br>
             <div className="outerDivForPinkButton">
