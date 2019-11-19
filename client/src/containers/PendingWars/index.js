@@ -79,9 +79,12 @@ class BattlePage extends Component {
             Api
                 .saveMeme(this.state.baseImgURL, this.state.toptext, this.state.topY, this.state.topX, this.state.bottomtext, this.state.bottomY, this.state.bottomX, this.state.createdBy, this.state.imageOf)
                 .then(memeSaved => {
-                    console.log("Saved")
-
+                    console.log("Saved", memeSaved)
+                    this.setState({modalIsOpen: false})
+                
+                    // Api.respondToChallenge(index)
                     // post route to update feed
+                    //use memeSaved.data._id
 
             // Api.
             //     startBattle(memeSaved.data._id, memeSaved.data.createdBy, memeSaved.data.imageOf)
@@ -102,11 +105,11 @@ class BattlePage extends Component {
     
         openImage = (image, index) => {
             console.log(index)
-            this.setState({baseImgURL:image, imageOf:this.state.battles[index].meme1Initiator}, () => {
+            this.setState({baseImgURL:image, imageOf:this.state.battles[index].meme1Initiator, index:index}, () => {
                 console.log( 'baseimgurl', this.state.baseImgURL, this.state.imageOf)
             });
     
-            Api.downloadImage(image.image).then(imageData=>{
+            Api.downloadImage(image).then(imageData=>{
                 this.setState(prevState => ({
                     currentImage: image,
                     modalIsOpen: !prevState.modalIsOpen,
