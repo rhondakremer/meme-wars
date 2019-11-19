@@ -17,7 +17,7 @@ body {
     color: black !important;
     -webkit-text-stroke: .25px black;
     border-right: black 1px solid !important;
-    background-color: rgba(16, 16, 16, 0.2); /* Black background with opacity */
+    background-color: rgba(245, 7, 70, 0.2); /* Black background with opacity */
 }
 
 .linkToInvite{
