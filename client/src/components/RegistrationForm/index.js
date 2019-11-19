@@ -3,8 +3,8 @@ import Api from '../../utils/API';
 // import axios from 'axios';
 import UploadPhoto from '../../components/UploadPhoto';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import WebCam from "../WebCam";
 import './style.css';
-
 
 class RegistrationForm extends Component
 {
@@ -16,6 +16,8 @@ class RegistrationForm extends Component
             email: "",
             password: "",
             image: "",
+            showModal: false,
+            imageUri:""
         }
     }
 
@@ -27,6 +29,11 @@ class RegistrationForm extends Component
         this.setState({[e.target.name]:e.target.value});
 
     register = () => {
+
+        if(this.state.name === "" || this.state.email === "" || this.state.password === "")
+        {
+            alert("Please fill all the fields in order to register.");
+        }
         
         Api
             .register(this.state.name, this.state.email, this.state.password, this.state.image)
@@ -39,6 +46,11 @@ class RegistrationForm extends Component
 
         })
 
+    }
+
+    openCamera = () => {
+        this.setState({showModal:true}, () => console.log(this.state));
+    
     }
 
     getUploadedImage = (dataFromChild) => {
@@ -66,14 +78,21 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
-            <UploadPhoto callbackFromParent={this.getUploadedImage}/>
+            {!this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
+            {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
                 <br></br>
+
                 <div className="outerDivForPinkButton">
-                <Link to="/webcam" id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
-                </div>
-            </div>
+                <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+
+             
+             
+             
+             
+             </div>
+                {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
             <br></br>
             <div className="outerDivForPinkButton">
             <button onClick={this.register} className="btn pinkButton">
@@ -81,6 +100,7 @@ class RegistrationForm extends Component
                 </div>
  
         </div>
+    </div>
     </div>
     }
 }
