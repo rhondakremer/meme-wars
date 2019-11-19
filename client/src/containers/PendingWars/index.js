@@ -14,7 +14,8 @@ class BattlePage extends Component {
         super(props);
         this.state = {
             currentUser: "",
-            memeages:[]
+            memeages:[],
+            battles: null
         }
     }
 
@@ -31,19 +32,8 @@ class BattlePage extends Component {
             )
           )}); 
 
-
-          
-          Api.getBattles()
-          .then( res => 
-            this.setState({battles:res.data}, () => 
-            this.getBattleMemes()
-            ))
-          
-        
-        
-        
-        }
-      
+            }
+    
       
           //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
           getBattleMemes() {
