@@ -221,7 +221,7 @@ class MemeMaker extends Component {
                                         onClick={() => this.openImage(image)}
                                         role="presentation"
                                     />
-                                    <button className="btn btn-primary pinkButton" onClick={() => this.openImage(image)}>Click to BATTLE!</button>
+                                    <button className="btn btn-primary pinkButton" onClick={() => this.openImage(image)}>Make Meme</button>
                                 </div>
                             ))}
 

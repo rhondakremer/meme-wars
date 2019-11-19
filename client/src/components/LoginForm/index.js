@@ -14,7 +14,9 @@ class LoginForm extends Component
     }
 
     componentDidMount() {
-        console.log(" Login form:",this.props)
+        console.log(" Login form:",this.props);
+        window.scrollTo(0,0);
+
     };
 
     inputChangeHandler=(e)=>this.setState({[e.target.name]:e.target.value});

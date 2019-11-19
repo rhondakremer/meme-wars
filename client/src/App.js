@@ -7,6 +7,7 @@ import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
 import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
+import PendingWars from "./containers/PendingWars"
 import WebCam from './components/WebCam';
 import Sent from './containers/Sent';
 // import API from "./utils/API";
@@ -91,6 +92,8 @@ class App extends Component {
             <Route path= "/invite" component={()=><InviteFriendsContainer session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
 
            <Route path= "/sent" component={()=><Sent session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} />} />,
+
+           <Route path= "/pendingwars" component={()=><PendingWars session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image} createdMemes={this.state.memes} />} />,
 
             <Route path="/" component={()=><HomePage onLogin={this.signIn} session={this.state.session} sessionName={this.state.session.name} sessionImage={this.state.session.image}/>} />
             ]}
