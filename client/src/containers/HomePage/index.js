@@ -12,7 +12,8 @@ class HomePage extends Component
     {
         super(props);
         this.state={
-            currentUser: ""
+            currentUser: "",
+            wars:[]
         }
     }
 
@@ -26,15 +27,41 @@ class HomePage extends Component
     Api.getBattles()
     .then( res => 
       this.setState({battles:res.data}, () => 
-      this.getBattleMemes()
+      this.getBattleMemes(()=>{
+        for(let i = 0; i < this.state.wars.length; i++){
+            Api.getMemeById(this.state.wars[i].meme1).then(res => this.setState({wars:this.state.wars.map((item,index)=>{
+                if(index===i)
+                  item.meme1=res.data[0];
+              return item;
+              })}, () => console.log("Meme 1:",this.state.wars[i].meme1)))
+            Api.getMemeById(this.state.wars[i].meme2).then(res => this.setState({wars:this.state.wars.map((item,index)=>{
+                if(index===i)
+                  item.meme2=res.data[0];
+              return item;
+              })}, () => console.log("Meme 2:",this.state.wars[i].meme2)))
+        }
+      })
       ))
+    //   Api.getMemeById("5dd1c5c575a5da4446f05ffc")
+    //   .then(res => console.log("Iam the meme", res.data))
     }
 
-    getBattleMemes() {
-        let memeBattles = [];
+    getBattleMemes(onComplete) {
+        let warsArr=[]
         for (let i = 0; i < this.state.battles.length; i++) {
-          memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2])
-        } this.setState({memeBattles: memeBattles}, () => console.log(this.state))
+          let war={
+              meme1:"",
+              meme2:""
+          };
+          if(this.state.battles[i].meme1 && this.state.battles[i].meme2)
+          {
+            war.meme1=this.state.battles[i].meme1
+            war.meme2=this.state.battles[i].meme2
+            warsArr.push(war)
+          }
+        } this.setState({wars: warsArr}, () => {
+            onComplete()
+            console.log("I am the state\n\n\n\n"  + this.state.wars[0].meme1 + "\n" + this.state.wars[0].meme2 +  "\n____________\n__________\n_______________")})
     }
 
 
@@ -53,13 +80,10 @@ class HomePage extends Component
             <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
 
             </div>
-                {this.state.battles &&
+                {this.state.battles && this.state.wars.length>0 &&
                     <div className="row" id="battleCardDiv">
                         <div id="innerBattleCardDiv">
-
-                            <BattleCard />
-
-
+                            <BattleCard wars={this.state.wars}/>
                         </div>
                     </div>
                 }

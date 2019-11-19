@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Api from '../../utils/API';
 import "./style.css"
-
+import MemeCard2 from "../MemeCard2";
 
 
 class BattleCard extends Component {
@@ -36,67 +36,21 @@ class BattleCard extends Component {
 
 
   render() {
+    console.log("Wars received in battle:",this.props.wars)
     return <div id="additionalDIV">
-    <div className="row" id="battleRow">
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme.png')} className="card-img-top" alt="..." />
-      </div>
-      <div className="card" id="BattleMemeDiv">
-      <br/>
-        <br/>
-        <h1>vs.</h1>
-        <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
-      </div>
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (1).png')} className="card-img-top" alt="..." />
-      </div>
-    </div>
-
-    <div className="row" id="battleRow">
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (3).png')} className="card-img-top" alt="..." />
-      </div>
-      <div className="card" id="BattleMemeDiv">
-      <br/>
-        <br/>
-        <h1>vs.</h1>
-        <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
-      </div>
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (4).png')} className="card-img-top" alt="..." />
-      </div>
-    </div>
-
-    <div className="row" id="battleRow">
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (5).png')} className="card-img-top" alt="..." />
-      </div>
-      <div className="card" id="BattleMemeDiv">
-      <br/>
-        <br/>
-        <h1>vs.</h1>
-        <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
-      </div>
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (2).png')} className="card-img-top" alt="..." />
-      </div>
-    </div>
-
-    <div className="row" id="battleRow">
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (7).png')} className="card-img-top" alt="..." />
-      </div>
-      <div className="card" id="BattleMemeDiv">
-        <br/>
-        <br/>
-
-        <h1>vs.</h1>
-        <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
-      </div>
-      <div className="card" id="BattleMemeDiv">
-        <img id="memePicture" src={require('./sampleMemes/meme (1).png')} className="card-img-top" alt="..." />
-      </div>
-    </div>
+      {console.log("Props 1 is: ",this.props.wars[0].meme1)}
+    {this.props.wars.map((item, index) => (
+          
+          <div className="row" id="battleRow">
+            <MemeCard2 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText}/>
+          <div className="card" id="BattleMemeDiv">
+          <br/>
+            <br/>
+            <h1>vs.</h1>
+            <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
+          </div>
+          <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
+    ))}
     </div>
   }
 }
