@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Api from '../../utils/API';
 import "./style.css"
 import axios from "axios"
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 
 
 class PendingWars extends Component
@@ -143,7 +145,7 @@ class PendingWars extends Component
                   {this.props.bottomText}
               </text>
             </svg>
-
+            <Link to="/mememaker" className="nav-link btn btn-primary pinkButton" >Fight Back</Link>
 
             </div>);
     }

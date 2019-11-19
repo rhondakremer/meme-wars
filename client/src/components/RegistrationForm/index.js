@@ -75,7 +75,6 @@ class RegistrationForm extends Component
             <div className="form-group" id="form-group-login">
                 <input className="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" required/>
             </div>
-
             {/* <div className="form-group">
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
@@ -83,18 +82,18 @@ class RegistrationForm extends Component
             {!this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
             {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">
-                Or if you prefer, just take a selfie.
-                <br></br>
-
+               
                 <div className="outerDivForPinkButton">
-                <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+                <Link onClick={this.openCamera} id="webcamButton" className="buttonClass roundedInput">Open Camera</Link>
 
              
              
              
              
              </div>
+             
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
+                
             <br></br>
             <div className="outerDivForPinkButton">
             <button onClick={this.register} className="btn btn-primary pinkButton">
@@ -102,6 +101,7 @@ class RegistrationForm extends Component
                 </div>
  
         </div>
+        
     </div>
     </div>
     }

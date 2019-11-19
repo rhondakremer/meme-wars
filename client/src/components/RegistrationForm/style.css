@@ -21,10 +21,13 @@
 
 
 #webcamButton:hover{
-text-decoration: none;}
+text-decoration: none;
+width: fit-content !important;}
 
 #webcamButton{
-    padding: 5px;}
+    padding: 5px;
+    width: fit-content !important
+}
     
 #imageFromWebcam {
     border-radius: 15px;
