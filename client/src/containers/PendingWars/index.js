@@ -15,7 +15,8 @@ class BattlePage extends Component {
         this.state = {
             currentUser: "",
             memeages:[],
-            battles: null
+            battles: null,
+            initiators:[]
         }
     }
 
@@ -39,17 +40,29 @@ class BattlePage extends Component {
           getBattleMemes() {
               let memeBattles = [];
               for (let i = 0; i < this.state.battles.length; i++) {
-                memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2])
+                memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2, this.state.battles[i].meme1Initiator])
               } this.setState({memeBattles: memeBattles}, () => this.getPendingWarMemes())
           }
           // don't forget this one with the one above!!
           getPendingWarMemes() {
               let memeages = [];
+              let initiators = [];
               for (let i = 0; i < this.state.memeBattles.length; i++) {
                   Api.getMemeById(this.state.memeBattles[i][0])
-                  .then(res => this.setState({memeages:[...this.state.memeages,res.data[0]]}, () => console.log("so fun", this.state.memeages)))
+                  .then(res => this.setState({memeages:[...this.state.memeages,res.data[0]]}))
+                  Api.getOne(this.state.memeBattles[i][2])
+                .then(res => this.setState({initiators:[...this.state.initiators,res.data.image]}))
               }
+              this.getInitiatorImages();
               
+          }
+
+          getInitiatorImages() {
+            
+            // for (let i = 0; i < this.state.memeBattles.length; i++) {
+                
+            //     .then(console.log(this.state))
+            // }
           }
 
     render() {
@@ -65,9 +78,7 @@ class BattlePage extends Component {
                 <div id="memeCardDivOnBattlePage">
                     {this.state.memeages.map((item, index) => (
                         <div>
-                            {console.log(item.bottomX)}
-                            {console.log("is this working?" + JSON.stringify (this.state.memeages[0]))}
-                            
+                            {console.log(this.state)}
                         {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
                         
                         <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText}/>
@@ -76,6 +87,8 @@ class BattlePage extends Component {
                             ))}
                     
                 </div>
+
+                
                }
             </div>
 
