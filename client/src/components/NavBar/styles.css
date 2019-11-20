@@ -10,8 +10,10 @@ li {
 }
 #navBar{
     border-bottom: 1px slategray solid;
+    width: 100%;
     margin-left: 0px;
     margin-right: 0px;
+    position: fixed;
     padding-left: 0px;
     padding-right: 0px;
     box-shadow: 0 7px 3px -3px rgba(0, 0, 0, 0.5);
@@ -19,6 +21,7 @@ li {
     /*background-image: url("../../images/bright.jpg");*/
     background-position-y: -80%;
     object-fit: cover;
+    z-index: 10;
     
 }
 

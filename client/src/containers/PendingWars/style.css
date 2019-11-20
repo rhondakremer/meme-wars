@@ -2,11 +2,40 @@
     width: 20%;  
 }
 
-#memeCardDivOnBattlePage{
+#holds-all-the-memecard-divs{
+    margin-top: 5% !important;
+
     width: 80%;
-    padding: 20px;
-    display: flex;
-  flex-wrap: wrap;
+}
+#imageHolderOnPendingWars{
+    margin-bottom: 16% !important;
+}
+
+#PinkButtonIDForPendingWarsPage{
+margin-left: 13%;
+padding:  auto 5px !important;
+
+}
+
+#MemeOfYouOnPendingWarsPage{
+    width: 80%;
+    display: block;
+}
+
+#PictureOfOpponentOnPendingWarsPage{
+    width: 80%;
+    margin-top: -12px !important;
+    display: block;
+}
+
+#pinkButtonOnPendingWarsContainer{
+    margin-top: 30px !important;
+    padding: 8px;
+
+}
+
+#pendingWarsFeed{
+    display: inline-flex;
 }
 
 #navbarDiv{
@@ -32,3 +61,4 @@
     margin-top: 2px;
 
 }
+

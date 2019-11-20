@@ -234,7 +234,8 @@ class BattlePage extends Component {
                 </div>
                 {this.state.memeages &&
                 <div id="holds-all-the-memecard-divs">
-                    <div id="memeCardDivOnBattlePage">
+                    <div id="pendingWarsFeed">
+                    <div id="MemeOfYouOnPendingWarsPage">
                         {this.state.memeages.map((item, index) => (
                             <div>
                                 {console.log(this.state)}
@@ -245,15 +246,16 @@ class BattlePage extends Component {
                             </div>
                         ))}
 
+                        
+
                     </div>
+                    
 
-
-
-                    <div id="memeCardDiv2">
+                    <div id="PictureOfOpponentOnPendingWarsPage">
                         {this.state.initiators &&
                             <div className="content">
                                 {this.state.initiators.map((image, index) => (
-                                    <div className="image-holder" key={index}>
+                                    <div className="image-holder" id="imageHolderOnPendingWars" key={index}>
                                         <img crossOrigin="anonymous"
                                             style={{
                                                 width: "100%",
@@ -265,12 +267,13 @@ class BattlePage extends Component {
                                             onClick={() => this.openImage(image)}
                                             role="presentation"
                                         />
-                                        <button className="btn btn-primary pinkButton" onClick={() => this.openImage(image, index)}>Make Meme</button>
+                                        <button id="pinkButtonOnPendingWarsContainer" className="btn btn-primary pinkButton" onClick={() => this.openImage(image, index)}>Make Meme</button>
                                     </div>
                                 ))}
 
                             </div>
                         }
+                    </div>
                     </div>
 
 </div>

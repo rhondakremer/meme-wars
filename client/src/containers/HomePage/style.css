@@ -4,8 +4,9 @@
 
 #battleCardDiv{
     width: 80%;
+    margin-top: 5% !important;
     border-bottom: 1px solid black;
-    padding-left: 10px;
+    padding-left: -100px !important;
 }
 
 

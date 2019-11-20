@@ -33,6 +33,7 @@ class NavBar extends Component
   render() {
     return (
       <div id="navBar">
+        
         <ul className="nav justify-content-start">
 
   <li className="nav-item">
