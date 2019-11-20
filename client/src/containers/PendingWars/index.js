@@ -82,10 +82,10 @@ class BattlePage extends Component {
                     console.log("Saved", memeSaved)
                     this.setState({modalIsOpen: false})
                 
-                    // Api.respondToChallenge(index)
-                    // post route to update feed
-                    //use memeSaved.data._id
-
+                    Api.respondToChallenge(this.state.battles[this.state.index]._id, {
+                        meme2: memeSaved.data._id
+                    })
+                   
             // Api.
             //     startBattle(memeSaved.data._id, memeSaved.data.createdBy, memeSaved.data.imageOf)
             //     .then(newBattleInitiated => console.log("we did a thing", newBattleInitiated))
