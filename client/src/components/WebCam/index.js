@@ -4,8 +4,6 @@ import 'react-html5-camera-photo/build/css/index.css';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Downloader from 'js-file-downloader';
 import { Link } from 'react-router-dom';
-import Webcam from 'react-webcam';
-import Api from '../../utils/API';
 import axios from 'axios';
 //import saveImage from 'save-image';
 import "./style.css";
