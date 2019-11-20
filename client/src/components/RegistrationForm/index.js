@@ -79,7 +79,7 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
-            <UploadPhoto /*callbackFromParent={this.getUploadedImage}*//>
+            <UploadPhoto callbackFromParent={this.getUploadedImage}/>
             <br></br>
             {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">

@@ -175,6 +175,7 @@ class UploadPhoto extends Component {
     });
     if (this.props.onUploadSuccess) this.props.onUploadSuccess(uploadedImage);
     this.passImageUrl();
+    console.log("upload success");
   }
 
   handleClick(e) {
@@ -274,7 +275,7 @@ UploadPhoto.defaultProps = {
   resourceType: "auto",
   contextAlt: null,
   contextCaption: null,
-  allowedFormats: ["png", "gif", "jpeg"],
+  allowedFormats: ["png", "gif", "jpeg", "textedit"],
   maxFileSize: null,
   maxImageWidth: null,
   maxImageHeight: null,
