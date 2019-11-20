@@ -18,7 +18,7 @@
 #mainBodyDiv{
     margin-top: 0px;
     padding-top: 0px;
-z-index: -1;
+    z-index: 0;
 }
 
 #memePicture{
