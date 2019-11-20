@@ -1,21 +1,26 @@
 .memeCard2Image{
 height: 100%;   
+width:100%;
+background-size: 100% 100%;
 object-fit: cover;
 margin: 0 auto !important;
 object-position: center;
 justify-content: center;
 text-align: center;
+overflow:hidden;
 }
 
 text{
 font-size: 150% !important;
 }
-
+svg{
+    height: 100%;
+    width: 100% ;
+}
 
 #svg_ref{
     border: 1px solid black;
     background-color: black !important;
-
     height: 200px;
     width: 200px ;
     margin: 20px;

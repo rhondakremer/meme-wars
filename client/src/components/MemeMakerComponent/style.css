@@ -13,6 +13,10 @@
     margin-left: 90px;
    
 }
+
+#pinkButtonOnPendingWarsContainer{
+    margin-bottom: 3% !important;
+}
 #MemeMakerRow{
     width: 100%;
     justify-content: center;
@@ -52,7 +56,8 @@ margin: 0px auto;
     outline: none;
     border: 1px solid slategray;
     display: inline-flex !important;
-    
+    padding: auto 5px !important;
+
 }
 
 #MemeMakerDiv{
