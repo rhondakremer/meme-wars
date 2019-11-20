@@ -4,6 +4,7 @@ import UserProfile from '../../components/UserProfile';
 import NavBar from '../../components/NavBar';
 import MemeCard2 from "../../components/MemeCard2";
 import PendingWars from "../../components/pendingWars";
+import "../MemeMaker/style.css"
 import "./style.css";
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 
