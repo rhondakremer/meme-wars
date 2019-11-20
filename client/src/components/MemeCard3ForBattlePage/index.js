@@ -1,65 +1,29 @@
 import React, {Component} from 'react';
+import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import "./style.css"
-import axios from "axios"
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 
-class PendingWars extends Component
+
+
+
+class MemeCard3 extends Component
 {
     constructor(props)
     {
         super(props);
         this.state={
-            email:"",
-            password: ""
+            currentUser: "",
+            imagebase64:""
         }
     }
-
-    componentDidMount() {
-        // Api.getUsers()
-        //   .then(res => {
-        //     let user = JSON.parse(localStorage.getItem('session'));
-        //     this.setState({ currentUser: user.id }, () => 
-            
-        //     Api.getMyChallenges(this.state.currentUser)
-        //     .then(res =>
-        //       this.setState({battles:res.data}, () =>
-        //       this.getBattleMemes())
-        //     )
-        //   )}); 
-
-
-          
-        //   Api.getBattles()
-        //   .then( res => 
-        //     this.setState({battles:res.data}, () => 
-        //     this.getBattleMemes()
-        //     ))
-        //   }
-      
-      
-        //   //this should be used with getPendingWarMemes below and getBattles() above to get the info to render the memes
-        //   getBattleMemes() {
-        //       let memeBattles = [];
-        //       for (let i = 0; i < this.state.battles.length; i++) {
-        //         memeBattles.push([this.state.battles[i].meme1, this.state.battles[i].meme2])
-        //       } this.setState({memeBattles: memeBattles}, () => this.getPendingWarMemes())
-        //   }
-        //   // don't forget this one with the one above!!
-        //   getPendingWarMemes() {
-        //       let memeages = [];
-        //       for (let i = 0; i < this.state.memeBattles.length; i++) {
-        //           Api.getMemeById(this.state.memeBattles[i][0])
-        //           .then(res => memeages.push(res.data))
-        //           .then(this.setState({memeages:memeages}))
-        //       }
-          }
-
-
-
-      _imageEncode (arrayBuffer) {
+    componentDidUpdate()
+    {
+        this.openImage(this.props.src)
+    }
+    _imageEncode (arrayBuffer) {
         let u8 = new Uint8Array(arrayBuffer)
         let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
         let mimetype="image/jpeg"
@@ -101,6 +65,8 @@ class PendingWars extends Component
 
     render()
     {
+        this.openImage(this.props.src)
+
         const textStyle = {
             fontFamily: "Impact",
             fontSize: "50px",
@@ -111,8 +77,8 @@ class PendingWars extends Component
         }
 
         return (<div>
-        {this.openImage(this.props.src)}
-        <svg
+        
+        {this.state.imagebase64&&<svg
               width={600}
               id="svg_ref"
               height={400}
@@ -144,13 +110,12 @@ class PendingWars extends Component
               >
                   {this.props.bottomText}
               </text>
-            </svg>
-            <Link to="/mememaker" className="nav-link btn btn-primary pinkButton" >Fight Back</Link>
+            </svg>}
+           
+
 
             </div>);
     }
 }
 
-
-    export default PendingWars
-
+export default MemeCard3;
