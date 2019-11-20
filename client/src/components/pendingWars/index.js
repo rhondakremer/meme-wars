@@ -145,7 +145,7 @@ class PendingWars extends Component
                   {this.props.bottomText}
               </text>
             </svg>
-            <Link to="/mememaker" className="nav-link btn btn-primary pinkButton" >Fight Back</Link>
+            <Link to="/mememaker" id="PinkButtonIDForPendingWarsPage" className="nav-link btn btn-primary pinkButton" >Fight Back</Link>
 
             </div>);
     }

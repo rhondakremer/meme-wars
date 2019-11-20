@@ -27,6 +27,11 @@
   justify-content: center !important;
 }
 
+#mememakerWrapper{
+  margin-top: 5% !important;
+
+}
+
 .pinkButton:hover {
 background-color: rgba(227, 60, 9, 0.913) !important;
 border: 1px solid rgb(190, 48, 16) !important;
@@ -80,13 +85,15 @@ box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
   box-shadow: none;
 }
 
+
+
 .image-holder {
-  width: 168px;
-  height: 168px;
-  margin: 2.5px 2px;
-  position: relative;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
-  border: black 1px solid;
+  border: 1px solid black;
+    background-color: black !important;
+    height: 200px;
+    width: 200px ;
+    margin: 20px;
+    box-shadow: 0px 0px 32px -10px rgba(0,0,0,0.75);
 }
 
 .image-holder:hover {
