@@ -94,7 +94,6 @@ class RegistrationForm extends Component
              
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
                 
-            <br></br>
             <div className="outerDivForPinkButton">
             <button onClick={this.register} className="btn btn-primary pinkButton">
                 Register </button>

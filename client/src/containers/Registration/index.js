@@ -17,7 +17,7 @@ class Registration extends Component
             <br/>
             <div>
                 <h8>Already have an account?</h8>
-                    <Link to="/login" className="nav-link " id="registerLink">Login here.</Link>
+                    <Link to="/login" className="nav-link registerAccount" id="registerLink">Login here.</Link>
             </div>
             </div>
 

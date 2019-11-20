@@ -8,22 +8,41 @@
 }
 
 .loginContainer{
-    width: 100%; 
+width: 100%;
     margin-top: 100px;
     justify-content: center;
     align-content: center;
     text-align: center;
     margin: 0px auto;
-background-image: url("../../images/tile.jpg"), url("../../images/smoke.png");
+background-image: url("../../images/bright.jpg"), url("../../images/smoke.png");
 position: absolute; 
-background-repeat: no-repeat;   
+background-repeat: repeat-y;   
 background-position-y: 60%;
-height: 700px;
+height: 800px;
 
 }
+
+.registerAccount{
+  font-size: 1em !important;
+  color: white;
+  text-shadow: rgb(255, 4, 129) 2px 2px 4px;
+  font-weight: bold;
+}
+
+.registerAccount:hover{
+  font-size: 1em !important;
+  color: rgb(255, 4, 129);
+  text-shadow: white 2px 2px 4px;
+  font-weight: bold;
+}
+
+h8{
+  color: white;
+}
+
 .logo{
   margin-top: 30px !important;
-background: url("../../images/logo4.png");
+background: url("../../images/logo6.png");
 display: flex;
   width: 40%;
   background-repeat: no-repeat;
