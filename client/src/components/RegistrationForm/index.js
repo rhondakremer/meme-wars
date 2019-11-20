@@ -36,7 +36,7 @@ class RegistrationForm extends Component
         {
             alert("Please fill all the fields in order to register.");
         }
-        
+
         Api
             .register(this.state.name, this.state.email, this.state.password, this.state.image)
             .then(session => {
@@ -80,7 +80,8 @@ class RegistrationForm extends Component
                 Image URL:
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
-            {!this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
+            {this.state.imageUri&&<UploadPhoto callbackFromParent={this.getUploadedImage}/>}
+            <br></br>
             {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">
                 Or if you prefer, just take a selfie.
@@ -88,10 +89,6 @@ class RegistrationForm extends Component
 
                 <div className="outerDivForPinkButton">
                 <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
-
-             
-             
-             
              
              </div>
                 {this.state.showModal && <WebCam onPhotoTaken={(imageUri)=>this.setState({showModal:false,imageUri})} onClose={()=>this.setState({showModal:false})}/> }
