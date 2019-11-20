@@ -18,7 +18,7 @@ class Login extends Component
 
        <LoginForm id="loginForm" onLogin={this.props.onLogin} />
        <br/>
-        <div><h8>Need an account?</h8><Link to="/register" className="nav-link " id="registerLink">Register here.</Link></div>
+        <div><h8>Need an account?</h8><Link to="/register" className="nav-link registerAccount" id="registerLink">Register here.</Link></div>
         </div>
     }
 }
