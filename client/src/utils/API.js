@@ -62,8 +62,8 @@ export default {
         })
     },
     
-    getMemes: function(){
-        return axios.get("/api/meme/")
+    getMemes: function(id){
+        return axios.get("/api/meme/?createdBy=" + id)
     },
 
     getMemeById: function(id){
