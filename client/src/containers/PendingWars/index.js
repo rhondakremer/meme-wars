@@ -244,7 +244,7 @@ class BattlePage extends Component {
                     </div>
                     
 
-                    <div className="col-5" id="PictureOfOpponentOnPendingWarsPage">
+                    <div className="col-4" id="PictureOfOpponentOnPendingWarsPage">
                         {this.state.initiators &&
                             <div className="content">
                                 {this.state.initiators.map((image, index) => (
