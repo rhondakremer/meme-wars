@@ -8,22 +8,19 @@
     width: 80%;
 }
 #imageHolderOnPendingWars{
-    margin-bottom: 16% !important;
+    margin-bottom: 4% !important;
 }
 
-#PinkButtonIDForPendingWarsPage{
-margin-left: 13%;
-padding:  auto 5px !important;
 
-}
 
 #MemeOfYouOnPendingWarsPage{
-    width: 80%;
     display: block;
+    align-content: center;
 }
 
 #PictureOfOpponentOnPendingWarsPage{
-    width: 80%;
+    align-content: center;
+
     margin-top: -12px !important;
     display: block;
 }
@@ -33,6 +30,18 @@ padding:  auto 5px !important;
     padding: 8px;
 
 }
+
+#vsDiv{
+    margin-top: -35% ;
+    background-image: url("../../images/fight.png");
+   float: right !important;
+   margin-right: 50px !important;
+   width: 170px;
+   height: 150px;
+   background-position: center;
+    background-repeat: no-repeat;
+}
+
 
 #pendingWarsFeed{
     display: inline-flex;

@@ -234,15 +234,16 @@ class BattlePage extends Component {
                 </div>
                 {this.state.memeages &&
                 <div id="holds-all-the-memecard-divs">
-                    <div id="pendingWarsFeed">
-                    <div id="MemeOfYouOnPendingWarsPage">
+                    <div className="row" id="pendingWarsFeed">
+                    <div className="col-6 " id="MemeOfYouOnPendingWarsPage">
                         {this.state.memeages.map((item, index) => (
                             <div>
                                 {console.log(this.state)}
                                 {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
 
                                 <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText} index={index}/>
-
+                            <div id="vsDiv">
+                                </div>
                             </div>
                         ))}
 
@@ -251,7 +252,7 @@ class BattlePage extends Component {
                     </div>
                     
 
-                    <div id="PictureOfOpponentOnPendingWarsPage">
+                    <div className="col-5" id="PictureOfOpponentOnPendingWarsPage">
                         {this.state.initiators &&
                             <div className="content">
                                 {this.state.initiators.map((image, index) => (
@@ -264,10 +265,10 @@ class BattlePage extends Component {
                                             }}
                                             alt={index}
                                             src={image}
-                                            onClick={() => this.openImage(image)}
+                                            onClick={() => this.openImage(image, index)}
                                             role="presentation"
                                         />
-                                        <button id="pinkButtonOnPendingWarsContainer" className="btn btn-primary pinkButton" onClick={() => this.openImage(image, index)}>Make Meme</button>
+                                        
                                     </div>
                                 ))}
 
