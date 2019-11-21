@@ -51,12 +51,18 @@ class HomePage extends Component
         for (let i = 0; i < this.state.battles.length; i++) {
           let war={
               meme1:"",
-              meme2:""
+              meme2:"",
+              meme1votes:"",
+              meme2votes:"",
+              id:""
           };
           if(this.state.battles[i].meme1 && this.state.battles[i].meme2)
           {
             war.meme1=this.state.battles[i].meme1
             war.meme2=this.state.battles[i].meme2
+            war.meme1votes=this.state.battles[i].meme1votes
+            war.meme2votes=this.state.battles[i].meme2votes
+            war.id=this.state.battles[i]._id
             warsArr.push(war)
           }
         } this.setState({wars: warsArr}, () => {
