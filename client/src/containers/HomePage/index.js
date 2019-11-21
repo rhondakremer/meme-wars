@@ -33,12 +33,12 @@ class HomePage extends Component
                 if(index===i)
                   item.meme1=res.data[0];
               return item;
-              })}, () => console.log("Meme 1:",this.state.wars[i].meme1)))
+              })}))
             Api.getMemeById(this.state.wars[i].meme2).then(res => this.setState({wars:this.state.wars.map((item,index)=>{
                 if(index===i)
                   item.meme2=res.data[0];
               return item;
-              })}, () => console.log("Meme 2:",this.state.wars[i].meme2)))
+              })}))
         }
       })
       ))

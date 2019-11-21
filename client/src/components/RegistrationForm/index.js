@@ -42,7 +42,7 @@ class RegistrationForm extends Component
             .then(session => {
                 // debugger;
                 this.props.onRegister(session.data);
-                console.log("line 31 of reg form" + JSON.stringify(session))
+                // console.log("line 31 of reg form" + JSON.stringify(session))
 
                 alert("Welcome " + this.state.name);
 

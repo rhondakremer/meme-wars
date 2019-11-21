@@ -59,9 +59,10 @@ class MemeMaker extends Component {
             .then(memeSaved => {
         Api.
             startBattle(memeSaved.data._id, memeSaved.data.createdBy, memeSaved.data.imageOf)
-            .then(newBattleInitiated => console.log("we did a thing", newBattleInitiated))
+            .then(
+                newBattleInitiated => console.log("we did a thing", newBattleInitiated))
                 // debugger;
-                console.log("HOW DOES THIS LOOK?", JSON.stringify(memeSaved.data._id));
+                // console.log("HOW DOES THIS LOOK?", JSON.stringify(memeSaved.data._id));
                 alert("Yay! Your meme has been added")
                 this.setState({modalIsOpen: false})
         })
@@ -77,11 +78,11 @@ class MemeMaker extends Component {
     openImage = (image) => {
         
         this.setState({baseImgURL:image.image}, () => {
-            console.log( 'baseimgurl', this.state.baseImgURL)
+            // console.log( 'baseimgurl', this.state.baseImgURL)
             Api.getUserFromImage(image.id).then(
             user => {
 
-                console.log("this is the response", user.data._id)
+                // console.log("this is the response", user.data._id)
                 this.setState({imageOf:user.data._id}, () => console.log("imageof set", this.state.imageOf))
             })
         });
