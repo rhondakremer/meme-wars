@@ -8,21 +8,25 @@
     width: 80%;
 }
 #imageHolderOnPendingWars{
-    margin-bottom: 4% !important;
+    margin-bottom: 0px !important;
+    float: left;
+    display:flex;
 }
 
 
 
 #MemeOfYouOnPendingWarsPage{
-    display: block;
-    align-content: center;
+float: left;
 }
 
 #PictureOfOpponentOnPendingWarsPage{
-    align-content: center;
-
-    margin-top: -12px !important;
+float: right;    
+margin-top: -12px !important;
     display: block;
+    margin-left: 100px !important;
+
+
+    
 }
 
 #pinkButtonOnPendingWarsContainer{
@@ -32,14 +36,16 @@
 }
 
 #vsDiv{
-    margin-top: -35% ;
+    margin-top: -40% ;
     background-image: url("../../images/fight.png");
    float: right !important;
-   margin-right: 50px !important;
+   margin-left: 550px !important;
    width: 170px;
    height: 150px;
    background-position: center;
     background-repeat: no-repeat;
+    
+
 }
 
 
