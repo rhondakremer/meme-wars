@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
+import Downloader from 'js-file-downloader';
 import { Link } from 'react-router-dom';
-import Webcam from 'react-webcam';
-import Api from '../../utils/API';
 import axios from 'axios';
 //import saveImage from 'save-image';
 import "./style.css";
@@ -53,8 +52,20 @@ class WebCam extends Component
     //console.log(myImage);
     //localStorage.setItem("name", myImage);
     axios.post("/api/images", {image:myImage});
-    this.props.onPhotoTaken(dataUri)
+    this.props.onPhotoTaken(dataUri);
 
+    const fileUrl  = dataUri;
+    console.log("this is the fileUrl" + fileUrl);
+
+    new Downloader({
+      url: dataUri
+    })
+    .then(() => {
+
+    })
+    .catch( (error) =>{
+      return error;
+    });
   }
  
   onTakePhotoAnimationDone (dataUri) {

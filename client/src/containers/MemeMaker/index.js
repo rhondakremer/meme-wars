@@ -202,7 +202,7 @@ class MemeMaker extends Component {
             </div>
                     <div id="userProfileDiv">
 
-                        <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
+                        <UserProfile dMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
                     </div>
                     
                     <div id="memeCardDiv">
