@@ -22,6 +22,8 @@ module.exports = {
     battle.meme2 = "";
     battle.meme2Challenger = req.body.imageOf;
     battle.meme1Initiator = req.body.createdBy;
+    battle.meme1votes = 0;
+    battle.meme2votes = 0;
     db.Feed
       .create(battle)
       .then(dbModel => res.json(dbModel))
