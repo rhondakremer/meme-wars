@@ -80,9 +80,11 @@ class RegistrationForm extends Component
                 <input onChange={this.inputChangeHandler} value={this.state.image} type="url" name="image" placeholder="URL" />
             </div> */}
             <UploadPhoto callbackFromParent={this.getUploadedImage}/>
-            <br></br>
+            
             {this.state.imageUri&&<img id="imageFromWebcam" style={{maxWidth:"65%"}} src={this.state.imageUri} />}
             <div className="selfieText">
+
+                <p id="explanationText">If you prefer to take a selfie to upload, just click "Open camera" below! 😜</p>
                
                 <div className="outerDivForPinkButton">
 
