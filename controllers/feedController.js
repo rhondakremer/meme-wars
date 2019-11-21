@@ -28,7 +28,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
-    console.log("tell me somehting good", req.params._id, req.body)
+    // console.log("tell me somehting good", req.params._id, req.body)
     db.Feed
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
@@ -42,7 +42,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findChallenges: function(req, res) {
-    console.log("are we here in feedController?", req.params)
+    // console.log("are we here in feedController?", req.params)
     db.Meme
       .find({meme2Challenger:req.params})
       // .sort({ date: -1 })

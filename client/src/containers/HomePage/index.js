@@ -33,12 +33,12 @@ class HomePage extends Component
                 if(index===i)
                   item.meme1=res.data[0];
               return item;
-              })}, () => console.log("Meme 1:",this.state.wars[i].meme1)))
+              })}))
             Api.getMemeById(this.state.wars[i].meme2).then(res => this.setState({wars:this.state.wars.map((item,index)=>{
                 if(index===i)
                   item.meme2=res.data[0];
               return item;
-              })}, () => console.log("Meme 2:",this.state.wars[i].meme2)))
+              })}))
         }
       })
       ))
@@ -96,6 +96,7 @@ class HomePage extends Component
             <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
 
             </div>
+            <div id="homepageDIV">
                 {this.state.battles && this.state.wars.length>0 &&
                     <div className="row" id="battleCardDiv">
                         <div id="innerBattleCardDiv">
@@ -103,6 +104,7 @@ class HomePage extends Component
                         </div>
                     </div>
                 }
+                </div>
             </div>
        
             </div>

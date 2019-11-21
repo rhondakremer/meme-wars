@@ -51,7 +51,7 @@ class WebCam extends Component
     this.props.onPhotoTaken(dataUri);
 
     const fileUrl  = dataUri;
-    console.log("this is the fileUrl" + fileUrl);
+    // console.log("this is the fileUrl" + fileUrl);
 
     new Downloader({
       url: dataUri
@@ -73,12 +73,12 @@ class WebCam extends Component
     console.error('onCameraError', error);
   }
  
-  onCameraStart (stream) {
-    console.log('onCameraStart');
-  }
+  // onCameraStart (stream) {
+  //   console.log('onCameraStart');
+  // }
  
   handleCloseModal () {
-    console.log("I hit the camera stop function");
+    // console.log("I hit the camera stop function");
     this.setState({showModal: false});
   }
 

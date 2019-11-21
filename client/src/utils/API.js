@@ -71,22 +71,22 @@ export default {
     },
 
     getUserFromImage: function(id) {
-        console.log("hey i am here in api.js", id)
+        // console.log("hey i am here in api.js", id)
         return axios.get(`/api/user/${id}`)
     },
     getBattles: function() {
         return axios.get("/api/feed")
     },
     getMemesOfMe: function(imageOf) {
-        console.log("this is getmemesofme in api.js", imageOf)
+        // console.log("this is getmemesofme in api.js", imageOf)
         return axios.get('/api/meme/?imageOf=' + imageOf)
     },
     getMyChallenges: function(id) {
-        console.log("getting challenges" , id)
+        // console.log("getting challenges" , id)
         return axios.get("/api/feed/?meme2Challenger=" + id + "&meme2=")
     },
     respondToChallenge: function(id, meme2) {
-        console.log("Are we in api.js?", id, meme2)
+        // console.log("Are we in api.js?", id, meme2)
         return axios.put("/api/feed/" + id, meme2)
     }
 }

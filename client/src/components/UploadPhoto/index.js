@@ -33,7 +33,7 @@ class UploadPhoto extends Component {
   }
 
   static open(options) {
-    console.log("open");
+    // console.log("open");
 
     return new Promise((fulfil, reject) => {
       cloudinary.openUploadWidget(options, (error, result) => {
@@ -154,7 +154,7 @@ class UploadPhoto extends Component {
   }
 
   setUploadResult(uploadedImage) {
-    console.log("uploadedImage", uploadedImage);
+    // console.log("uploadedImage", uploadedImage);
     this.setState({
       bytes: uploadedImage.bytes,
       createdAt: uploadedImage.created_at,

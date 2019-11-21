@@ -14,7 +14,7 @@ class LoginForm extends Component
     }
 
     componentDidMount() {
-        console.log(" Login form:",this.props);
+        // console.log(" Login form:",this.props);
         window.scrollTo(0,0);
 
     };
