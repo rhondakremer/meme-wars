@@ -105,10 +105,8 @@ class BattlePage extends Component {
         }
     
         openImage = (image, index) => {
-            console.log(index)
-            this.setState({baseImgURL:image, imageOf:this.state.battles[index].meme1Initiator, index:index}, () => {
-                console.log( 'baseimgurl', this.state.baseImgURL, this.state.imageOf)
-            });
+            // console.log(index)
+            this.setState({baseImgURL:image, imageOf:this.state.battles[index].meme1Initiator, index:index});
     
             Api.downloadImage(image).then(imageData=>{
                 this.setState(prevState => ({
@@ -186,7 +184,6 @@ class BattlePage extends Component {
             });
         }
     
-    
         getBase64Image(img) {
             var canvas = document.createElement("canvas");
             canvas.width = img.width;
@@ -196,11 +193,6 @@ class BattlePage extends Component {
             var dataURL = canvas.toDataURL("image/png");
             return dataURL;
         }
-
-
-
-
-
 
     render() {
 
@@ -238,7 +230,7 @@ class BattlePage extends Component {
                     <div id="MemeOfYouOnPendingWarsPage">
                         {this.state.memeages.map((item, index) => (
                             <div>
-                                {console.log(this.state)}
+                                {/* {console.log(this.state)} */}
                                 {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
 
                                 <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText} index={index}/>
@@ -264,7 +256,7 @@ class BattlePage extends Component {
                                             }}
                                             alt={index}
                                             src={image}
-                                            onClick={() => this.openImage(image)}
+                                            onClick={() => this.openImage(image, index)}
                                             role="presentation"
                                         />
                                         <button id="pinkButtonOnPendingWarsContainer" className="btn btn-primary pinkButton" onClick={() => this.openImage(image, index)}>Make Meme</button>

@@ -10,7 +10,7 @@ module.exports = {
   },
 
   findAllOfMe: function(req, res) {
-    console.log("are we here in memeController?", req.params)
+    // console.log("are we here in memeController?", req.params)
     db.Meme
       .find({imageOf:req.params})
       // .sort({ date: -1 })
