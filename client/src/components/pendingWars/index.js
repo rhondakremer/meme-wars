@@ -58,8 +58,7 @@ class PendingWars extends Component
             </div>
 
         </div>
-            <Link to="/mememaker" id="PinkButtonIDForPendingWarsPage" className="nav-link btn btn-primary pinkButton" >Fight Back</Link>
-
+           
             </div>);
     }
 }
