@@ -96,6 +96,7 @@ class HomePage extends Component
             <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage}/>
 
             </div>
+            <div id="homepageDIV">
                 {this.state.battles && this.state.wars.length>0 &&
                     <div className="row" id="battleCardDiv">
                         <div id="innerBattleCardDiv">
@@ -103,6 +104,7 @@ class HomePage extends Component
                         </div>
                     </div>
                 }
+                </div>
             </div>
        
             </div>

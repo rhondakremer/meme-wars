@@ -9,6 +9,9 @@
     padding-left: -100px !important;
 }
 
+#homepageDIV{
+    min-width: 80% !important;
+}
 
 #innerBattleCardDiv{
     width: 100%;
