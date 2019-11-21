@@ -88,5 +88,9 @@ export default {
     respondToChallenge: function(id, meme2) {
         // console.log("Are we in api.js?", id, meme2)
         return axios.put("/api/feed/" + id, meme2)
+    },
+    add1Point: function(index, key) {
+        // console.log("Are we in api.js?", id, meme2)
+        return axios.put("/api/feed/" + index, key)
     }
 }

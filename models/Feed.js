@@ -7,7 +7,8 @@ const FeedSchema = new Schema({
     meme2: String,
     meme2Challenger: String,
     voted: [String],
-    votes: [{"meme1votes": 0}, {"meme2votes": 0}],
+    meme1votes: Number, 
+    meme2votes: Number,
     date: { type: Date, default: Date.now}
 });
 

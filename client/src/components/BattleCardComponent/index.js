@@ -16,6 +16,11 @@ class BattleCard extends Component {
         this.setState({ currentUser: user.id })
       });
 
+    //   Api.getBattles()
+    // .then( res => 
+    //   this.setState({battles:res.data}, () =>
+    //   console.log(this.state.battles)))
+
     // how to get all battles in feed
     // Api.getBattles()
     //   .then(res =>
@@ -36,6 +41,12 @@ class BattleCard extends Component {
     //   .then(res => console.log("Iam the meme", res.data))
   }
 
+
+  
+  // add1PointToMeme1(index,key) {
+
+  // }
+
   render() {
     // console.log("Wars received in battle:",this.props.wars)
     return <div id="additionalDIV">
@@ -47,8 +58,10 @@ class BattleCard extends Component {
           <div className="card" id="BattleMemeDiv">
           <br/>
             <br/>
-            <h1>vs.</h1>
-            <button id="voteForMemeButton" href="#" className="btn btn-primary">Results go here!</button>
+            <h1>{item.meme1votes} to {item.meme2votes}</h1>
+            <h5>Who did it better??</h5>
+            {/* <button id="voteForMeme1Button" href="#" className="btn btn-primary" index={item.id} key="meme1votes">Meme1</button>
+            <button id="voteForMeme2Button" href="#" className="btn btn-primary" index={item.id} key="meme2votes">Meme2</button> */}
           </div>
           <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}
