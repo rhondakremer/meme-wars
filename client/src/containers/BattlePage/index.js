@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import UserProfile from '../../components/UserProfile';
-// import Api from '../../utils/API';
+import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import MemeCard from "../../components/MemeCard";
 import MemeCard2 from "../../components/MemeCard2";
@@ -14,14 +14,18 @@ class BattlePage extends Component {
         super(props);
         this.state = {
             currentUser: "",
+            myMemes: []
         }
     }
 
     componentDidMount() {
-        // Api.getUser().then
-        // (currentUser=>{
-        //     this.setState({currentUser});
-        // })
+        Api.getUsers()
+      .then(res => {
+        let user = JSON.parse(localStorage.getItem('session'));
+        this.setState({ currentUser: user.id }, () => 
+        Api.getMemes(this.state.currentUser)
+        .then(res => this.setState({myMemes:res.data})))
+      });
     }
 
     render() {
@@ -35,7 +39,7 @@ class BattlePage extends Component {
                     <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage} />
                 </div>
                 <div id="memeCardDivOnBattlePage">
-                    {this.props.createdMemes.map((item, index) => (
+                    {this.state.myMemes.map((item, index) => (
                         <div>
                             {console.log(item.bottomX)}
                         {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
