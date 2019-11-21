@@ -11,9 +11,6 @@ import "./style.css";
 const moment = require('moment');
 
 //========================================================
-
-
-//import ImagePreview from './ImagePreview';
  
 class WebCam extends Component 
 {
@@ -50,7 +47,6 @@ class WebCam extends Component
     //console.log("I hit onTakePhoto function" + myImage);
     // myImage = `${moment().format('X')}.jpg`;
     //console.log(myImage);
-    //localStorage.setItem("name", myImage);
     axios.post("/api/images", {image:myImage});
     this.props.onPhotoTaken(dataUri);
 
