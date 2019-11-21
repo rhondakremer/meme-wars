@@ -44,10 +44,7 @@ class UserProfile extends Component
             <h6><Link to="/pendingwars" className="linkToInvite" >Pending Wars</Link></h6>
             <h6 ><Link to="/invite" className="linkToInvite" >Add Friends</Link></h6>
 
-            <h5>{this.props.sessionName}'s Stats:</h5>
             
-            <h6>Wars Won: 4</h6>
-            <h6>Wars Lost: 5</h6>
             {/* <button onClick={this.button}>get current user</button> */}
 
 
