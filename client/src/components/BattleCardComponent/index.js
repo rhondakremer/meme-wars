@@ -51,7 +51,7 @@ class BattleCard extends Component {
     // console.log("memeid", event.target.getAttribute("data-memeid"))
     let currentScore = Number(event.target.getAttribute("data-memescore"))
     let index = Number(event.target.getAttribute("data-index"));
-    console.log(currentScore)
+    console.log(index, currentScore)
     let newScore = currentScore + 1;
     if (event.target.getAttribute("data-whichmeme") === "meme1") {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
@@ -95,8 +95,8 @@ class BattleCard extends Component {
           {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
             <div id="buttons">
               <h5>Who did it better??</h5>
-              <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={item.index}>Meme1</button>
-              <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={item.index}>Meme2</button>
+              <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={index}>Meme1</button>
+              <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={index}>Meme2</button>
             </div>
           }
           {/* {this.state.wars[index].voted.includes(this.state.currentUser) &&
