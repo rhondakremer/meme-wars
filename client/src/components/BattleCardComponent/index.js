@@ -99,9 +99,9 @@ class BattleCard extends Component {
               <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={index}>Meme2</button>
             </div>
           }
-          {/* {this.state.wars[index].voted.includes(this.state.currentUser) &&
+          {this.state.wars[index].voted.includes(this.state.currentUser) &&
           <div>Thanks for voting!</div>
-          } */}
+          }
           </div>
           <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}
