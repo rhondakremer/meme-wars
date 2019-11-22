@@ -34,10 +34,10 @@ li {
 
 #pendingNumber {
     color: hotpink;
-    position: relative;
-    margin-top: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
     margin-left: -1%;
-    border: hotpink 1px solid;
+    border: hotpink 2px solid;
     border-radius: 80%;
     padding-left: 5px;
     padding-right: 5px;

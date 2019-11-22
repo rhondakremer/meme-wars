@@ -56,8 +56,9 @@ class NavBar extends Component
   <li className="nav-item">
     <Link to="/pendingwars" className="nav-link active">Pending Wars</Link>
   </li>
+  {this.state.pending>0 &&
   <div id="pendingNumber">{this.state.pending}</div>
-
+}
   <li className="nav-item">
     <Link to="/battle" className="nav-link active">My Vault</Link>
   </li>
