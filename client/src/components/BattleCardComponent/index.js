@@ -45,11 +45,11 @@ class BattleCard extends Component {
     // Api.getMemeById("5dd1c5c575a5da4446f05ffc")
     //   .then(res => console.log("Iam the meme", res.data))
   }
-
   
   
   onClick = (event) => {
     // console.log("memeid", event.target.getAttribute("data-memeid"))
+    this.setState()
     let index = Number(event.target.getAttribute("data-index"))
     let currentScore = Number(event.target.getAttribute("data-memescore"))
     console.log(currentScore)
@@ -59,6 +59,7 @@ class BattleCard extends Component {
         meme1votes: newScore
       }).then(res => console.log(res),
         this.state.wars[index].meme1votes = newScore,
+        this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser],
         this.forceUpdate(),
         console.log(this.state)
       );
@@ -75,7 +76,7 @@ class BattleCard extends Component {
     );
       Api.addVoter(event.target.getAttribute("data-feedid"), {
         $push: {voted: this.state.currentUser}
-      }).then(res => console.log(res));
+      }).then(res => console.log(res.data, this.state));
     }
   }
 
@@ -92,8 +93,12 @@ class BattleCard extends Component {
             <br/>
             <h1>{this.state.wars[index].meme1votes} to {this.state.wars[index].meme2votes}</h1>
             <h5>Who did it better??</h5>
+            {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
+            <div id="buttons">
             <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={item.index}>Meme1</button>
             <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes}>Meme2</button>
+            </div>
+            }
           </div>
           <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}

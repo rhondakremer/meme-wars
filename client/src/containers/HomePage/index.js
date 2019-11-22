@@ -54,7 +54,8 @@ class HomePage extends Component
               meme2:"",
               meme1votes:"",
               meme2votes:"",
-              id:""
+              id:"",
+              voted: []
           };
           if(this.state.battles[i].meme1 && this.state.battles[i].meme2)
           {
@@ -63,6 +64,7 @@ class HomePage extends Component
             war.meme1votes=this.state.battles[i].meme1votes
             war.meme2votes=this.state.battles[i].meme2votes
             war.id=this.state.battles[i]._id
+            war.voted=this.state.battles[i].voted
             warsArr.push(war)
           }
         } this.setState({wars: warsArr}, () => {
