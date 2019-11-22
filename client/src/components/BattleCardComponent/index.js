@@ -49,19 +49,18 @@ class BattleCard extends Component {
   
   onClick = (event) => {
     // console.log("memeid", event.target.getAttribute("data-memeid"))
-    this.setState()
-    let index = Number(event.target.getAttribute("data-index"))
     let currentScore = Number(event.target.getAttribute("data-memescore"))
+    let index = Number(event.target.getAttribute("data-index"));
     console.log(currentScore)
     let newScore = currentScore + 1;
     if (event.target.getAttribute("data-whichmeme") === "meme1") {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
         meme1votes: newScore
-      }).then(res => console.log(res),
-        this.state.wars[index].meme1votes = newScore,
-        this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser],
-        this.forceUpdate(),
-        console.log(this.state)
+      })
+        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate())
+        .then(console.log("why is this weird?", this.state)
       );
         Api.addVoter(event.target.getAttribute("data-feedid"), {
           $push: {voted: this.state.currentUser}
@@ -69,10 +68,11 @@ class BattleCard extends Component {
     } else {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
         meme2votes: newScore
-      }).then(res => console.log(res),
-      this.state.wars[index].meme2votes = newScore,
-      this.forceUpdate(),
-      console.log(this.state)
+      })
+        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate())
+        .then(console.log("why is this weird?", this.state)
     );
       Api.addVoter(event.target.getAttribute("data-feedid"), {
         $push: {voted: this.state.currentUser}
@@ -81,9 +81,9 @@ class BattleCard extends Component {
   }
 
   render() {
-    console.log("Wars received in battle:",this.props.wars)
+    // console.log("Wars received in battle:",this.props.wars)
     return <div id="additionalDIV">
-      {console.log("Props 1 is: ",this.state.wars)}
+      {/* {console.log("Props 1 is: ",this.state.wars)} */}
     {this.props.wars.map((item, index) => (
           
           <div className="row" id="battleRow">
@@ -92,13 +92,16 @@ class BattleCard extends Component {
           <br/>
             <br/>
             <h1>{this.state.wars[index].meme1votes} to {this.state.wars[index].meme2votes}</h1>
-            <h5>Who did it better??</h5>
-            {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
+          {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
             <div id="buttons">
-            <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={item.index}>Meme1</button>
-            <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes}>Meme2</button>
+              <h5>Who did it better??</h5>
+              <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={item.index}>Meme1</button>
+              <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={item.index}>Meme2</button>
             </div>
-            }
+          }
+          {/* {this.state.wars[index].voted.includes(this.state.currentUser) &&
+          <div>Thanks for voting!</div>
+          } */}
           </div>
           <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}
