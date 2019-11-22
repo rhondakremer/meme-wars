@@ -89,8 +89,11 @@ export default {
         // console.log("Are we in api.js?", id, meme2)
         return axios.put("/api/feed/" + id, meme2)
     },
-    add1Point: function(index, key) {
+    add1Point: function(id, meme) {
         // console.log("Are we in api.js?", id, meme2)
-        return axios.put("/api/feed/" + index, key)
+        return axios.put("/api/feed/" + id, meme)
+    },
+    addVoter: function(id, voter) {
+        return axios.put("/api/feed/" + id, voter)
     }
 }
