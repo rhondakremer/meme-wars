@@ -59,8 +59,7 @@ class BattleCard extends Component {
       })
         .then(this.state.wars[index].meme1votes = newScore)
         .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
-        .then(this.forceUpdate())
-        .then(console.log("why is this weird?", this.state)
+        .then(this.forceUpdate()
       );
         Api.addVoter(event.target.getAttribute("data-feedid"), {
           $push: {voted: this.state.currentUser}
@@ -69,10 +68,9 @@ class BattleCard extends Component {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
         meme2votes: newScore
       })
-        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].meme2votes = newScore)
         .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
-        .then(this.forceUpdate())
-        .then(console.log("why is this weird?", this.state)
+        .then(this.forceUpdate()
     );
       Api.addVoter(event.target.getAttribute("data-feedid"), {
         $push: {voted: this.state.currentUser}
