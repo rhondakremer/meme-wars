@@ -93,8 +93,8 @@ class BattleCard extends Component {
           {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
             <div id="buttons">
               <h5>Who did it better??</h5>
-              <button id="voteForMeme1Button" href="#" className="btn btn-primary makeThemPink" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={index}><i class="fas fa-arrow-left"></i> <i class="fas fa-thumbs-up"></i> </button>
-              <button id="voteForMeme2Button" href="#" className="btn btn-primary makeThemPink" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={index}>  <i class="fas fa-thumbs-up fa-flip-horizontal"></i> <i class="fas fa-arrow-right"></i></button>
+              <button id="voteForMeme1Button" href="#" className="btn btn-primary makeThemPink" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={index}>{"<"}--</button>
+              <button id="voteForMeme2Button" href="#" className="btn btn-primary makeThemPink" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={index}>--{">"}</button>
             </div>
           }
           {this.state.wars[index].voted.includes(this.state.currentUser) &&
