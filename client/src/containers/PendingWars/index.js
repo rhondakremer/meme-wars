@@ -224,6 +224,12 @@ class BattlePage extends Component {
                 <div id="userProfileDiv">
                     <UserProfile componentDidMount={this.componentDidMount} sessionName={this.props.sessionName} sessionImage={this.props.sessionImage} />
                 </div>
+                {this.state.memeages.length === 0 &&
+                <div id="holds-all-the-memecard-divs">
+                    <br/>
+                    <br/>
+                    <h3><center>Great job, you have answered all battle requests!</center></h3></div>
+                }
                 {this.state.memeages &&
                 <div id="holds-all-the-memecard-divs">
                     <div className="row" id="pendingWarsFeed">
