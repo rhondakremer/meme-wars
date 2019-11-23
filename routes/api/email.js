@@ -27,7 +27,7 @@ var transport = {
     var name = req.body.name
     var email = req.body.email
     var message = req.body.message
-    var content =  "You've been challenged to a meme off! Click <a href='http://google.com'> here </a> to battle!"
+    var content =  "You've been challenged to a meme off! Click <a href='https://safe-depths-86355.herokuapp.com/login'> here </a> to battle!"
   
     
     var mail = {
