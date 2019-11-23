@@ -19,7 +19,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the mongoose database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://wednesday:wednesday1@ds047612.mlab.com:47612/heroku_67183r50";
+var MONGODB_URI = process.env.MONGODB_URI || 
+// "mongodb://wednesday:wednesday1@ds047612.mlab.com:47612/heroku_67183r50";
+"mongodb://localhost/memewars";
 mongoose.connect(MONGODB_URI, {userMongoClient: true});
 
 

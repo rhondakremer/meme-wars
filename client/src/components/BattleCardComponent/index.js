@@ -7,13 +7,18 @@ import MemeCard2 from "../MemeCard2";
 class BattleCard extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      currentUser: "",
+      wars: this.props.wars
+  }
+  
   }
 
   componentDidMount() {
     Api.getUsers()
       .then(res => {
         let user = JSON.parse(localStorage.getItem('session'));
-        this.setState({ currentUser: user.id })
+        this.setState({ currentUser: user.id }, () => console.log("current user is ", this.state.currentUser))
       });
 
     //   Api.getBattles()
@@ -40,17 +45,45 @@ class BattleCard extends Component {
     // Api.getMemeById("5dd1c5c575a5da4446f05ffc")
     //   .then(res => console.log("Iam the meme", res.data))
   }
-
-
   
-  // add1PointToMeme1(index,key) {
-
-  // }
+  
+  onClick = (event) => {
+    // console.log("memeid", event.target.getAttribute("data-memeid"))
+    let currentScore = Number(event.target.getAttribute("data-memescore"))
+    let index = Number(event.target.getAttribute("data-index"));
+    console.log(index, currentScore)
+    let newScore = currentScore + 1;
+    if (event.target.getAttribute("data-whichmeme") === "meme1") {
+      Api.add1Point(event.target.getAttribute("data-feedid"), {
+        meme1votes: newScore
+      })
+        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate())
+        .then(console.log("why is this weird?", this.state)
+      );
+        Api.addVoter(event.target.getAttribute("data-feedid"), {
+          $push: {voted: this.state.currentUser}
+        }).then(res => console.log(res));
+    } else {
+      Api.add1Point(event.target.getAttribute("data-feedid"), {
+        meme2votes: newScore
+      })
+        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate())
+        .then(console.log("why is this weird?", this.state)
+    );
+      Api.addVoter(event.target.getAttribute("data-feedid"), {
+        $push: {voted: this.state.currentUser}
+      }).then(res => console.log(res.data, this.state));
+    }
+  }
 
   render() {
     // console.log("Wars received in battle:",this.props.wars)
     return <div id="additionalDIV">
-      {/* {console.log("Props 1 is: ",this.props.wars[0].meme1)} */}
+      {/* {console.log("Props 1 is: ",this.state.wars)} */}
     {this.props.wars.map((item, index) => (
           
           <div className="row" id="battleRow">
@@ -58,10 +91,17 @@ class BattleCard extends Component {
           <div className="card" id="BattleMemeDiv">
           <br/>
             <br/>
-            <h1>{item.meme1votes} to {item.meme2votes}</h1>
-            <h5>Who did it better??</h5>
-            {/* <button id="voteForMeme1Button" href="#" className="btn btn-primary" index={item.id} key="meme1votes">Meme1</button>
-            <button id="voteForMeme2Button" href="#" className="btn btn-primary" index={item.id} key="meme2votes">Meme2</button> */}
+            <h1>{this.state.wars[index].meme1votes} to {this.state.wars[index].meme2votes}</h1>
+          {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
+            <div id="buttons">
+              <h5>Who did it better??</h5>
+              <button id="voteForMeme1Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme1" data-memescore={item.meme1votes} data-index={index}>Meme1</button>
+              <button id="voteForMeme2Button" href="#" className="btn btn-primary" onClick={this.onClick} data-feedid={item.id} data-whichmeme="meme2" data-memescore={item.meme2votes} data-index={index}>Meme2</button>
+            </div>
+          }
+          {this.state.wars[index].voted.includes(this.state.currentUser) &&
+          <div>Thanks for voting!</div>
+          }
           </div>
           <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        </div>
     ))}

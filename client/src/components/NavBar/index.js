@@ -9,12 +9,21 @@ class NavBar extends Component
   constructor(props)
   {
     super(props)
+    this.state={
+      currentUser: "",
+      pending: ""
+  }
   }
 
-  // componentDidMount() {
-  //   Api.getUsers()
-  //   .then(res => console.log(res.data))
-  // }
+  componentDidMount() {
+    Api.getUsers()
+      .then(res => {
+        let user = JSON.parse(localStorage.getItem('session'));
+        this.setState({ currentUser: user.id }, () =>
+          Api.getMyChallenges(this.state.currentUser)
+            .then(res => this.setState({ pending: Object.keys(res.data).length })));
+      })
+  }
 
   logout=()=>{
       localStorage.clear();
@@ -45,15 +54,17 @@ class NavBar extends Component
   </li>
 
   <li className="nav-item">
+    <Link to="/pendingwars" className="nav-link active">Pending Wars</Link>
+  </li>
+  {this.state.pending>0 &&
+  <div id="pendingNumber">{this.state.pending}</div>
+}
+  <li className="nav-item">
     <Link to="/battle" className="nav-link active">My Vault</Link>
   </li>
 
   <li className="nav-item">
     <Link to="/invite" className="nav-link active">Invite Friends</Link>
-  </li>
-
-  <li className="nav-item">
-    <Link to="/pendingwars" className="nav-link active">Pending Wars</Link>
   </li>
 
    <li className="nav-item" id="logOutButton">
