@@ -41,7 +41,6 @@ class BattlePage extends Component {
                     {this.state.myMemes.map((item, index) => (
                         <div>
                             {console.log(item.bottomX)}
-                        {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
                         <MemeCard2 id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText}/>
                         </div>
                             ))}

@@ -231,8 +231,6 @@ class BattlePage extends Component {
                     <div className="col-6 " id="MemeOfYouOnPendingWarsPage">
                         {this.state.memeages.map((item, index) => (
                             <div>
-                                {/* {console.log(this.state)} */}
-                                {/* <MemeCard id={item._id} src={item.baseImgURL} index={index} /> */}
 
                                 <PendingWars id={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText} index={index}/>
                             <div id="vsDiv">
