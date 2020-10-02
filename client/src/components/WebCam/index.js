@@ -3,15 +3,9 @@ import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
 import Downloader from 'js-file-downloader';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-//import saveImage from 'save-image';
 import "./style.css";
 
-const moment = require('moment');
-
-//========================================================
- 
 class WebCam extends Component 
 {
 
@@ -44,9 +38,6 @@ class WebCam extends Component
   onTakePhoto (dataUri) {
     // Do stuff with the photo...
     let myImage = dataUri;
-    //console.log("I hit onTakePhoto function" + myImage);
-    // myImage = `${moment().format('X')}.jpg`;
-    //console.log(myImage);
     axios.post("/api/images", {image:myImage});
     this.props.onPhotoTaken(dataUri);
 
