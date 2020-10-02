@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import UserProfile from '../../components/UserProfile';
-import Api from '../../utils/API';
 import "./style.css"
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 

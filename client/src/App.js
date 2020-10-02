@@ -5,12 +5,10 @@ import Login from './containers/Login';
 import Registration from './containers/Registration';
 import BattlePage from "./containers/BattlePage";
 import MemeMaker from "./containers/MemeMaker";
-import Api from './utils/API';
 import InviteFriendsContainer from "./containers/InviteFriends";
 import PendingWars from "./containers/PendingWars"
 import WebCam from './components/WebCam';
 import Sent from './containers/Sent';
-// import API from "./utils/API";
 
 
 class App extends Component {
