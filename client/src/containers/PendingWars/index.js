@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import UserProfile from '../../components/UserProfile';
  import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
-import MemeCard2 from "../../components/MemeCard2";
 import PendingWars from "../../components/pendingWars";
 import "../MemeMaker/style.css"
 import "./style.css";
@@ -28,7 +27,6 @@ class BattlePage extends Component {
             memeages:[],
             battles: null,
             initiators:[],
-            currentUser: "",
             currentImage: null,
             modalIsOpen: false,
             currentImagebase64: null,
@@ -64,8 +62,6 @@ class BattlePage extends Component {
           }
           // don't forget this one with the one above!!
           getPendingWarMemes() {
-              let memeages = [];
-              let initiators = [];
               for (let i = 0; i < this.state.memeBattles.length; i++) {
                   Api.getMemeById(this.state.memeBattles[i][0])
                   .then(res => this.setState({memeages:[...this.state.memeages,res.data[0]]}))
@@ -98,7 +94,6 @@ class BattlePage extends Component {
         }
         
         _imageEncode (arrayBuffer) {
-            let u8 = new Uint8Array(arrayBuffer)
             let b64encoded = btoa([].reduce.call(new Uint8Array(arrayBuffer),function(p,c){return p+String.fromCharCode(c)},''))
             let mimetype="image/jpeg"
             return "data:"+mimetype+";base64,"+b64encoded

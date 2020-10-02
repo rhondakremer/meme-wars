@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import UserPicture from "../UserPicture";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-// import Api from '../../utils/API';
 import "./style.css"
 
 
