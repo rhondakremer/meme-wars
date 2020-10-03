@@ -8,52 +8,47 @@
 }
 
 .loginContainer{
-width: 100%;
+    width: 100%;
     margin-top: 100px;
     justify-content: center;
     align-content: center;
     text-align: center;
     margin: 0px auto;
-background-image: url("../../images/bright.jpg"), url("../../images/smoke.png");
-position: absolute; 
-background-repeat: repeat-y;   
-background-position-y: 60%;
-height: 150%;
-background-size: cover;
-
+    background-image: url("../../images/bright.jpg"), url("../../images/smoke.png");
+    position: absolute; 
+    background-repeat: repeat-y;   
+    background-position-y: 60%;
+    height: 150%;
+    background-size: cover;
 }
 
 .registerAccount{
-  font-size: 1em !important;
-  color: white;
-  text-shadow: rgb(255, 4, 129) 2px 2px 4px;
-  font-weight: bold;
+    font-size: 1em !important;
+    color: white;
+    text-shadow: rgb(255, 4, 129) 2px 2px 4px;
+    font-weight: bold;
 }
 
 .registerAccount:hover{
-  font-size: 1em !important;
-  color: rgb(255, 4, 129);
-  text-shadow: white 2px 2px 4px;
-  font-weight: bold;
+    font-size: 1em !important;
+    color: rgb(255, 4, 129);
+    text-shadow: white 2px 2px 4px;
+    font-weight: bold;
 }
 
 h8{
-  color: white;
+    color: white;
 }
 
 .logo{
-  margin-top: 30px !important;
-background: url("../../images/logo6.png");
-display: flex;
-  width: 40%;
-  background-repeat: no-repeat;
-padding-bottom: 8%;
-  background-size: 100%;
-  position: relative;
-  margin: 0px auto;
-
-
-  
-
+    margin-top: 30px !important;
+    background: url("../../images/logo6.png");
+    display: flex;
+    width: 40%;
+    background-repeat: no-repeat;
+    padding-bottom: 8%;
+    background-size: 100%;
+    position: relative;
+    margin: 0px auto;
 }
 
