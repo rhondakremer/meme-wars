@@ -1,28 +1,25 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Api from '../../utils/API';
 import "./style.css"
 
-class LoginForm extends Component
-{
-    constructor(props)
-    {
+class LoginForm extends Component {
+    constructor(props) {
         super(props);
-        this.state={
-            email:"",
+        this.state = {
+            email: "",
             password: ""
         }
     }
 
     componentDidMount() {
         // console.log(" Login form:",this.props);
-        window.scrollTo(0,0);
-
+        window.scrollTo(0, 0);
     };
 
-    inputChangeHandler=(e)=>this.setState({[e.target.name]:e.target.value});
+    inputChangeHandler = (e) => this.setState({ [e.target.name]: e.target.value });
 
     login = () => {
-        Api.login(this.state.email, this.state.password).then(session=>{
+        Api.login(this.state.email, this.state.password).then(session => {
             this.props.onLogin(session.data);
         })
 
@@ -32,9 +29,7 @@ class LoginForm extends Component
         }*/
     }
 
-    render()
-    {
-        // console.log("Login Form Props:",this.props)
+    render() {
         return <div className="container loginContainerComponent" >
             <div className="form-group-login">
                 <div className="form-group form-group-login">
