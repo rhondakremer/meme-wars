@@ -1,19 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./style.css"
 
-
-
-
-
-
-class MemeCard2 extends Component
-{
-    constructor(props)
-    {
+class MemeCard2 extends Component {
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             currentUser: "",
-            imagebase64:""
+            imagebase64: ""
         }
     }
     // componentDidUpdate()
@@ -26,7 +19,7 @@ class MemeCard2 extends Component
     //     let mimetype="image/jpeg"
     //     return "data:"+mimetype+";base64,"+b64encoded
     // }
-    
+
     // openImage = (image) => {
     //     Api.downloadImage(image).then(imageData=>{
     //         this.setState(prevState => ({
@@ -59,11 +52,7 @@ class MemeCard2 extends Component
     //     return stateObj;
     // }
 
-
-    render()
-    {
-        // this.openImage(this.props.src)
-
+    render() {
         const textStyle = {
             fontFamily: "Impact",
             fontSize: "50px",
@@ -73,37 +62,35 @@ class MemeCard2 extends Component
             userSelect: "none"
         }
 
-        return (<div>
-        <div id="svg_ref">
-            <div className="memeCard2Image" style ={ { backgroundImage: "url("+this.props.src+")" } }>
-                <svg >
-            <text
-                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
-                x={this.props.topX}
-                y={this.props.topY}
-                dominantBaseline="middle"
-                textAnchor="middle"
+        return (
+            <div>
+                <div id="svg_ref">
+                    <div className="memeCard2Image" style={{ backgroundImage: "url(" + this.props.src + ")" }}>
+                        <svg >
+                            <text
+                                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
+                                x={this.props.topX}
+                                y={this.props.topY}
+                                dominantBaseline="middle"
+                                textAnchor="middle"
 
-              >
-                  {this.props.topText}
-              </text>
-              <text
-                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
-                dominantBaseline="middle"
-                textAnchor="middle"
-                x={this.props.bottomX}
-                y={this.props.bottomY}
-              >
-                  {this.props.bottomText}
-              </text>
-              </svg>                
+                            >
+                                {this.props.topText}
+                            </text>
+                            <text
+                                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
+                                dominantBaseline="middle"
+                                textAnchor="middle"
+                                x={this.props.bottomX}
+                                y={this.props.bottomY}
+                            >
+                                {this.props.bottomText}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
             </div>
-
-        </div>
-
-
-
-            </div>);
+        );
     }
 }
 

@@ -3,7 +3,6 @@ import Api from '../../utils/API';
 import "./style.css"
 import MemeCard2 from "../MemeCard2";
 
-
 class BattleCard extends Component {
   constructor(props) {
     super(props);
@@ -44,7 +43,7 @@ class BattleCard extends Component {
     // Api.getMemeById("5dd1c5c575a5da4446f05ffc")
     //   .then(res => console.log("Iam the meme", res.data))
   }
-  
+
   onClick = (event) => {
     let currentScore = Number(event.target.getAttribute("data-memescore"))
     let index = Number(event.target.getAttribute("data-index"));
@@ -53,25 +52,25 @@ class BattleCard extends Component {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
         meme1votes: newScore
       })
-      .then(this.state.wars[index].meme1votes = newScore)
-      .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
-      .then(this.forceUpdate());
+        .then(this.state.wars[index].meme1votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate());
 
       Api.addVoter(event.target.getAttribute("data-feedid"), {
-        $push: {voted: this.state.currentUser}
+        $push: { voted: this.state.currentUser }
       })
-      .then(res => console.log(res));
-    } 
+        .then(res => console.log(res));
+    }
     else {
       Api.add1Point(event.target.getAttribute("data-feedid"), {
         meme2votes: newScore
       })
-      .then(this.state.wars[index].meme2votes = newScore)
-      .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
-      .then(this.forceUpdate());
-      
+        .then(this.state.wars[index].meme2votes = newScore)
+        .then(this.state.wars[index].voted = [...this.state.wars[index].voted, this.state.currentUser])
+        .then(this.forceUpdate());
+
       Api.addVoter(event.target.getAttribute("data-feedid"), {
-        $push: {voted: this.state.currentUser}
+        $push: { voted: this.state.currentUser }
       }).then(res => console.log(res.data, this.state));
     }
   }
@@ -79,14 +78,13 @@ class BattleCard extends Component {
   render() {
     return <div id="additionalDIV">
       {this.props.wars.map((item, index) => (
-          
         <div className="row" id="battleRow">
-          <MemeCard2 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText}/>
+          <MemeCard2 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText} />
           <div className="card" id="BattleMemeDiv">
-            <br/>
-            <br/>
+            <br />
+            <br />
             <h1>{this.state.wars[index].meme1votes} to {this.state.wars[index].meme2votes}</h1>
-          
+
             {this.state.wars[index].voted.includes(this.state.currentUser) === false &&
               <div id="buttons">
                 <h5>Who did it better??</h5>
@@ -98,7 +96,7 @@ class BattleCard extends Component {
               <div>Thanks for voting!</div>
             }
           </div>
-          <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText}/>        
+          <MemeCard2 id={item.meme2._id} src={item.meme2.baseImgURL} topX={item.meme2.topX} topY={item.meme2.topY} bottomY={item.meme2.bottomY} bottomX={item.meme2.bottomX} topText={item.meme2.topText} bottomText={item.meme2.bottomText} />
         </div>
       ))}
     </div>

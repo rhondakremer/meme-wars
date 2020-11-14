@@ -1,23 +1,16 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./style.css"
 
-
-class PendingWars extends Component
-{
-    constructor(props)
-    {
+class PendingWars extends Component {
+    constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             currentUser: "",
-            imagebase64:""
+            imagebase64: ""
         }
     }
 
-
-    render()
-    {
-        // this.openImage(this.props.src)
-
+    render() {
         const textStyle = {
             fontFamily: "Impact",
             fontSize: "50px",
@@ -27,38 +20,37 @@ class PendingWars extends Component
             userSelect: "none"
         }
 
-        return (<div>
-        <div id="svg_ref">
-            <div className="memeCard2Image" style ={ { backgroundImage: "url("+this.props.src+")" } }>
-                <svg >
-            <text
-                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
-                x={this.props.topX}
-                y={this.props.topY}
-                dominantBaseline="middle"
-                textAnchor="middle"
+        return (
+            <div>
+                <div id="svg_ref">
+                    <div className="memeCard2Image" style={{ backgroundImage: "url(" + this.props.src + ")" }}>
+                        <svg >
+                            <text
+                                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
+                                x={this.props.topX}
+                                y={this.props.topY}
+                                dominantBaseline="middle"
+                                textAnchor="middle"
 
-              >
-                  {this.props.topText}
-              </text>
-              <text
-                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
-                dominantBaseline="middle"
-                textAnchor="middle"
-                x={this.props.bottomX}
-                y={this.props.bottomY}
-              >
-                  {this.props.bottomText}
-              </text>
-              </svg>                
+                            >
+                                {this.props.topText}
+                            </text>
+                            <text
+                                style={{ ...textStyle, zIndex: this.state.isTopDragging ? 4 : 1 }}
+                                dominantBaseline="middle"
+                                textAnchor="middle"
+                                x={this.props.bottomX}
+                                y={this.props.bottomY}
+                            >
+                                {this.props.bottomText}
+                            </text>
+                        </svg>
+                    </div>
+                </div>
             </div>
-
-        </div>
-           
-            </div>);
+        );
     }
 }
 
-
-    export default PendingWars
+export default PendingWars
 

@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import Camera, { FACING_MODES, IMAGE_TYPES } from 'react-html5-camera-photo';
 import 'react-html5-camera-photo/build/css/index.css';
-import { Modal, ModalHeader, ModalBody, FormGroup, Label} from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import Downloader from 'js-file-downloader';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
-//import saveImage from 'save-image';
 import "./style.css";
 
-const moment = require('moment');
+class WebCam extends Component {
 
-//========================================================
- 
-class WebCam extends Component 
-{
-
-  constructor()
-  {
+  constructor() {
     super()
-    this.state={
+    this.state = {
       showModal: true,
       image: false
     }
@@ -26,7 +18,7 @@ class WebCam extends Component
   };
 
   componentDidMount = () => {
-    this.state.showModal =  false;
+    this.state.showModal = false;
   }
 
   componentWillUnmount = () => {
@@ -41,84 +33,80 @@ class WebCam extends Component
     const imageSrc = this.webcam.getScreenshot();
   }
 
-  onTakePhoto (dataUri) {
+  onTakePhoto(dataUri) {
     // Do stuff with the photo...
     let myImage = dataUri;
-    //console.log("I hit onTakePhoto function" + myImage);
-    // myImage = `${moment().format('X')}.jpg`;
-    //console.log(myImage);
-    axios.post("/api/images", {image:myImage});
+    axios.post("/api/images", { image: myImage });
     this.props.onPhotoTaken(dataUri);
 
-    const fileUrl  = dataUri;
+    const fileUrl = dataUri;
     // console.log("this is the fileUrl" + fileUrl);
 
     new Downloader({
       url: dataUri
     })
-    .then(() => {
+      .then(() => {
 
-    })
-    .catch( (error) =>{
-      return error;
-    });
+      })
+      .catch((error) => {
+        return error;
+      });
   }
- 
-  onTakePhotoAnimationDone (dataUri) {
+
+  onTakePhotoAnimationDone(dataUri) {
     // Do stuff with the photo...
     //console.log('takePhoto');
   }
- 
-  onCameraError (error) {
+
+  onCameraError(error) {
     console.error('onCameraError', error);
   }
- 
+
   // onCameraStart (stream) {
   //   console.log('onCameraStart');
   // }
- 
-  handleCloseModal () {
+
+  handleCloseModal() {
     // console.log("I hit the camera stop function");
-    this.setState({showModal: false});
+    this.setState({ showModal: false });
   }
 
-  onCameraStop () {
+  onCameraStop() {
 
   }
- 
-  render () {
+
+  render() {
     return (
       <div className="App">
         <Modal className="camera-modal col-6 offset-3" isOpen={true}>
-        <ModalHeader className="camera-modal-header-text">Take a selfie!</ModalHeader>
+          <ModalHeader className="camera-modal-header-text">Take a selfie!</ModalHeader>
 
-        <ModalBody>
-        <Camera
-          onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
-          onTakePhotoAnimationDone = { (dataUri) => { this.onTakePhotoAnimationDone(dataUri); } }
-          onCameraError = { (error) => { this.onCameraError(error); } }
-          idealFacingMode = {FACING_MODES.ENVIRONMENT}
-          idealResolution = {{width: 640, height: 480}}
-          imageType = {IMAGE_TYPES.JPG}
-          imageCompression = {0.97}
-          isMaxResolution = {true}
-          isImageMirror = {true}
-          isSilentMode = {true}
-          isDisplayStartCameraError = {true}
-          isFullscreen = {false}
-          sizeFactor = {1}
-          //onCameraStart = { (stream) => { this.onCameraStart(stream); } }
-          onCameraStop = { this.props.onClose}
-        />
-        
-        </ModalBody>
+          <ModalBody>
+            <Camera
+              onTakePhoto={(dataUri) => { this.onTakePhoto(dataUri); }}
+              onTakePhotoAnimationDone={(dataUri) => { this.onTakePhotoAnimationDone(dataUri); }}
+              onCameraError={(error) => { this.onCameraError(error); }}
+              idealFacingMode={FACING_MODES.ENVIRONMENT}
+              idealResolution={{ width: 640, height: 480 }}
+              imageType={IMAGE_TYPES.JPG}
+              imageCompression={0.97}
+              isMaxResolution={true}
+              isImageMirror={true}
+              isSilentMode={true}
+              isDisplayStartCameraError={true}
+              isFullscreen={false}
+              sizeFactor={1}
+              //onCameraStart = { (stream) => { this.onCameraStart(stream); } }
+              onCameraStop={this.props.onClose}
+            />
 
-        <button onClick={this.props.onClose} className="goBackToRegister">Close</button>
+          </ModalBody>
+
+          <button onClick={this.props.onClose} className="goBackToRegister">Close</button>
         </Modal>
-
       </div>
     );
   }
 }
- 
+
 export default WebCam;
