@@ -33,7 +33,7 @@ const BattlePage = (props) => {
                 </div>
                 <div id="memeCardDivOnBattlePage">
                     {memes.map((item) => (
-                        <div>
+                        <div key={item._id}>
                             <MemeCard2 id={item._id} key={item._id} src={item.baseImgURL} topX={item.topX} topY={item.topY} bottomY={item.bottomY} bottomX={item.bottomX} topText={item.topText} bottomText={item.bottomText} />
                         </div>
                     ))}
