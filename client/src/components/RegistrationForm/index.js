@@ -29,15 +29,14 @@ class RegistrationForm extends Component {
         if (this.state.name === "" || this.state.email === "" || this.state.password === "") {
             alert("Please fill all the fields in order to register.");
         }
-
-        Api
-            .register(this.state.name, this.state.email, this.state.password, this.state.image)
-            .then(session => {
-                // debugger;
-                this.props.onRegister(session.data);
-                // console.log("line 31 of reg form" + JSON.stringify(session))
-                alert("Welcome " + this.state.name);
-            })
+        else {
+            Api
+                .register(this.state.name, this.state.email, this.state.password, this.state.image)
+                .then(session => {
+                    this.props.onRegister(session.data);
+                    alert("Welcome " + this.state.name);
+                })
+        }
     }
 
     openCamera = () => {
@@ -75,7 +74,7 @@ class RegistrationForm extends Component {
                         <p id="explanationText">If you prefer to take a selfie to upload, just click "Open camera" below! 😜</p>
 
                         <div className="outerDivForPinkButton">
-                            <Link onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+                            <Link to="#" onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
                         </div>
 
                         {this.state.showModal && <WebCam onPhotoTaken={(imageUri) => this.setState({ showModal: false, imageUri })} onClose={() => this.setState({ showModal: false })} />}
