@@ -9,7 +9,7 @@ const Registration = (props) => {
             <RegistrationForm onRegister={props.onRegister} />
             <br />
             <div>
-                <h8>Already have an account?</h8>
+                <h6>Already have an account?</h6>
                 <Link to="/login" className="nav-link registerAccount" id="registerLink">Login here.</Link>
             </div>
         </div>

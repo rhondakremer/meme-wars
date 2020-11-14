@@ -11,7 +11,7 @@ const Login = (props) => {
             <LoginForm id="loginForm" onLogin={props.onLogin} />
             <br />
             <div>
-                <h8>Need an account?</h8>
+                <h6>Need an account?</h6>
                 <Link to="/register" className="nav-link registerAccount" id="registerLink">Register here.</Link>
             </div>
         </div>
