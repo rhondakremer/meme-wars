@@ -1,51 +1,39 @@
-import React, { Component } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Api from '../../utils/API';
-import "./style.css"
+import './style.css';
 
-class LoginForm extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: ""
-        }
-    }
+const LoginForm = (props) => {
+    const formEmail = useRef(null);
+    const formPassword = useRef(null);
 
-    componentDidMount() {
-        // console.log(" Login form:",this.props);
+    useEffect(() => {
         window.scrollTo(0, 0);
-    };
+    });
 
-    inputChangeHandler = (e) => this.setState({ [e.target.name]: e.target.value });
-
-    login = () => {
-        Api.login(this.state.email, this.state.password).then(session => {
-            this.props.onLogin(session.data);
+    const login = () => {
+        Api.login(formEmail.current.value, formPassword.current.value)
+        .then(session => {
+            props.onLogin(session.data);
         })
-
-        /*if(this.state.email === "" || this.state.password === "")
-        {
-            alert("Please fill both username and password fields in order to login.");
-        }*/
     }
 
-    render() {
-        return <div className="container loginContainerComponent" >
+    return (
+        <div className="container loginContainerComponent" >
             <div className="form-group-login">
                 <div className="form-group form-group-login">
-                    <input className="input" onChange={this.inputChangeHandler} value={this.state.email} type="email" name="email" placeholder="Enter your email" />
+                    <input className="input" ref={formEmail} type="email" name="email" placeholder="Enter your email" />
                 </div>
 
                 <div className="form-group form-group-login">
-                    <input className="input" onChange={this.inputChangeHandler} value={this.state.password} type="password" name="password" placeholder="Password" />
+                    <input className="input" ref={formPassword} type="password" name="password" placeholder="Enter your password" />
                 </div>
 
-                <button id="loginButton" onClick={this.login} className="btn pinkButton">
+                <button id="loginButton" onClick={login} className="btn pinkButton">
                     Login
                 </button>
             </div>
         </div>
-    }
+    )
 }
 
 export default LoginForm;
