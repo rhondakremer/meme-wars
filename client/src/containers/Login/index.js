@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../../components/LoginForm';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./style.css";
+import "./style.scss";
 
 
 const Login = (props) => {

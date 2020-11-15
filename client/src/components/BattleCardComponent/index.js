@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Api from '../../utils/API';
-import "./style.css"
+import "./style.scss"
 import MemeCard2 from "../MemeCard2";
 
 class BattleCard extends Component {

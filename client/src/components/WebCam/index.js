@@ -4,7 +4,7 @@ import 'react-html5-camera-photo/build/css/index.css';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import Downloader from 'js-file-downloader';
 import axios from 'axios';
-import "./style.css";
+import "./style.scss";
 
 class WebCam extends Component {
 

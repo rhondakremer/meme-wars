@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import cloudinary from "cloudinary-react";
 import WebCam from "../WebCam";
-import './style.css';
+import './style.scss';
 
 class UploadPhoto extends Component {
   constructor() {

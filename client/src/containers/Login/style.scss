@@ -16,15 +16,19 @@
     text-align: center;
 }
 
+.loginContainer img {
+    width: 100%;
+}
+
 .registerAccount{
-    font-size: 1em !important;
+    font-size: 24px!important;
     color: white;
     text-shadow: rgb(255, 4, 129) 2px 2px 4px;
     font-weight: bold;
 }
 
 .registerAccount:hover{
-    font-size: 1em !important;
+    font-size: 24px!important;
     color: rgb(255, 4, 129);
     text-shadow: white 2px 2px 4px;
     font-weight: bold;
