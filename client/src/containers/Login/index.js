@@ -7,7 +7,9 @@ import "./style.css";
 const Login = (props) => {
     return (
         <div className="loginContainer">
-            <div className="logo"></div>
+            <div className="logo">
+                <img src={require("../../images/logo6.png")} />
+            </div>
             <LoginForm id="loginForm" onLogin={props.onLogin} />
             <br />
             <div>
