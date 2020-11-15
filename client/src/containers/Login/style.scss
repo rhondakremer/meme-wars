@@ -3,9 +3,6 @@
     align-content: center;
     text-align: center;
 }
-#registerLink{
-    font-size: 80%;
-}
 
 .loginContainer {
     width: 100%;
@@ -20,18 +17,19 @@
     width: 100%;
 }
 
-.registerAccount{
-    font-size: 24px!important;
+.registerAccount p {
+    font-size: 22px!important;
     color: white;
-    text-shadow: rgb(255, 4, 129) 2px 2px 4px;
-    font-weight: bold;
+    width: fit-content;
+    margin: auto;
+    font-weight: 700;
+    background-color:  rgb(16, 16, 131);
+    padding: 5px 20px;
+    border-radius: 5px;
 }
 
-.registerAccount:hover{
-    font-size: 24px!important;
-    color: rgb(255, 4, 129);
-    text-shadow: white 2px 2px 4px;
-    font-weight: bold;
+.registerAccount p:hover{
+    background-color: rgb(5, 5, 77);
 }
 
 h6 {
@@ -46,3 +44,9 @@ h6 {
     margin: auto;
 }
 
+@media only screen and ( max-width: 1440px ) {
+    .logo {
+        height: 110px;
+    }
+
+}

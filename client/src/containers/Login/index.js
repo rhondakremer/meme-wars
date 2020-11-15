@@ -10,11 +10,15 @@ const Login = (props) => {
             <div className="logo">
                 <img src={require("../../images/logo6.png")} />
             </div>
+
             <LoginForm id="loginForm" onLogin={props.onLogin} />
+            
             <br />
             <div>
                 <h6>Need an account?</h6>
-                <Link to="/register" className="nav-link registerAccount" id="registerLink">Register here.</Link>
+                <Link to="/register" className="nav-link registerAccount" id="registerLink">
+                    <p>Register here.</p>
+                </Link>
             </div>
         </div>
     )
