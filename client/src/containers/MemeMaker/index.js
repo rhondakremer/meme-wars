@@ -3,7 +3,7 @@ import UserProfile from '../../components/UserProfile';
 import NavBar from '../../components/NavBar';
 import { Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import Api from '../../utils/API';
-import "./style.css";
+import "./style.scss";
 
 
 const MemeMaker = (props) => {

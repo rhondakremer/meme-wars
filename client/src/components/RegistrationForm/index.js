@@ -3,7 +3,7 @@ import Api from '../../utils/API';
 import UploadPhoto from '../../components/UploadPhoto';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WebCam from "../WebCam";
-import './style.css';
+import './style.scss';
 
 class RegistrationForm extends Component {
     constructor(props) {

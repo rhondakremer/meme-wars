@@ -2,7 +2,7 @@ import React from 'react';
 import UserProfile from '../../components/UserProfile';
 import NavBar from '../../components/NavBar';
 import InviteFriends from "../../components/InviteFriends";
-import "./style.css";
+import "./style.scss";
 
 const InviteFriendsContainer = (props) => {
     return (

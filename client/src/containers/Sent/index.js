@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UserProfile from '../../components/UserProfile';
 import NavBar from '../../components/NavBar';
-import "./style.css"
+import "./style.scss"
 
 class Sent extends Component {
     constructor(props) {

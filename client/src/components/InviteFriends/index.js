@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Api from '../../utils/API';
-import "./style.css";
+import "./style.scss";
 import axios from "axios";
 
 class InviteFriends extends Component {

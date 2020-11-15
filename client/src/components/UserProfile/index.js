@@ -1,7 +1,7 @@
 import React from 'react';
 import UserPicture from "../UserPicture";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./style.css";
+import "./style.scss";
 
 
 const UserProfile = (props) => {

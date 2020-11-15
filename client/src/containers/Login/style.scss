@@ -1,0 +1,52 @@
+#loginForm{
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+
+.loginContainer {
+    width: 100%;
+    background-image: url(/static/media/bright.4957dd70.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.loginContainer img {
+    width: 100%;
+}
+
+.registerAccount p {
+    font-size: 22px!important;
+    color: white;
+    width: fit-content;
+    margin: auto;
+    font-weight: 700;
+    background-color:  rgb(16, 16, 131);
+    padding: 5px 20px;
+    border-radius: 5px;
+}
+
+.registerAccount p:hover{
+    background-color: rgb(5, 5, 77);
+}
+
+h6 {
+    color: white;
+}
+
+.logo{
+    height: 150px;
+    width: 40%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: auto;
+}
+
+@media only screen and ( max-width: 1440px ) {
+    .logo {
+        height: 110px;
+    }
+
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import Api from '../../utils/API';
-import './style.css';
+import './style.scss';
 
 const LoginForm = (props) => {
     const formEmail = useRef(null);

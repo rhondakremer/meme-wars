@@ -3,8 +3,8 @@ import UserProfile from '../../components/UserProfile';
 import Api from '../../utils/API';
 import NavBar from '../../components/NavBar';
 import PendingWars from "../../components/pendingWars";
-import "../MemeMaker/style.css"
-import "./style.css";
+import "../MemeMaker/style.scss"
+import "./style.scss";
 import { Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 
 const initialState = {

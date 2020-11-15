@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Api from '../../utils/API';
-import "./styles.css";
+import "./styles.scss";
 
 const NavBar = () => {
   const [user, setUser] = useState(null);

@@ -3,7 +3,7 @@ import UserProfile from '../../components/UserProfile';
 import NavBar from '../../components/NavBar';
 import BattleCard from "../../components/BattleCardComponent";
 import Api from '../../utils/API';
-import "./style.css";
+import "./style.scss";
 
 const HomePage = (props) => {
   

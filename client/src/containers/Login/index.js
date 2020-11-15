@@ -1,18 +1,24 @@
 import React from 'react';
 import LoginForm from '../../components/LoginForm';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "./style.css";
+import "./style.scss";
 
 
 const Login = (props) => {
     return (
         <div className="loginContainer">
-            <div className="logo"></div>
+            <div className="logo">
+                <img src={require("../../images/logo6.png")} />
+            </div>
+
             <LoginForm id="loginForm" onLogin={props.onLogin} />
+            
             <br />
             <div>
                 <h6>Need an account?</h6>
-                <Link to="/register" className="nav-link registerAccount" id="registerLink">Register here.</Link>
+                <Link to="/register" className="nav-link registerAccount" id="registerLink">
+                    <p>Register here.</p>
+                </Link>
             </div>
         </div>
     )
