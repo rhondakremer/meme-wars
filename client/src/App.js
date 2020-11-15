@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import HomePage from './containers/HomePage';
-import Login from './containers/Login';
-import Registration from './containers/Registration';
-import BattlePage from "./containers/BattlePage";
-import MemeMaker from "./containers/MemeMaker";
-import InviteFriendsContainer from "./containers/InviteFriends";
-import PendingWars from "./containers/PendingWars"
+import HomePage from './pages/HomePage';
+import Login from './pages/Login';
+import Registration from './pages/Registration';
+import BattlePage from "./pages/BattlePage";
+import MemeMaker from "./pages/MemeMaker";
+import InviteFriendsContainer from "./pages/InviteFriends";
+import PendingWars from "./pages/PendingWars"
 import WebCam from './components/WebCam';
-import Sent from './containers/Sent';
+import Sent from './pages/Sent';
 
 
 class App extends Component {
