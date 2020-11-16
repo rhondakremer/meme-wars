@@ -17,7 +17,7 @@ const Login = (props) => {
             <div>
                 <h6>Need an account?</h6>
                 <Link to="/register" className="nav-link registerAccount" id="registerLink">
-                    <p>Register here.</p>
+                    <p>Register here</p>
                 </Link>
             </div>
         </div>

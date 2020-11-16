@@ -74,7 +74,9 @@ class RegistrationForm extends Component {
                         <p id="explanationText">If you prefer to take a selfie to upload, just click "Open camera" below! 😜</p>
 
                         <div className="outerDivForPinkButton">
-                            <Link to="#" onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">Open camera</Link>
+                            <Link to="#" onClick={this.openCamera} id="webcamButton" className="pinkButton roundedInput">
+                                Open camera
+                            </Link>
                         </div>
 
                         {this.state.showModal && <WebCam onPhotoTaken={(imageUri) => this.setState({ showModal: false, imageUri })} onClose={() => this.setState({ showModal: false })} />}

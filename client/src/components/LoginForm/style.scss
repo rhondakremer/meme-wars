@@ -16,5 +16,23 @@
     background-color: rgba(255, 255, 255, 0.6);    
 }
 
+@media only screen and ( max-width: 1024px ) {
+    .loginContainerComponent {
+        width: 50%;
+    }
+}
+
+@media only screen and ( max-width: 768px ) {
+    .loginContainerComponent {
+        width: 75%;
+    }
+}
+
+@media only screen and ( max-width: 414px ) {
+    .loginContainerComponent {
+        width: 90%;
+    }
+}
+
 
 

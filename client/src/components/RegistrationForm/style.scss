@@ -19,14 +19,14 @@
     margin-top: 20px;
 }
 
-
-#webcamButton:hover{
-text-decoration: none;
-width: fit-content !important;}
-
 #webcamButton{
     padding: 5px;
-    width: fit-content !important
+    width: fit-content;
+}
+
+#webcamButton:hover{
+    text-decoration: none;
+    width: fit-content !important;
 }
     
 #imageFromWebcam {
@@ -40,5 +40,16 @@ width: fit-content !important;}
     box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
     background-image: linear-gradient(to bottom right, rgb(162, 66, 162),rgb(98, 98, 220));
     color: rgb(255, 255, 255);
+}
+
+@media only screen and ( max-width: 414px ) {
+    #webcamButton {
+        width: 130px;
+    }
+
+    .outerDivForPinkButton {
+        display: grid;
+        justify-content: center;
+    }
 }
 
