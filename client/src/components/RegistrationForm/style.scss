@@ -19,14 +19,14 @@
     margin-top: 20px;
 }
 
-
-#webcamButton:hover{
-text-decoration: none;
-width: fit-content !important;}
-
 #webcamButton{
     padding: 5px;
-    width: fit-content !important
+    width: fit-content;
+}
+
+#webcamButton:hover{
+    text-decoration: none;
+    width: fit-content !important;
 }
     
 #imageFromWebcam {

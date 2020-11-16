@@ -13,7 +13,7 @@ const Registration = (props) => {
             <div>
                 <h6>Already have an account?</h6>
                 <Link to="/login" className="nav-link registerAccount" id="registerLink">
-                    <p>Login here.</p>
+                    <p>Login here</p>
                 </Link>
             </div>
         </div>
