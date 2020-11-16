@@ -58,12 +58,15 @@ h6 {
 
 @media only screen and ( max-width: 768px ) {
     .logo {
-        height: 110px;
         width: 75%;
-        background-repeat: no-repeat;
-        background-size: 100%;
-        margin: auto;
         margin-bottom: 50px;
         padding-top: 25px;
+    }
+}
+
+@media only screen and ( max-width: 414px ) {
+    .logo {
+        width: 90%;
+        margin-bottom: 25px;
     }
 }
