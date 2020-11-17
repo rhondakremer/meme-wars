@@ -1,26 +1,9 @@
-import React, { Component } from 'react';
-import Api from '../../utils/API';
-import "./style.scss";
+import React from 'react';
 import axios from "axios";
+import "./style.scss";
 
-class InviteFriends extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            email: "",
-            password: ""
-        }
-    }
-
-    inputChangeHandler = (e) => this.setState({ [e.target.name]: e.target.value });
-
-    login = () => {
-        Api.login(this.state.email, this.state.password).then(session => {
-            this.props.onLogin(session);
-        })
-    }
-
-    handleSubmit(e) {
+const InviteFriends = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const email = document.getElementById('email').value;
 
@@ -34,25 +17,25 @@ class InviteFriends extends Component {
         }).then((response) => {
             if (response.data.msg === 'success') {
                 alert("Message Sent.");
-                this.resetForm()
+                resetForm()
             } else if (response.data.msg === 'fail') {
                 alert("Message failed to send.")
             }
         })
     }
 
-    resetForm() {
+    const resetForm = () => {
         document.getElementById('contact-form').reset();
     }
 
-    render() {
-        return <div id="InviteFriendsRow">
+    return (
+        <div id="InviteFriendsRow">
             <div className="jumbotron col-12">
                 <h1>Challenge Your Friends!</h1>
             </div>
             <br />
 
-            <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+            <form id="contact-form" onSubmit={handleSubmit} method="POST">
                 <div className="form-group DivForInput">
                     <input type="email" placeholder="add one email address at a time" className="form-control roundedInput" id="email" aria-describedby="emailHelp" />
                 </div>
@@ -62,8 +45,7 @@ class InviteFriends extends Component {
                 </div>
             </form>
         </div>
-    }
+    )
 }
 
-export default InviteFriends
-
+export default InviteFriends;
