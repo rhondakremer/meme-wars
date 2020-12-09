@@ -78,7 +78,7 @@ class BattleCard extends Component {
   render() {
     return <div id="additionalDIV">
       {this.props.wars.map((item, index) => (
-        <div className="row" id="battleRow" key={item.id}>
+        <div className="row" id="battleRow" key={item.meme1._id}>
           <MemeCard2 id={item.meme1._id} src={item.meme1.baseImgURL} topX={item.meme1.topX} topY={item.meme1.topY} bottomY={item.meme1.bottomY} bottomX={item.meme1.bottomX} topText={item.meme1.topText} bottomText={item.meme1.bottomText} />
           <div className="card" id="BattleMemeDiv">
             <br />
