@@ -7,7 +7,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var multer = require('multer');
 const path = require( 'path' );
-var axios = require( 'axios' );
 var base64Img = require('base64-img');
 // var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/memewars";
 // mongoose.connect(MONGODB_URI);
