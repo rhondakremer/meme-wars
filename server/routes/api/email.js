@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const creds = require('../../client/config/config');
+const creds = require('../../../client/config/config');
 var nodemailer = require('nodemailer');
 
 
